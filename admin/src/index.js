@@ -1,6 +1,13 @@
+/*
+ * @,@Descripttion: ,: 
+ * @,@version: ,: 
+ * @,@Author: ,: Magic
+ * @,@Date: ,: 2021-05-30 19:30:37
+ * @,@LastEditors: ,: Magic
+ * @,@LastEditTime: ,: 2021-05-30 19:56:06
+ */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
