@@ -1,0 +1,19 @@
+.yyn-header{
+    height: 60px;
+    background: $dark;
+    color: $f;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    .header-left{
+        .fold-btn{
+            display: inline-block;
+            cursor: pointer;
+            svg{
+                width: 1.2em;
+                height: 1.2em;
+            }
+        }
+    }
+}

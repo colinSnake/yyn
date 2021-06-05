@@ -1,0 +1,63 @@
+.yyn-loading{
+    position: fixed;
+    z-index: $zx999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, .4);
+    .loader{
+        width: 500px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .dot{
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
+            text-align: center;
+            color: $f;
+            background: transparent;
+            border-radius: 100%;
+            display: inline-block;
+            animation: slide 1s infinite;
+            margin-right: 30px;
+            &:nth-child(1){
+                animation-delay: .1s;
+                background: $dot1;
+            }
+            &:nth-child(2){
+                animation-delay: .2s;
+                background: $dot2;
+            }
+            &:nth-child(3){
+                animation-delay: .3s;
+                background: $dot3;
+            }
+            &:nth-child(4){
+                animation-delay: .4s;
+                background: $dot4;
+            }
+            &:nth-child(5){
+                animation-delay: .5s;
+                background: $dot5;
+            }
+        }
+    }
+}
+
+@keyframes slide {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        opacity: .3;
+        transform: scale(2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

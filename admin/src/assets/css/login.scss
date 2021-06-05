@@ -1,0 +1,24 @@
+.yyn-container{
+    width: 400px;
+    min-height: 300px;
+    background: rgba(0,0,0,0.3);
+    padding: 40px;
+    padding-bottom: 0;
+    border: 1px solid rgba(0,0,0,0.7);
+    border-radius: 5px;
+    box-shadow: 0 0 5px $three;
+    h1{
+        font-size: 24px;
+        color: $f;
+        text-align: center;
+    }
+    Button{
+        background: $lightGreen;
+        border: 0;
+        color: $f;
+        &:hover{
+            background: $lightGreen;
+            color: $f;
+        }
+    }
+}

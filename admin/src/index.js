@@ -1,10 +1,10 @@
 /*
- * @,@Descripttion: ,: 
- * @,@version: ,: 
- * @,@Author: ,: Magic
- * @,@Date: ,: 2021-05-30 19:30:37
- * @,@LastEditors: ,: Magic
- * @,@LastEditTime: ,: 2021-05-30 19:56:06
+ * @Descripttion: 
+ * @version: 1.0.0
+ * @Author: Magic
+ * @Date: 2021-06-02 11:04:31
+ * @LastEditors: Magic
+ * @LastEditTime: 2021-06-05 00:53:55
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -12,13 +12,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
+  // 检测React组件的语法错误
   <React.StrictMode>
     <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+// 记录页面性能
 reportWebVitals();

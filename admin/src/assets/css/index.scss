@@ -8,3 +8,13 @@
  */
 @import '~antd/dist/antd.css';
 @import './base.scss';
+
+.yyn-wrapper{
+    width: 100%;
+    background: $lightGreen;
+	// background: linear-gradient(to left, rgb(6, 34, 60), #0a1f42);
+}
+
+.yyn-content{
+    width: 100%;
+}
