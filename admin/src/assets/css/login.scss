@@ -4,21 +4,33 @@
     background: rgba(0,0,0,0.3);
     padding: 40px;
     padding-bottom: 0;
-    border: 1px solid rgba(0,0,0,0.7);
+    // border: 1px solid rgba(0,0,0,0.7);
     border-radius: 5px;
-    box-shadow: 0 0 5px $three;
+    // box-shadow: 0 0 5px $three;
+    top: calc(50% - 150px);
     h1{
         font-size: 24px;
         color: $f;
         text-align: center;
     }
     Button{
-        background: $lightGreen;
+        background: $lightBlue;
         border: 0;
         color: $f;
         &:hover{
-            background: $lightGreen;
+            background: $lightBlue;
             color: $f;
         }
+        &:focus{
+            background: $lightBlue;
+            color: $f;
+        }
+    }
+    .login-tips{
+        font-size: 13px;
+        font-weight: $fw400;
+        margin-top: 15px;
+        text-align: center;
+        color: $f;
     }
 }

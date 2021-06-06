@@ -9,7 +9,7 @@ const Loading = props => {
         <div className="yyn-loading" style={ { height: clientHeight }}>
             <div className="loader">
                 { loadArr.map((element, index) => {
-                   return <span className="dot">{ element }</span>
+                    return <span className="dot">{ element }</span>
                 }) }
             </div>
         </div>

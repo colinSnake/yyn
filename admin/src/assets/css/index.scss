@@ -6,15 +6,19 @@
  * @,@LastEditors: ,: Magic
  * @,@LastEditTime: ,: 2021-05-31 00:20:08
  */
-@import '~antd/dist/antd.css';
 @import './base.scss';
 
 .yyn-wrapper{
     width: 100%;
-    background: $lightGreen;
+    background: $lightBlue;
 	// background: linear-gradient(to left, rgb(6, 34, 60), #0a1f42);
 }
 
 .yyn-content{
     width: 100%;
 }
+
+.yyn-main{
+    padding: 20px;
+}
+

@@ -1,13 +1,13 @@
 /*
- * @,@Descripttion: ,: 
- * @,@version: ,: 
- * @,@Author: ,: Magic
- * @,@Date: ,: 2021-05-30 23:43:52
- * @,@LastEditors: ,: Magic
- * @,@LastEditTime: ,: 2021-05-31 00:18:55
+ * @Descripttion: 
+ * @version: 1.0.0
+ * @Author: Magic
+ * @Date: 2021-06-04 15:28:27
+ * @LastEditors: Magic
+ * @LastEditTime: 2021-06-06 14:23:28
  */
 
-const { override, adjustStyleLoaders, addWebpackAlias }  = require("customize-cra");
+const { override, adjustStyleLoaders, fixBabelImports, addWebpackAlias }  = require("customize-cra");
 const path = require("path");
 module.exports = {
     webpack: override(
@@ -23,6 +23,11 @@ module.exports = {
                     }
                 });
             }
+        }),
+        fixBabelImports('import', {
+            libraryName: 'antd',
+            libraryDirectory: 'es',
+            style: 'css',
         }),
         addWebpackAlias({
             '@': path.resolve('./src')

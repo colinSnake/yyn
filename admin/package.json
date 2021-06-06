@@ -48,9 +48,14 @@
   "devDependencies": {
     "@ant-design/icons": "^4.6.2",
     "antd": "^4.16.0",
+    "babel-plugin-import": "^1.13.3",
     "react-app-rewired": "^2.1.8",
     "react-particles-js": "^3.4.1",
     "react-router": "^5.2.0",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "react-transition-group": "^4.4.2",
+    "redux": "^4.1.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0"
   }
 }

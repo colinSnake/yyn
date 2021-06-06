@@ -7,9 +7,25 @@
     justify-content: space-between;
     padding: 0 20px;
     .header-left{
+        width: 100px;
         .fold-btn{
             display: inline-block;
             cursor: pointer;
+            svg{
+                width: 1.2em;
+                height: 1.2em;
+            }
+        }
+    }
+    .header-right{
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        .yyn-toolbar{
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
             svg{
                 width: 1.2em;
                 height: 1.2em;

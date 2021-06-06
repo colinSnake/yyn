@@ -1,15 +1,31 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import { Form, Input, Button } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import Particles from 'react-particles-js';
 
-import '../../assets/css/login.scss'
+import '@/assets/css/login.scss'
 
 const FormItem = Form.Item;
 class Login extends Component {
     state = {
         clientHeight: document.documentElement.clientHeight || document.body.clientHeight
+    }
+
+    onRisize = () => {
+        this.setState({ clientHeight: document.documentElement.clientHeight || document.body.clientHeight })
+    }
+
+    onFinish = (values) => {
+        const { username, password } = values;
+        if(username && password){
+            this.props.history.push('/dashboard');
+        }
+    }
+    
+    onFinishFailed = (error) => {
+        console.log(error)
     }
 
     componentDidMount(){
@@ -18,10 +34,6 @@ class Login extends Component {
 
     componentWillUnmount(){
         window.removeEventListener('resize', this.onRisize);
-    }
-    
-    onRisize = () => {
-        this.setState({ clientHeight: document.documentElement.clientHeight || document.body.clientHeight })
     }
 
     render() {
@@ -46,10 +58,17 @@ class Login extends Component {
                                 }
                             }
                         }
-                    }} />
+                    }}     
+                />
                 <div className="yyn-container fixed">
                     <h1>{ React.translate('adminTitle') }</h1>
-                    <Form className="login-form">
+                    <Form 
+                        name="loginForm"
+                        className="login-form"
+                        initialValues={{ remember: true }}
+                        onFinish={ this.onFinish }
+                        onFinishFailed={ this.onFinishFailed }
+                    >
                         <FormItem
                             name="username"
                             rules={ [{ required: true, message: React.translate('prompt_username') }] }
@@ -70,6 +89,7 @@ class Login extends Component {
                             <Button htmlType="submit" block className="login-form-button">
                                 { React.translate('login') }
                             </Button>
+                            <p className="login-tips">{ React.translate('tips') }</p>
                         </FormItem>
                     </Form>
                 </div>
@@ -86,4 +106,4 @@ const mapDispatchToProps = {
 
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));

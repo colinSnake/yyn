@@ -14,7 +14,7 @@ i18n.use(LanguageDetector) // 获取当前浏览器语言
         escapeValue: false,
     },
 }).then(t => {
-    console.log('18n ready');
+    console.log('i18n is loading ready!');
 });
 
 export default i18n;

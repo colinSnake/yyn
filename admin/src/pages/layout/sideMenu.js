@@ -1,16 +1,23 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 import { Layout, Menu } from 'antd';
-import Logo from '@/pages/components/logo';
+import Logo from '@/components/logo';
 import {
+    PieChartOutlined,
+    BarsOutlined,
     AppstoreOutlined,
     MenuUnfoldOutlined,
-    EditOutlined,
+    FormOutlined,
+    DollarOutlined,
     MenuFoldOutlined,
-    PieChartOutlined,
     DesktopOutlined,
     ContainerOutlined,
     MailOutlined,
+    WarningOutlined,
+    ExclamationCircleOutlined,
+    CloseCircleOutlined,
+    WhatsAppOutlined,
 } from '@ant-design/icons';
 
 import menus from '@/router/menus';
@@ -21,9 +28,6 @@ const { Sider } = Layout;
 const { SubMenu } = Menu;
 
 class SideMenu extends Component {
-    constructor(props){
-        super(props);
-    }
     state = {
         clientHeight: document.documentElement.clientHeight || document.body.clientHeight
     }
@@ -52,20 +56,32 @@ class SideMenu extends Component {
         switch(iconName){
             case 'AppstoreOutlined':
                 return <AppstoreOutlined />;
+            case 'PieChartOutlined':
+                return <PieChartOutlined />;
+            case 'BarsOutlined':
+                return <BarsOutlined />;
             case 'MenuUnfoldOutlined':
                 return <MenuUnfoldOutlined />;
             case 'EditOutlined':
-                return <EditOutlined />;
+                return <FormOutlined />;
+            case 'DollarOutlined':
+                return <DollarOutlined />;
             case 'MenuFoldOutlined':
                 return <MenuFoldOutlined />;
-            case 'PieChartOutlined':
-                return <PieChartOutlined />;
             case 'DesktopOutlined':
                 return <DesktopOutlined />;
             case 'ContainerOutlined':
                 return <ContainerOutlined />;
             case 'MailOutlined':
                 return <MailOutlined />;
+            case 'WarningOutlined':
+                return <WarningOutlined />;
+            case 'ExclamationCircleOutlined':
+                return <ExclamationCircleOutlined />;
+            case 'CloseCircleOutlined':
+                return <CloseCircleOutlined />;
+            case 'WhatsAppOutlined':
+                return <WhatsAppOutlined />;
             default: 
                 return <AppstoreOutlined />;
         }
@@ -99,12 +115,12 @@ class SideMenu extends Component {
         // let defaultMenuItem = [`/${defaultPathName.split('/')[1]}`];
         let defaultMenuItem = ['/dashboard'];
         return (
-            <Sider style={ { height: this.state.clientHeight + 'px'} } trigger={ null } collapsible collapsed={ this.state.collapsed } theme="dark" className="yyn-sidebar">
-                <Logo />
+            <Sider style={{ height: this.state.clientHeight + 'px' }} trigger={ null } collapsible collapsed={ this.props.collapsed } theme="dark" className="yyn-sidebar">
+                <Logo collapsed={ this.props.collapsed } />
                 <Menu
                     defaultSelectedKeys={ defaultMenuItem }
-                    mode="inline"
                     theme="dark"
+                    mode="inline"
                     inlineCollapsed={ this.props.collapsed }
                 >
                     { this.renderMenu(menus) }
@@ -114,4 +130,4 @@ class SideMenu extends Component {
     }
 }
 
-export default SideMenu;
+export default withRouter(SideMenu);

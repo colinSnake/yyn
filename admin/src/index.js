@@ -13,9 +13,10 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   // 检测React组件的语法错误
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  // <React.StrictMode>
+  //   <App />
+  // </React.StrictMode>,
+  <App />,
   document.getElementById('root')
 );
 // 记录页面性能
