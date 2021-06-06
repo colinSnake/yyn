@@ -20,6 +20,13 @@ class Login extends Component {
     onFinish = (values) => {
         const { username, password } = values;
         if(username && password){
+            let userInfo = {
+                username,
+                password,
+                nickName: 'Ming',
+                isLogin: true
+            }
+            userInfo && localStorage.setItem('userInfo', JSON.stringify(userInfo));
             this.props.history.push('/dashboard');
         }
     }
