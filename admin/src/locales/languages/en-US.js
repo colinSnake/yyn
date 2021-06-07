@@ -3,6 +3,9 @@ export const en_language = {
     username: 'Username',
     password: 'Password',
     login: 'Login',
+    logout: 'Logout',
+    notification: 'Notification',
+
 
     // prompt_username
     prompt_username: 'Please input your username',

@@ -1,8 +1,12 @@
 export const zh_language = {
+    // 一般文本
     adminTitle: '后台管理系统',
     username: '用户名',
     password: '密码',
     login: '登录',
+    logout: '退出登录',
+    notification: '消息通知',
+
     
     // 提示
     prompt_username: '请输入用户名',

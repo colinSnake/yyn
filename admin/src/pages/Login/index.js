@@ -24,9 +24,9 @@ class Login extends Component {
                 username,
                 password,
                 nickName: 'Ming',
-                isLogin: true
+                isLogin: true,
             }
-            userInfo && localStorage.setItem('userInfo', JSON.stringify(userInfo));
+            localStorage.setItem('userInfo', JSON.stringify(userInfo));
             this.props.history.push('/dashboard');
         }
     }
