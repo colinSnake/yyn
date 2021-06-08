@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from  '@/assets/image/logo.png';
-import '@/assets/css/logo.scss';
+import '@/assets/css/components/logo.scss';
 
 const Logo = props => {
     const showItem = () => {

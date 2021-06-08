@@ -13,7 +13,9 @@ export const zh_language = {
     prompt_password: '请输入密码',
     prompt_404: '抱歉，你访问的页面不存在',
     prompt_500: '抱歉，无法连接到服务器',
-    tips: 'Tips: 输入任意用户名密码即可',
+    prompt_tips: 'Tips: 输入任意用户名密码即可',
+    prompt_user: '欢迎你, {{ name }}, 祝你开心每一天！',
+    prompt_motto: '座右铭: {{ motto }}',
     
     // 标题
     system_setting: '系统设置',

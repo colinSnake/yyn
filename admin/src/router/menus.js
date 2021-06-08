@@ -2,7 +2,7 @@ const menus = [
 	{
 		path: '/dashboard',
 		title: 'dashboard',
-		icon: 'PieChartOutlined'
+		icon: 'DashboardOutlined'
 	},
 	{
 		path: '/article',
@@ -20,6 +20,11 @@ const menus = [
 				icon: 'DollarOutlined'
 			}
 		]
+	},
+	{
+		path: '/notification',
+		title: 'notification',
+		icon: 'NotificationOutlined',
 	},
 	{
 		path: '/errorPage',

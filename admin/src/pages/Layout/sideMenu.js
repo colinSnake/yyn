@@ -4,12 +4,14 @@ import { Link } from 'react-router-dom';
 import { Layout, Menu } from 'antd';
 import Logo from '@/components/logo';
 import {
+    DashboardOutlined,
     PieChartOutlined,
     BarsOutlined,
     AppstoreOutlined,
     MenuUnfoldOutlined,
     FormOutlined,
     DollarOutlined,
+    NotificationOutlined,
     MenuFoldOutlined,
     DesktopOutlined,
     ContainerOutlined,
@@ -54,6 +56,8 @@ class SideMenu extends Component {
 
     getIcon = (iconName) => {
         switch(iconName){
+            case 'DashboardOutlined':
+                return <DashboardOutlined />;
             case 'AppstoreOutlined':
                 return <AppstoreOutlined />;
             case 'PieChartOutlined':
@@ -66,6 +70,8 @@ class SideMenu extends Component {
                 return <FormOutlined />;
             case 'DollarOutlined':
                 return <DollarOutlined />;
+            case 'NotificationOutlined':
+                return <NotificationOutlined />;
             case 'MenuFoldOutlined':
                 return <MenuFoldOutlined />;
             case 'DesktopOutlined':

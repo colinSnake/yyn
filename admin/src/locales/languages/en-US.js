@@ -12,7 +12,10 @@ export const en_language = {
     prompt_password: 'Please input your password',
     prompt_404: 'Sorry, the page you visited does not exist',
     prompt_500: 'Sorry, unable to connect to the server',
-    tips: 'Tips: Just enter any username and password',
+    prompt_tips: 'Tips: Just enter any username and password',
+    prompt_user: 'Welcome, {{ name }}, Hope you will be happy every day!',
+    prompt_motto: 'Motto: {{ motto }}',
+
 
     // title
     system_setting: 'System settings',

@@ -96,7 +96,7 @@ class Login extends Component {
                             <Button htmlType="submit" block className="login-form-button">
                                 { React.translate('login') }
                             </Button>
-                            <p className="login-tips">{ React.translate('tips') }</p>
+                            <p className="login-tips">{ React.translate('prompt_tips') }</p>
                         </FormItem>
                     </Form>
                 </div>

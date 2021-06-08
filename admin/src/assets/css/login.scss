@@ -14,15 +14,15 @@
         text-align: center;
     }
     Button{
-        background: $lightBlue;
+        background: $themeColor;
         border: 0;
         color: $f;
         &:hover{
-            background: $lightBlue;
+            background: $themeColor;
             color: $f;
         }
         &:focus{
-            background: $lightBlue;
+            background: $themeColor;
             color: $f;
         }
     }

@@ -16,6 +16,7 @@ import i18n from 'i18next';
 import { MenuUnfoldOutlined, MenuFoldOutlined, SettingOutlined } from '@ant-design/icons';
 import BasicDrawer from '@/components/basicDrawer';
 import { switchLanguage } from '@/redux/actions/index'; 
+import Icon from '@/components/icon';
 import '@/assets/css/header.scss';
 
 const MenuItem = Menu.Item;
@@ -23,9 +24,6 @@ const MenuItem = Menu.Item;
 class Header extends Component {
     state = {
         visible: false,
-        checked: false,
-        user: 'Ming',
-        showDropDown: false,
         menuList: [
             {
                 id: uuidv4(),
@@ -37,6 +35,18 @@ class Header extends Component {
                 title: React.translate('logout'),
                 type: 'logout'
             }
+        ],
+        languages: [
+            {
+                title: '简体中文',
+                type: 'zh',
+                icon: '',
+            },
+            {
+                title: 'English',
+                type: 'en',
+                icon: '',
+            },
         ]
     }
 
@@ -48,19 +58,20 @@ class Header extends Component {
         this.setState({ visible: false });
     }
 
-    onSwitchLanguage = (status) => {
-        this.setState({checked: status});
-        i18n.changeLanguage(status ? 'en' : 'zh');
+    onSwitchLanguage = (type) => {
+        return () => {
+            i18n.changeLanguage(type);
+        }
     }
 
     checkHaveAvatar = () => {
         const userInfo = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : {};
-        const { avatar } = userInfo;
+        const { avatar, nickName } = userInfo;
         if(avatar) {
-            return (<Avatar src={<Image src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />} /> );
+            return (<Avatar src={ <Image src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" size={ 40 } />} /> );
         }else{
-            return (<Avatar style={{ backgroundColor: 'orange', verticalAlign: 'middle' }} size="large" gap={ 4 }>
-                { this.state.user }
+            return (<Avatar style={{ backgroundColor: 'orange', verticalAlign: 'middle' }} size={ 40 } gap={ 4 }>
+                { nickName }
             </Avatar>);
         }
     }
@@ -91,15 +102,22 @@ class Header extends Component {
 
     getDropList = () => {
         const { menuList } = this.state;
-        return (<Menu>{ menuList.length > 0 && menuList.map(item => (<MenuItem key={ item.id } title={ item.title } onClick={ this.handleClick(item.type)  }>{ item.title }</MenuItem>)) }</Menu>)
+        return (<Menu>{ menuList.length > 0 && menuList.map(item => (<MenuItem key={ item.id } title={ item.title } onClick={ this.handleClick(item.type)  }>{ item.title }</MenuItem>)) }</Menu>);
+    }
+
+    getLanguageList = () => {
+        const { languages } = this.state;
+        return (<Menu>{ languages.length > 0 && languages.map(item => (<MenuItem key={ item.type } title={ item.title } onClick={ this.onSwitchLanguage(item.type)  }>{ item.title }</MenuItem>)) }</Menu>);
     }
 
     render(){
+        const userInfo = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : {};
+        const { nickName } = userInfo;
         return (
             <div className="yyn-header">
                 <div className="header-left">
                     <span className="fold-btn" onClick={ this.props.toggleCollapsed }>
-                        {React.createElement(this.props.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined)}
+                        { React.createElement(this.props.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined) }
                     </span>    
                 </div>
                 <div className="header-right">
@@ -107,11 +125,17 @@ class Header extends Component {
                         <SettingOutlined onClick={ this.openDrawer } />
                     </div>
                     <div className="yyn-avatar">
-                        <Dropdown class="yyn-dropdown" overlay={ this.getDropList() }>
+                        <Dropdown overlay={ this.getDropList() }>
                             { this.checkHaveAvatar() }
                         </Dropdown>
+                        <p>{ nickName }</p>
                     </div>
-                    <BasicDrawer visible={ this.state.visible } closeDrawer={ this.closeDrawer } curLanguage={ this.state.checked } onSwitchLanguage={ this.onSwitchLanguage } />
+                    <div className="yyn-language">
+                        <Dropdown overlay={ this.getLanguageList() }>
+                            <span><Icon iconName="#icontranslate" /></span>
+                        </Dropdown>
+                    </div> 
+                    <BasicDrawer visible={ this.state.visible } closeDrawer={ this.closeDrawer } curLanguage={ this.state.checked } />
                 </div>
             </div>
         )

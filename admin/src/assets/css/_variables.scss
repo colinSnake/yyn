@@ -1,3 +1,5 @@
+/* 默认主题色*/ 
+$themeColor: #1487D9;
 /* font color */
 $f: #fff;
 $zero: #000;
@@ -6,12 +8,13 @@ $b4: #434e59;
 
 /* background color */
 $f5: #f5f5f5;
-
+$c3: #ccc;
+$e3: #eee;
+$ed: #ededed;
 
 /* theme color*/
 $lightGreen: #09E6CC;
 $skyBlue: #0ACCF0;
-$lightBlue: #1487D9;
 $dark: #001529;
 
 /* border color */
@@ -29,6 +32,7 @@ $dot5: #faaacc;;
 $fw400: 400;
 $fw500: 500;
 $fw600: 600;
+
 /* z-index value */ 
 $zx1: 1;
 $zx5: 5;
@@ -44,4 +48,8 @@ $zx90: 90;
 $zx100: 100;
 $zx999: 999;
 $zx1000: 1000;
+
+/* rgb */
+$rgb45: rgba(0, 0, 0, .45);
+$rgb4: rgba(0, 0, 0, .4);
 

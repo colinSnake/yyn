@@ -10,18 +10,17 @@ const styles = {
 
 const BasicDrawer = props => {
     const { visible, closeDrawer } = props;
+    const colorList = () => {
+        
+    }
     return(
         <Drawer title={ React.translate('system_setting') } placement="right" visible={ visible } closable="true" onClose={ closeDrawer } >
             <p style={ styles }>
-                <span>{ React.translate('language_switch') }</span> <Switch checked={ props.checked } onChange={ props.onSwitchLanguage } />
-                {/* <span>{ React.translate('theme_switch') }</span> <Switch /> */}
+                <span>{ React.translate('language_switch') }</span> <Switch checked={ false } />
             </p>
-            {/* <p style={ styles }>
-                <span>{ React.translate('bread_crumbs') }</span> <Switch />
-            </p>
-            <p style={ styles }>
-                <span>{ React.translate('multi_tab') }</span> <Switch />
-            </p> */}
+            <div className="yyn-theme">
+                
+            </div>
         </Drawer>
     )
 }

@@ -7,7 +7,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, .4);
+    background: $rgb4;
     .loader{
         width: 500px;
         height: 30px;
@@ -24,7 +24,7 @@
             border-radius: 100%;
             display: inline-block;
             animation: slide 1s infinite;
-            margin-right: 30px;
+            margin-right: 15px;
             &:nth-child(1){
                 animation-delay: .1s;
                 background: $dot1;
@@ -44,6 +44,17 @@
             &:nth-child(5){
                 animation-delay: .5s;
                 background: $dot5;
+            }
+            &:nth-child(6){
+                animation-delay: .6s;
+                background: $dot5;
+            }
+            &:nth-child(7){
+                animation-delay: .7s;
+                background: $dot5;
+            }
+            &.dot_blue{
+                background: $themeColor;
             }
         }
     }

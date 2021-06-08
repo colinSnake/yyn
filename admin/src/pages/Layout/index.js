@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
+import { connect } from 'react-redux';
 import { Layout } from 'antd';
 import SideMenu from './sideMenu';
 import Header from './header';
 import MainContent from './mainContent';
-// import Loading from '@/components/loading';
-// import config from '@/config/index';
+import Loading from '@/components/loading';
+import config from '@/config/index';
 
 class Main extends Component {
     state = {
-        name: 'Tom',
         collapsed: false
     }
 
@@ -34,5 +34,13 @@ class Main extends Component {
     }
 }
 
+const mapStateToProps = state => {
 
-export default withRouter(Main);
+}
+
+
+const mapDispatchToProps = dispatch => {
+
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Main));

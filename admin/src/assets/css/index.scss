@@ -1,24 +1,22 @@
-/*
- * @,@Descripttion: ,: 
- * @,@version: ,: 
- * @,@Author: ,: Magic
- * @,@Date: ,: 2021-05-31 00:19:34
- * @,@LastEditors: ,: Magic
- * @,@LastEditTime: ,: 2021-05-31 00:20:08
- */
+
 @import './base.scss';
 
 .yyn-wrapper{
     width: 100%;
-    background: $lightBlue;
+    background: $themeColor;
 	// background: linear-gradient(to left, rgb(6, 34, 60), #0a1f42);
 }
 
 .yyn-content{
     width: 100%;
+    background: $c3;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
-.yyn-main{
-    padding: 20px;
+.yyn-mainContent{
+    background: $f;
+    min-height: 400px;
+    margin: 20px;
 }
 

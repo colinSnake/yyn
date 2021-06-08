@@ -17,7 +17,7 @@ const MainContent = props => {
     }
     
     return (
-        <div className="yyn-main">
+        <div className="yyn-mainContent">
             <TransitionGroup key={ location.pathname}>
                 <CSSTransition timeout={ 500 }>
                     <Content style={{ padding: '10px' }}>

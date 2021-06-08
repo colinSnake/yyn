@@ -1,0 +1,18 @@
+.yyn-userInfo{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    .basic-info{
+        margin-left: 20px;
+        h2{
+            line-height: 30px;
+            font-size: 26px;
+            color: $zero;
+        }
+        .yyn-motto{
+            line-height: 20px;
+            font-size: 14px;
+            color: $rgb45;
+        }
+    }
+}
