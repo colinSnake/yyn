@@ -5,6 +5,7 @@ export const en_language = {
     login: 'Login',
     logout: 'Logout',
     notification: 'Notification',
+    fixHeader: 'Fixed to the head',
 
 
     // prompt_username

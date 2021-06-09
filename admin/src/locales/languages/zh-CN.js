@@ -6,6 +6,7 @@ export const zh_language = {
     login: '登录',
     logout: '退出登录',
     notification: '消息通知',
+    fixHeader: '固定头部',
 
     
     // 提示

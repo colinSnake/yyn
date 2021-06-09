@@ -9,6 +9,7 @@ const { Content } = Layout;
 const MainContent = props => {
     const { location } = props;
 
+
     const handleFilter = permission => {
         if(!permission){
             return true;

@@ -49,6 +49,7 @@
     "@ant-design/icons": "^4.6.2",
     "antd": "^4.16.0",
     "babel-plugin-import": "^1.13.3",
+    "prop-types": "^15.7.2",
     "react-app-rewired": "^2.1.8",
     "react-particles-js": "^3.4.1",
     "react-router": "^5.2.0",

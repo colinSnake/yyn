@@ -11,7 +11,7 @@ const Router = () => {
         <BrowserRouter>
             <Switch>
                 {/* 路由未加载出来显示loading页 */}
-                <Suspense fallback={ <Loading loadName="LOADING" /> }>
+                <Suspense fallback={ <Loading /> }>
                     <Route path="/login" component={ Login } exact />
                     <AuthRoute path="/" component={ Layout } />
                 </Suspense>

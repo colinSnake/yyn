@@ -11,12 +11,12 @@
     width: 100%;
     background: $c3;
     box-sizing: border-box;
-    overflow: hidden;
+    overflow: scroll;
 }
 
 .yyn-mainContent{
-    background: $f;
+    background: transparent;
     min-height: 400px;
-    margin: 20px;
+    height: 100%;
 }
 

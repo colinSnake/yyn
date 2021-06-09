@@ -15,7 +15,6 @@ import { v4 as uuidv4 } from 'uuid';
 import i18n from 'i18next';
 import { MenuUnfoldOutlined, MenuFoldOutlined, SettingOutlined } from '@ant-design/icons';
 import BasicDrawer from '@/components/basicDrawer';
-import { switchLanguage } from '@/redux/actions/index'; 
 import Icon from '@/components/icon';
 import '@/assets/css/header.scss';
 
@@ -47,7 +46,7 @@ class Header extends Component {
                 type: 'en',
                 icon: '',
             },
-        ]
+        ],
     }
 
     openDrawer = () => {
@@ -111,10 +110,11 @@ class Header extends Component {
     }
 
     render(){
+        const { fixHeader } = this.props;
         const userInfo = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : {};
         const { nickName } = userInfo;
         return (
-            <div className="yyn-header">
+            <div className={ fixHeader ? 'yyn-header header_fixed' : 'yyn-header'}>
                 <div className="header-left">
                     <span className="fold-btn" onClick={ this.props.toggleCollapsed }>
                         { React.createElement(this.props.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined) }
@@ -143,11 +143,7 @@ class Header extends Component {
 } 
 
 const mapStateToProps = state => state;
-const mapDispatchToProps = dispatch => ({
-    switchLanguage: data => {
-        dispatch(switchLanguage(data));
-    }
-});
+const mapDispatchToProps = dispatch => ({});
 
 export default connect(
 	mapStateToProps,

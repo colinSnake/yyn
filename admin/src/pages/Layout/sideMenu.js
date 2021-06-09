@@ -117,6 +117,7 @@ class SideMenu extends Component {
     }
 
     render(){
+        const { collapsed } = this.props;
         // let defaultPathName = this.props.history.location.pathname;
         // let defaultMenuItem = [`/${defaultPathName.split('/')[1]}`];
         let defaultMenuItem = ['/dashboard'];
@@ -127,7 +128,7 @@ class SideMenu extends Component {
                     defaultSelectedKeys={ defaultMenuItem }
                     theme="dark"
                     mode="inline"
-                    inlineCollapsed={ this.props.collapsed }
+                    collapsed={ collapsed.toString() }
                 >
                     { this.renderMenu(menus) }
                 </Menu>

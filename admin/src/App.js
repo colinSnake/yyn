@@ -5,7 +5,7 @@ import store from './redux/store';
 import './assets/css/index.scss';
 import '@/assets/iconfont/iconfont.css';
 
-// 多语言
+// 引入多语言
 import { useTranslation } from 'react-i18next';
 import './locales/index';
 

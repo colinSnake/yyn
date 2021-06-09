@@ -6,6 +6,12 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 20px;
+    &.header_fixed{
+        position: fixed;
+        z-index: $zx10;
+        top: 0;
+        right: 0;
+    }
     .header-left{
         width: 100px;
         .fold-btn{

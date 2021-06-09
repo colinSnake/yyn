@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { Layout } from 'antd';
 import SideMenu from './sideMenu';
 import Header from './header';
 import MainContent from './mainContent';
-import Loading from '@/components/loading';
 import config from '@/config/index';
 
 class Main extends Component {
     state = {
-        collapsed: false
+        collapsed: false,
+        fixHeader: false,
+        clientHeight: document.documentElement.clientHeight || document.body.clientHeight
     }
+
 
     toggleCollapsed = () => {
         const { collapsed } = this.state;
@@ -19,28 +22,30 @@ class Main extends Component {
     }
 
     render(){
+        const { fixHeader } = this.props;
+        const { collapsed, clientHeight } = this.state;
         return (
             <div className="yyn-wrapper">
                 <Layout>
-                    <SideMenu collapsed={ this.state.collapsed } />
-                    <div className="yyn-content">
-                        <Header toggleCollapsed={ this.toggleCollapsed } />
-                        <MainContent />
+                    <SideMenu collapsed={ collapsed }  />
+                    <div className="yyn-content" style={{ height: clientHeight, paddingTop: fixHeader ? '60px' : '0px'}}>
+                        <Header 
+                            toggleCollapsed={ this.toggleCollapsed }
+                        />
+                        
+                        <MainContent  />
                     </div>   
                 </Layout>
-                {/* <Loading loadName={ config.loadName } /> */}
             </div>
         )
     }
 }
 
-const mapStateToProps = state => {
-
-}
+const mapStateToProps = state => state;
 
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = dispatch => ({
 
-}
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Main));
