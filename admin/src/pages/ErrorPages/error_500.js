@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 import { Button } from 'antd';
-import '@/assets/css/error.scss';
+import '@/assets/css/pages/error.scss';
 
 const error_500 = props =>  {
     const goBack = () => {

@@ -31,7 +31,6 @@ module.exports = {
         }),
         addWebpackAlias({
             '@': path.resolve('./src')
-
         })
     ),
     // devServer: overrideDevServer()

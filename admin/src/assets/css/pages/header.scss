@@ -6,11 +6,20 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 20px;
+    width: 100%;
     &.header_fixed{
         position: fixed;
         z-index: $zx10;
         top: 0;
         right: 0;
+        transition: all ease 1s;
+    }
+    &.header_fixed_normal{
+        width: calc(100% - 200px);
+    }
+    &.header_fixed_collapsed{
+        // width: calc(100% - 80px);
+        transform: translateX(-120px);
     }
     .header-left{
         width: 100px;

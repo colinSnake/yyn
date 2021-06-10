@@ -5,7 +5,7 @@ import { Form, Input, Button } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import Particles from 'react-particles-js';
 
-import '@/assets/css/login.scss'
+import '@/assets/css/pages/login.scss'
 
 const FormItem = Form.Item;
 class Login extends Component {

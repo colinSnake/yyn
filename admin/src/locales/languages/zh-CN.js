@@ -7,6 +7,7 @@ export const zh_language = {
     logout: '退出登录',
     notification: '消息通知',
     fixHeader: '固定头部',
+    themeColor: '主题色',
 
     
     // 提示

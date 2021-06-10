@@ -43,14 +43,17 @@ class SideMenu extends Component {
     }
 
     handleToAddTag = (menuItem, parent) => {
-        const { path, title } = menuItem;
-        if (routes && routes.length > 0){
-            routes.forEach(item => {
-                if (item.path === path){
-                    let obj = { path, title, component: item.component }
-                    this.props.addTag(parent ? Object.assign({}, obj, { parent: parent.title }) : obj);
-                }
-            })
+        return () => {
+            const { path, title } = menuItem;
+            console.log('sideMenu', path)
+            if (routes && routes.length > 0){
+                routes.forEach(item => {
+                    if (item.path === path){
+                        let obj = { path, title, component: item.component }
+                        // this.props.addTag(parent ? Object.assign({}, obj, { parent: parent.title }) : obj);
+                    }
+                })
+            }
         }
     }
 
@@ -108,7 +111,7 @@ class SideMenu extends Component {
                 return (
                     this.checkPermission(item.permission) && (
                         <MenuItem key={ item.path } icon={ this.getIcon(item.icon) }>
-                            <Link to={ item.path } onClick={ (item) => this.handleToAddTag }>{ React.translate(item.title) }</Link>
+                            <Link to={ item.path } onClick={ this.handleToAddTag(item) }>{ React.translate(item.title) }</Link>
                         </MenuItem>
                     )
                 )
@@ -117,15 +120,16 @@ class SideMenu extends Component {
     }
 
     render(){
-        const { collapsed } = this.props;
-        // let defaultPathName = this.props.history.location.pathname;
-        // let defaultMenuItem = [`/${defaultPathName.split('/')[1]}`];
-        let defaultMenuItem = ['/dashboard'];
+        const { collapsed, history } = this.props;
+        const menuSelected = history.location.pathname; // 导航栏地址
+        const menuOpened = `/${menuSelected.split('/')[1]}`; // 默认展开tab
         return (
             <Sider style={{ height: this.state.clientHeight + 'px' }} trigger={ null } collapsible collapsed={ this.props.collapsed } theme="dark" className="yyn-sidebar">
                 <Logo collapsed={ this.props.collapsed } />
                 <Menu
-                    defaultSelectedKeys={ defaultMenuItem }
+                    defaultSelectedKeys={ [menuSelected] }
+                    selectedKeys={ [menuSelected] }
+                    defaultOpenKeys={ [menuOpened] }
                     theme="dark"
                     mode="inline"
                     collapsed={ collapsed.toString() }

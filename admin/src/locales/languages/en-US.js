@@ -6,6 +6,7 @@ export const en_language = {
     logout: 'Logout',
     notification: 'Notification',
     fixHeader: 'Fixed to the head',
+    themeColor: 'Theme Color',
 
 
     // prompt_username

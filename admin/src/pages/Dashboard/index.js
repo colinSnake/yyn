@@ -17,7 +17,8 @@ class Dashboard extends Component {
                     <CardItem />
                 </div>
                 <div className="dashboard-footer">
-                <CardItem />
+                    <CardItem />
+                    <CardItem />
                 </div>
             </div>
         )

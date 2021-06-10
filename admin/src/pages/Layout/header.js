@@ -16,7 +16,7 @@ import i18n from 'i18next';
 import { MenuUnfoldOutlined, MenuFoldOutlined, SettingOutlined } from '@ant-design/icons';
 import BasicDrawer from '@/components/basicDrawer';
 import Icon from '@/components/icon';
-import '@/assets/css/header.scss';
+import '@/assets/css/pages/header.scss';
 
 const MenuItem = Menu.Item;
 
@@ -110,14 +110,17 @@ class Header extends Component {
     }
 
     render(){
-        const { fixHeader } = this.props;
+        const { fixHeader, toggleCollapsed, collapsed } = this.props;
+        console.log('header', collapsed)
+        const { visible } = this.state;
         const userInfo = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : {};
         const { nickName } = userInfo;
+        const classHeader = fixHeader ? collapsed ? 'yyn-header header_fixed header_fixed_collapsed' : 'yyn-header header_fixed header_fixed_normal' : 'yyn-header';
         return (
-            <div className={ fixHeader ? 'yyn-header header_fixed' : 'yyn-header'}>
+            <div className={ classHeader } >
                 <div className="header-left">
-                    <span className="fold-btn" onClick={ this.props.toggleCollapsed }>
-                        { React.createElement(this.props.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined) }
+                    <span className="fold-btn" onClick={ toggleCollapsed }>
+                        { React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined) }
                     </span>    
                 </div>
                 <div className="header-right">
@@ -135,7 +138,7 @@ class Header extends Component {
                             <span><Icon iconName="#icontranslate" /></span>
                         </Dropdown>
                     </div> 
-                    <BasicDrawer visible={ this.state.visible } closeDrawer={ this.closeDrawer } curLanguage={ this.state.checked } />
+                    <BasicDrawer visible={ visible } closeDrawer={ this.closeDrawer } />
                 </div>
             </div>
         )

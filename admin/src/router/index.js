@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import AuthRoute from './oauthRouter.js';
+import AuthRoute from '@/pages/Auth/authRouter.js';
 import Login from '@/pages/Login/index';
 import Layout from '@/pages/Layout';
 import Loading from '@/components/loading';

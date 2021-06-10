@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import { Layout } from 'antd';
 import SideMenu from './sideMenu';
 import Header from './header';
 import MainContent from './mainContent';
-import config from '@/config/index';
+import BreadCrumb from './breadCrumb';
 
 class Main extends Component {
     state = {
         collapsed: false,
         fixHeader: false,
-        clientHeight: document.documentElement.clientHeight || document.body.clientHeight
     }
 
 
@@ -23,17 +21,20 @@ class Main extends Component {
 
     render(){
         const { fixHeader } = this.props;
-        const { collapsed, clientHeight } = this.state;
+        const { collapsed } = this.state;
+        const clientHeight = document.documentElement.clientHeight || document.body.clientHeight;
+        const style = { height: `${clientHeight-60}px`, paddingTop: fixHeader ? '60px' : '0px' };
+        console.log('index', style)
         return (
             <div className="yyn-wrapper">
                 <Layout>
                     <SideMenu collapsed={ collapsed }  />
-                    <div className="yyn-content" style={{ height: clientHeight, paddingTop: fixHeader ? '60px' : '0px'}}>
-                        <Header 
-                            toggleCollapsed={ this.toggleCollapsed }
-                        />
-                        
-                        <MainContent  />
+                    <div className="yyn-contentWrap">
+                        <div className="yyn-content" style={ style }>
+                            <Header toggleCollapsed={ this.toggleCollapsed } collapsed={ collapsed } />
+                            <BreadCrumb />
+                            <MainContent />
+                        </div>
                     </div>   
                 </Layout>
             </div>
@@ -43,9 +44,4 @@ class Main extends Component {
 
 const mapStateToProps = state => state;
 
-
-const mapDispatchToProps = dispatch => ({
-
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Main));
+export default connect(mapStateToProps, {})(withRouter(Main));
