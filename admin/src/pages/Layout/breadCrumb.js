@@ -3,25 +3,25 @@ import { withRouter, Link } from 'react-router-dom';
 import { Breadcrumb, Icon} from 'antd';
 import menus from '@/router/menus';
 class BreadCrumb extends Component {
+    state = {
+        routes: []
+    }
     makeBreadCrumbData = (location, list) => {
-        let result = [];
         if(list && list.length > 0){
             if(location && location.pathname)
             // console.log(this.getRouteArray(location.pathname, list, result))
-            this.getRouteArray(location.pathname, list, result);
-            if(result) return result;
+            this.getRouteArray(location.pathname, list);
         }
     }
 
-    getRouteArray = (pathName, data, routesList) => {
+    getRouteArray = (pathName, data) => {
         data.forEach(item => {
             if(pathName && pathName.indexOf(item.path) > -1){
-                routesList.push(item);
+                this.setState({routes: [item]});
                 if(item.children && item.children.length > 0){
-                    this.getRouteArray(pathName, item.children, routesList);
+                    this.getRouteArray(pathName, item.children);
                 }else{
-                    console.log(routesList)
-                    return routesList;
+                    return true;
                 }
             }
         })
@@ -31,26 +31,18 @@ class BreadCrumb extends Component {
         console.log(route, params, routes, paths, 999)
         return <span>{route.path}</span>
     }
-    shouldComponentUpdate(nextProps, nextState){
-        console.log(nextProps, nextState, '8848')
-        if(nextProps !== nextState){
-            return false
-        }else{
-            return true
-        }
-        
-    }
 
-    // componentDidMount(){
-    //     const { location } = this.props;
-    //     this.makeBreadCrumbData(location, menus);
-    //     console.log(routesList, 999)
-    // }
+    componentDidMount(){
+        console.log('componentDidMount--')
+        const { location } = this.props;
+        this.makeBreadCrumbData(location, menus);
+        
+
+    }
     
     render(){
-        const { location } = this.props;
-        const routes = this.makeBreadCrumbData(location, menus);
-        console.log('render--', routes)
+        const { routes } = this.state;
+        console.log('render---', routes)
         if(!routes || routes.length === 0) return null;
         const itemRender = (route, params, routes, paths) => {
             console.log(route, params, routes, paths, 999)

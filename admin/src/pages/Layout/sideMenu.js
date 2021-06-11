@@ -49,7 +49,7 @@ class SideMenu extends Component {
             if (routes && routes.length > 0){
                 routes.forEach(item => {
                     if (item.path === path){
-                        let obj = { path, title, component: item.component }
+                        // let obj = { path, title, component: item.component }
                         // this.props.addTag(parent ? Object.assign({}, obj, { parent: parent.title }) : obj);
                     }
                 })
