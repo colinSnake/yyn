@@ -1,3 +1,3 @@
 import { combineReducers } from 'redux';
-import { fixHeader } from './setting';
-export default combineReducers({ fixHeader })
+import { showHeader, showBreadCrumb } from './setting';
+export default combineReducers({ showHeader, showBreadCrumb })

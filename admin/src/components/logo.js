@@ -5,7 +5,7 @@ import '@/assets/css/components/logo.scss';
 const Logo = props => {
     const showItem = () => {
         return (
-            props.collapsed ? <img src={ logo } alt="logo" /> : <h1>{ React.translate('adminTitle') }</h1>
+            props.collapsed ? <img src={ logo } alt="logo" /> : <><img src={ logo } alt="logo" /><h1>{ React.translate('adminTitle') }</h1></>
         )
     }
     return (

@@ -6,6 +6,27 @@
   "description": "游云南icon",
   "glyphs": [
     {
+      "icon_id": "328432",
+      "name": "check",
+      "font_class": "check",
+      "unicode": "e671",
+      "unicode_decimal": 58993
+    },
+    {
+      "icon_id": "13117298",
+      "name": "copyright",
+      "font_class": "copyright",
+      "unicode": "e687",
+      "unicode_decimal": 59015
+    },
+    {
+      "icon_id": "15548835",
+      "name": "Logo GitHub",
+      "font_class": "github",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
       "icon_id": "6986897",
       "name": "translate",
       "font_class": "translate-white",

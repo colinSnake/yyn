@@ -44,6 +44,13 @@
                 width: 1.5em;
                 height: 1.5em;
             }
+            .yyn-fullscreen{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 20px;
+                cursor: pointer;
+            }
         }
         .yyn-avatar{
             cursor: pointer;

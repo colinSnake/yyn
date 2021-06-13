@@ -10,29 +10,39 @@ import BreadCrumb from './breadCrumb';
 class Main extends Component {
     state = {
         collapsed: false,
-        fixHeader: false,
+        clientHeight: document.documentElement.clientHeight || document.body.clientHeight
     }
 
+    componentDidMount(){
+        window.addEventListener('resize', this.onRisize);
+    }
+
+    componentWillUnmount(){
+        window.removeEventListener('resize', this.onRisize);
+    }
 
     toggleCollapsed = () => {
         const { collapsed } = this.state;
         this.setState({ collapsed: !collapsed });
     }
 
+    onRisize = () => {
+        this.setState({ clientHeight: document.documentElement.clientHeight || document.body.clientHeight })
+    }
+
     render(){
-        const { fixHeader } = this.props;
-        const { collapsed } = this.state;
-        const clientHeight = document.documentElement.clientHeight || document.body.clientHeight;
-        const style = { height: `${clientHeight-60}px`, paddingTop: fixHeader ? '60px' : '0px' };
-        console.log('index', style)
+        const { showHeader, showBreadCrumb } = this.props;
+        const { collapsed, clientHeight } = this.state;
+        const style = { height: `${clientHeight-60}px`, paddingTop: showHeader ? '60px' : '0px' };
+        const realHeight = `${clientHeight}px`;
         return (
-            <div className="yyn-wrapper">
+            <div className="yyn-wrapper" style={{ height: realHeight }}>
                 <Layout>
-                    <SideMenu collapsed={ collapsed }  />
-                    <div className="yyn-contentWrap">
+                    <SideMenu style={{ height: realHeight }} collapsed={ collapsed }  />
+                    <div className="yyn-contentWrap" style={{ height: realHeight }}>
                         <div className="yyn-content" style={ style }>
                             <Header toggleCollapsed={ this.toggleCollapsed } collapsed={ collapsed } />
-                            <BreadCrumb />
+                            { showBreadCrumb ? <BreadCrumb /> : null}
                             <MainContent />
                         </div>
                     </div>   
@@ -43,5 +53,9 @@ class Main extends Component {
 }
 
 const mapStateToProps = state => state;
+
+const mapDispatchToProps = dispatch => ({
+
+})
 
 export default connect(mapStateToProps, {})(withRouter(Main));

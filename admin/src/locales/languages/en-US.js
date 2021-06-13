@@ -1,5 +1,5 @@
 export const en_language = {
-    adminTitle: 'BMS', 
+    adminTitle: 'Yyn Design Pro', 
     username: 'Username',
     password: 'Password',
     login: 'Login',
@@ -41,4 +41,14 @@ export const en_language = {
 
     // error information
     nodata: 'No Data...',
+
+    // themeColor
+    color_1: 'Dawn blue',
+    color_2: 'Hybrid red',
+    color_3: 'Heart orange',
+    color_4: 'Sunset yellow',
+    color_5: 'Shining blue',
+    color_6: 'Aurora green',
+    color_7: 'Deep blue',
+    color_8: 'Freedom purple',
 }

@@ -1,8 +1,17 @@
 .yyn-themeColor{
+    display: flex;
     .color-block{
-        display: inline-block;
         width: 20px;
         height: 20px;
         margin: 8px 8px 0 0;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &.hideIcon{
+            svg{
+                display: none;
+            }
+        }
     }
 }

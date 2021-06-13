@@ -1,0 +1,11 @@
+.yyn-breadCrumb{
+    margin: 10px 0 0 10px;
+    .ant-breadcrumb{
+        .ant-breadcrumb-link{
+            cursor: default;
+        }
+        .anticon-down{
+            display: none;
+        }
+    }
+}

@@ -7,7 +7,7 @@
  * @LastEditTime: 2021-06-06 14:23:28
  */
 
-const { override, adjustStyleLoaders, fixBabelImports, addWebpackAlias }  = require("customize-cra");
+const { override, adjustStyleLoaders, fixBabelImports, addWebpackAlias, addLessLoader }  = require("customize-cra");
 const path = require("path");
 module.exports = {
     webpack: override(
@@ -28,6 +28,14 @@ module.exports = {
             libraryName: 'antd',
             libraryDirectory: 'es',
             style: 'css',
+        }),
+        addLessLoader({
+            lessOptions:{
+                javascriptEnabled: true,
+                modifyVars: {
+                    '@primary-color': 'red'
+                },
+            }
         }),
         addWebpackAlias({
             '@': path.resolve('./src')

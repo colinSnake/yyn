@@ -30,13 +30,10 @@ const { Sider } = Layout;
 const { SubMenu } = Menu;
 
 class SideMenu extends Component {
-    state = {
-        clientHeight: document.documentElement.clientHeight || document.body.clientHeight
-    }
-
     checkPermission = permission => { // 获取permission认证通过的menu
-        let userPermission = JSON.parse(localStorage.getItem('user')) && JSON.parse(localStorage.getItem('user')).type;
-        if (!permission || permission === userPermission){
+        let userInfo = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : {};
+        const { type } = userInfo;
+        if (!permission || permission === type){
             return true;
         }
         return false;
@@ -45,7 +42,6 @@ class SideMenu extends Component {
     handleToAddTag = (menuItem, parent) => {
         return () => {
             const { path, title } = menuItem;
-            console.log('sideMenu', path)
             if (routes && routes.length > 0){
                 routes.forEach(item => {
                     if (item.path === path){
@@ -124,7 +120,7 @@ class SideMenu extends Component {
         const menuSelected = history.location.pathname; // 导航栏地址
         const menuOpened = `/${menuSelected.split('/')[1]}`; // 默认展开tab
         return (
-            <Sider style={{ height: this.state.clientHeight + 'px' }} trigger={ null } collapsible collapsed={ this.props.collapsed } theme="dark" className="yyn-sidebar">
+            <Sider trigger={ null } collapsible collapsed={ this.props.collapsed } theme="dark" className="yyn-sidebar">
                 <Logo collapsed={ this.props.collapsed } />
                 <Menu
                     defaultSelectedKeys={ [menuSelected] }

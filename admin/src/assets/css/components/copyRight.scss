@@ -1,0 +1,27 @@
+.yyn-copyright{
+    width: 100%;
+    font-size: 14px;
+    color: $rgb45;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    &.fixBottom{
+        position: fixed;
+        bottom: 10px;
+        left: 100px;
+        z-index: $zx1;
+    }
+    p{
+        display: flex;
+        align-items: center;
+        margin-bottom: 0;
+        line-height: 22px;
+        justify-content: center;
+        svg{
+            color: $rgb45;
+            cursor: pointer;
+        }
+    }
+}

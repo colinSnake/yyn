@@ -16,6 +16,7 @@ import i18n from 'i18next';
 import { MenuUnfoldOutlined, MenuFoldOutlined, SettingOutlined } from '@ant-design/icons';
 import BasicDrawer from '@/components/basicDrawer';
 import Icon from '@/components/icon';
+import FullScreen from '@/components/fullScreen';
 import '@/assets/css/pages/header.scss';
 
 const MenuItem = Menu.Item;
@@ -110,12 +111,11 @@ class Header extends Component {
     }
 
     render(){
-        const { fixHeader, toggleCollapsed, collapsed } = this.props;
-        console.log('header', collapsed)
+        const { showHeader, toggleCollapsed, collapsed } = this.props;
         const { visible } = this.state;
         const userInfo = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : {};
         const { nickName } = userInfo;
-        const classHeader = fixHeader ? collapsed ? 'yyn-header header_fixed header_fixed_collapsed' : 'yyn-header header_fixed header_fixed_normal' : 'yyn-header';
+        const classHeader = showHeader ? collapsed ? 'yyn-header header_fixed header_fixed_collapsed' : 'yyn-header header_fixed header_fixed_normal' : 'yyn-header';
         return (
             <div className={ classHeader } >
                 <div className="header-left">
@@ -125,6 +125,7 @@ class Header extends Component {
                 </div>
                 <div className="header-right">
                     <div className="yyn-toolbar">
+                        <FullScreen />
                         <SettingOutlined onClick={ this.openDrawer } />
                     </div>
                     <div className="yyn-avatar">
@@ -135,7 +136,7 @@ class Header extends Component {
                     </div>
                     <div className="yyn-language">
                         <Dropdown overlay={ this.getLanguageList() }>
-                            <span><Icon iconName="#icontranslate" /></span>
+                            <span><Icon iconName="#icontranslate-white" /></span>
                         </Dropdown>
                     </div> 
                     <BasicDrawer visible={ visible } closeDrawer={ this.closeDrawer } />

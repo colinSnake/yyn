@@ -9,11 +9,18 @@
 
 .yyn-contentWrap{
     width: 100%;
-    background: $c3;
+    background: $ec;
     overflow: hidden;
     .yyn-content{
-        box-sizing: border-box;
-        overflow-y: scroll;
+        .yyn-mainContent{
+            height: 100%;
+            padding: 8px;
+            overflow-y: scroll;
+            box-sizing: border-box;
+            >div{
+                height: 100%;
+            }
+        }
         &::-webkit-scrollbar {
             width: 15px;
         }
@@ -38,6 +45,14 @@
     height: 100%;
 }
 
+.yyn-titleHeader{
+    font-size: 24px;
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid $e5;
+    margin-bottom:  20px;
+}
+
 .yyn-drawer-block{
     display: flex;
     flex-direction: column;
@@ -50,4 +65,5 @@
         text-align: left;
     }
 }
+
 

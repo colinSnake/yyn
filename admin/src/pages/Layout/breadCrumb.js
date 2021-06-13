@@ -1,56 +1,42 @@
 import React, { Component } from 'react';
 import { withRouter, Link } from 'react-router-dom';
-import { Breadcrumb, Icon} from 'antd';
+import { Breadcrumb } from 'antd';
 import menus from '@/router/menus';
+import '@/assets/css/pages/breadCrumb.scss';
 class BreadCrumb extends Component {
-    state = {
-        routes: []
-    }
     makeBreadCrumbData = (location, list) => {
+        let routesList = [];
         if(list && list.length > 0){
             if(location && location.pathname)
-            // console.log(this.getRouteArray(location.pathname, list, result))
-            this.getRouteArray(location.pathname, list);
+                this.getRouteArray(location.pathname, list, routesList);
         }
+        return routesList;
     }
 
-    getRouteArray = (pathName, data) => {
+    getRouteArray = (pathName, data, routesList) => {
         data.forEach(item => {
             if(pathName && pathName.indexOf(item.path) > -1){
-                this.setState({routes: [item]});
+                routesList.push(item);
                 if(item.children && item.children.length > 0){
-                    this.getRouteArray(pathName, item.children);
+                    this.getRouteArray(pathName, item.children, routesList);
                 }else{
-                    return true;
+                    return routesList;
                 }
             }
         })
     }
-
-    renderBreadCrumb = (route, params, routes, paths) => {
-        console.log(route, params, routes, paths, 999)
-        return <span>{route.path}</span>
-    }
-
-    componentDidMount(){
-        console.log('componentDidMount--')
-        const { location } = this.props;
-        this.makeBreadCrumbData(location, menus);
-        
-
-    }
     
     render(){
-        const { routes } = this.state;
-        console.log('render---', routes)
+        const { location } = this.props;
+        const routes = this.makeBreadCrumbData(location, menus);
         if(!routes || routes.length === 0) return null;
         const itemRender = (route, params, routes, paths) => {
-            console.log(route, params, routes, paths, 999)
-            return <span>{route.path}</span>
+            const last = routes.indexOf(route) === routes.length - 1;
+            return last ? (<span>{ React.translate(route.title) }</span>) : (<Link to={ route.path }>{ React.translate(route.title) }</Link>);
         }
         return (
             <div className="yyn-breadCrumb">
-                <BreadCrumb routes={ routes } itemRender={ itemRender } />
+                <Breadcrumb routes={ routes } itemRender={ itemRender } />
             </div>
         )
     }
