@@ -1,0 +1,64 @@
+import React from 'react';
+import { List, Avatar, Button, Skeleton } from 'antd';
+import NoData from './noData';
+
+const ListItem = List.Item; 
+const Meta = ListItem.Meta;
+
+const StandardList = props => {
+    const initLoading = false;
+    const loading = false;
+    const { listSource, onLoadMore } = props;
+    const mockData = [
+        { 
+            id: 2,
+            avatar: require('@/assets/image/defaultAvatar.jpg').default,
+            title: '钉钉消息',
+            desc: '你的好友给你发来了一条消息，赶快回复ta吧！',
+            loading: false
+        }
+    ]
+    const loadMore = !initLoading && !loading ? (
+        <div
+            style={{
+                textAlign: 'center',
+                marginTop: 12,
+                height: 32,
+                lineHeight: '32px',
+            }}
+        >
+            <Button type="primary" onClick={ onLoadMore }>点击加载更多</Button>
+        </div>
+    ) : null;
+    let actions = [<Button>标记已读</Button>];
+    return(
+        <>
+            {
+                listSource && listSource.length > 0 ? (
+                    <List
+                        loading={ initLoading }
+                        itemLayout="horizontal"
+                        loadMore={ loadMore }
+                        dataSource={ listSource }
+                        renderItem={item => (
+                            <ListItem
+                                actions={ actions }
+                            >
+                                <Skeleton avatar loading={ item.loading } active>
+                                    <Meta
+                                        avatar={
+                                            <Avatar src={ item.avatar } />
+                                        }
+                                        title={ item.title }
+                                        description={ item.desc }
+                                    />
+                                </Skeleton>
+                            </ListItem>
+                        )}
+                    />) : <NoData />
+            }
+        </>
+    )
+}
+
+export default StandardList;
