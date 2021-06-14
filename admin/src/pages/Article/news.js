@@ -1,20 +1,22 @@
-import React, { PureComponent } from 'react';
+import React, { createRef, PureComponent } from 'react';
 import { Form, Input, Button, DatePicker } from 'antd';
-import SingleUpload from '@/components/upload/singleUpload';
+import SingleUpload from '@/components/Upload/singleUpload';
 import '@/assets/css/pages/form.scss';
 
 const FormItem = Form.Item;
 class News extends PureComponent{
     state = {
-
+    
     }
 
-    onFinish = () => {
+    formRef = createRef();
 
+    onFinish = values => {
+        console.log(values,'news_form')
     }
 
-    onFinishFailed = () => {
-
+    onFinishFailed = error => {
+        console.log('news_form_error', error);
     } 
 
     onChangePublishTime = () => {
@@ -25,9 +27,14 @@ class News extends PureComponent{
 
     }
 
+    onResetForm = () => {
+        this.formRef.current && this.formRef.current.resetFields();
+    }
+
     render(){
+        console.log('formRef', this.formRef)
         return (
-            <div className="yyn-formWrap">
+            <div className="yyn-formWrap yyn-shadow">
                 <div className="yyn-titleHeader">
                     { React.translate('form_news') }
                 </div>
@@ -38,7 +45,7 @@ class News extends PureComponent{
                     wrapperCol={{ span: 8 }}
                     initialValues={{ remember: true }}
                     onFinish={ this.onFinish }
-                    onFinishFailed={ this.onFinishFailed }
+                    ref={ this.formRef }
                 >
                     <FormItem
                         name="title"
@@ -86,7 +93,7 @@ class News extends PureComponent{
                         label="~"
                     >
                         <Button type="primary" htmlType="submit" style={{ marginRight: '20px' }}>{ React.translate('submit_button') }</Button>  
-                        <Button type="primary" htmlType="submit">{ React.translate('reset_button') }</Button>    
+                        <Button type="primary" htmlType="button" onClick={ this.onResetForm }>{ React.translate('reset_button') }</Button>    
                     </FormItem>
                 </Form>
             </div>

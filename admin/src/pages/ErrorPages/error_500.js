@@ -8,7 +8,7 @@ const error_500 = props =>  {
         props.history.push('/dashboard');
     }
     return (
-        <div className="yyn-error">
+        <div className="yyn-error yyn-shadow">
             <div className="error-image error-500"></div> 
             <div className="error-content">
                 <h1>{ React.translate('error_500') }</h1>  

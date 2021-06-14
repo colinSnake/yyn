@@ -66,4 +66,16 @@
     }
 }
 
+.yyn-shadow{
+    box-shadow: 0 1px 6px $rgb2;
+    border-radius: 2px;
+}
 
+// rich-editor
+.rdw-editor-main{
+    overflow: hidden !important;
+    padding: 0 5px;
+}
+.rdw-link-modal, .rdw-embedded-modal{
+    height: auto !important;
+}
