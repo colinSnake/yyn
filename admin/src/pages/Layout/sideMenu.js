@@ -5,21 +5,14 @@ import { Layout, Menu } from 'antd';
 import Logo from '@/components/logo';
 import {
     DashboardOutlined,
+    ProjectOutlined,
+    BarChartOutlined,
     PieChartOutlined,
-    BarsOutlined,
-    AppstoreOutlined,
-    MenuUnfoldOutlined,
-    FormOutlined,
-    DollarOutlined,
+    CodeSandboxOutlined,
     NotificationOutlined,
-    MenuFoldOutlined,
-    DesktopOutlined,
-    ContainerOutlined,
-    MailOutlined,
     WarningOutlined,
-    ExclamationCircleOutlined,
-    CloseCircleOutlined,
-    WhatsAppOutlined,
+    UserOutlined,
+    CopyrightOutlined
 } from '@ant-design/icons';
 
 import menus from '@/router/menus';
@@ -57,38 +50,24 @@ class SideMenu extends Component {
         switch(iconName){
             case 'DashboardOutlined':
                 return <DashboardOutlined />;
-            case 'AppstoreOutlined':
-                return <AppstoreOutlined />;
+            case 'ProjectOutlined':
+                return <ProjectOutlined />;
+            case 'BarChartOutlined': 
+                return <BarChartOutlined />;
             case 'PieChartOutlined':
                 return <PieChartOutlined />;
-            case 'BarsOutlined':
-                return <BarsOutlined />;
-            case 'MenuUnfoldOutlined':
-                return <MenuUnfoldOutlined />;
-            case 'EditOutlined':
-                return <FormOutlined />;
-            case 'DollarOutlined':
-                return <DollarOutlined />;
+            case 'CodeSandboxOutlined':
+                return <CodeSandboxOutlined />
             case 'NotificationOutlined':
                 return <NotificationOutlined />;
-            case 'MenuFoldOutlined':
-                return <MenuFoldOutlined />;
-            case 'DesktopOutlined':
-                return <DesktopOutlined />;
-            case 'ContainerOutlined':
-                return <ContainerOutlined />;
-            case 'MailOutlined':
-                return <MailOutlined />;
             case 'WarningOutlined':
-                return <WarningOutlined />;
-            case 'ExclamationCircleOutlined':
-                return <ExclamationCircleOutlined />;
-            case 'CloseCircleOutlined':
-                return <CloseCircleOutlined />;
-            case 'WhatsAppOutlined':
-                return <WhatsAppOutlined />;
+                return <WarningOutlined />
+            case 'UserOutlined':
+                return <UserOutlined />;
+            case 'CopyrightOutlined':
+                return <CopyrightOutlined />
             default: 
-                return <AppstoreOutlined />;
+                return null;
         }
     }
 

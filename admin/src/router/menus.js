@@ -5,20 +5,64 @@ const menus = [
 		icon: 'DashboardOutlined'
 	},
 	{
-		path: '/article',
-		title: 'article',
-		icon: 'BarsOutlined',
+		path: '/publish',
+		title: 'publish',
+		icon: 'ProjectOutlined',
 		children: [
 			{
-				path: '/article/publishNews',
+				path: '/publish/publishNews',
 				title: 'publishNews',
-				icon: 'FormOutlined'
+				icon: ''
 			},
 			{
-				path: '/article/publishJobs',
+				path: '/publish/publishJobs',
 				title: 'publishJobs',
-				icon: 'DollarOutlined'
+				icon: ''
 			}
+		]
+	},
+	{
+		path: '/table',
+		title: 'table_management',
+		icon: 'PieChartOutlined',
+		children: [
+			{
+				path: '/table/news',
+				title: 'newsList',
+				icon: ''
+			},
+			{
+				path: '/table/jobs',
+				title: 'jobsList',
+				icon: ''
+			},
+			{
+				path: '/table/account',
+				title: 'accountList',
+				icon: ''
+			}
+		]
+	},
+	{
+		path: '/chart',
+		title: 'chart_management',
+		icon: 'CodeSandboxOutlined',
+		children: [
+			{
+				path: '/chart/line',
+				title: 'line_chart',
+				icon: ''
+			},
+			{
+				path: '/chart/pie',
+				title: 'pie_chart',
+				icon: ''
+			},
+			{
+				path: '/chart/histogram',
+				title: 'histogram_chart',
+				icon: ''
+			},
 		]
 	},
 	{
@@ -34,19 +78,36 @@ const menus = [
 			{
 				path: '/errorPage/404',
 				title: 'error_404',
-				icon: 'ExclamationCircleOutlined'
+				icon: ''
 			},
 			{
 				path: '/errorPage/500',
 				title: 'error_500',
-				icon: 'CloseCircleOutlined'
+				icon: ''
+			}
+		]
+	},
+	{
+		path: '/account',
+		title: 'account_management',
+		icon: 'UserOutlined',
+		children: [
+			{
+				path: '/account/peronal',
+				title: 'personal',
+				icon: ''
+			},
+			{
+				path: '/account/add',
+				title: 'add_child_account',
+				icon: ''
 			}
 		]
 	},
 	{
 		path: '/about',
 		title: 'about',
-		icon: 'WhatsAppOutlined'
+		icon: 'CopyrightOutlined'
 	},
 ];
 
