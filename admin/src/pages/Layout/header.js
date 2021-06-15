@@ -61,6 +61,7 @@ class Header extends Component {
     onSwitchLanguage = (type) => {
         return () => {
             i18n.changeLanguage(type);
+            localStorage.setItem('language', type);
         }
     }
 
@@ -92,7 +93,7 @@ class Header extends Component {
     }
 
     goNotification(){
-        // this.props.history.push('/notification');
+        this.props.history.push('/notification');
     }
 
     goLogout(){

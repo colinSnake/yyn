@@ -94,7 +94,7 @@ export const zh_language = {
     // 错误信息
     nodata: '暂无数据...',
 
-    // themeColor
+    // 主题色
     color_1: '拂晓蓝',
     color_2: '混动红',
     color_3: '心动橙',
@@ -104,7 +104,7 @@ export const zh_language = {
     color_7: '深海蓝',
     color_8: '自由紫',
 
-    // form
+    // 表单
     form_news: '新闻表单',
     form_jobs: '招聘表单',
     form_news_title: '文章标题',
