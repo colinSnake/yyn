@@ -2,7 +2,9 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import i18n from 'i18next'; 
 import { initReactI18next } from 'react-i18next';
 import { languages } from './language.js'; //先引入多语言配置函数
-const defaultLanguage = localStorage.getItem('language') || 'zh'; 
+let defaultLanguage = localStorage.getItem('language');
+
+if(defaultLanguage !== 'zh' && defaultLanguage !== 'en') defaultLanguage = 'zh';
 
 i18n.use(LanguageDetector) // 获取当前浏览器语言
 .use(initReactI18next)
