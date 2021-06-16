@@ -1,42 +1,44 @@
 .yyn-date{
     display: flex;
     align-items: center;
+    height: 20px;
+    margin-top: 5px;
     span{
-        font-size: 20px;
-        font-weight: $fw600;
+        font-size: 16px;
+        font-weight: $fw400;
         font-family: Arial, Helvetica, sans-serif;
         font-style: oblique;
         color: $themeColor;
         &:nth-child(1){
-            color: $themeColor;
+            color: $dot1;
         }
         &:nth-child(2){
-            color: $themeColor;
+            color: $dot1;
         }
         &:nth-child(3){
-            color: $themeColor;
+            color: $dot2;
         }
         &:nth-child(4){
-            color: $themeColor;
+            color: $dot2;
         }
         &:nth-child(5){
-            color: $themeColor;
+            color: $dot3;
             margin-right: 10px;
         }
         &:nth-child(6){
-            color: $themeColor;
+            color: $dot3;
         }
         &:nth-child(7){
-            color: $themeColor;
+            color: $dot4;
         }
         &:nth-child(8){
-            color: $themeColor;
+            color: $dot4;
         }
         &:nth-child(9){
-            color: $themeColor;
+            color: $dot5;
         }
         &:nth-child(10){
-            color: $themeColor;
+            color: $dot5;
         }
     }
 }

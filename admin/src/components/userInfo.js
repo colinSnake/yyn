@@ -8,7 +8,7 @@ const UserInfo = props => {
     const { nickName } = userInfo;
     return (
         <div className="yyn-userInfo">
-            <Avatar size={ 80 } src={ defaultAvatar } />
+            <Avatar size={ 60 } src={ defaultAvatar } />
             <div className="basic-info">
                 <h2>{ React.translate('prompt_user', {name: nickName}) }</h2>
                 <p className="yyn-motto">{ React.translate('prompt_motto', { motto: '长风破浪会有时，直挂云帆济沧海。'}) }</p>

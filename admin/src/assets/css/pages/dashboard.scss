@@ -7,8 +7,32 @@
     }
     .dashboard-content{
         margin: 10px 0;
-        background: $f;
         min-height: 300px;
+        display: flex;
+        .content-left{
+            max-width: 600px;
+            background: $f;
+            .content-head{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 20px;
+                height: 50px;
+                line-height: 50px;
+                h3{
+                    font-size: 16px;
+                    margin: 0;
+                }
+                span{
+                    color: $themeColor;
+                    cursor: pointer;
+                }
+            }
+            .content-card{
+                display: flex;
+                flex-wrap: wrap;
+            }
+        }
     }
     .dashboard-footer{
         

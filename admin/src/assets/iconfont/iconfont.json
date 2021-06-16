@@ -6,6 +6,76 @@
   "description": "游云南icon",
   "glyphs": [
     {
+      "icon_id": "16383977",
+      "name": "vue",
+      "font_class": "icon-vue",
+      "unicode": "e661",
+      "unicode_decimal": 58977
+    },
+    {
+      "icon_id": "19727106",
+      "name": "react",
+      "font_class": "react",
+      "unicode": "e93e",
+      "unicode_decimal": 59710
+    },
+    {
+      "icon_id": "21387161",
+      "name": "QQ",
+      "font_class": "QQ",
+      "unicode": "e6d9",
+      "unicode_decimal": 59097
+    },
+    {
+      "icon_id": "21432749",
+      "name": "js",
+      "font_class": "js",
+      "unicode": "e6e3",
+      "unicode_decimal": 59107
+    },
+    {
+      "icon_id": "21868048",
+      "name": "-_微信",
+      "font_class": "-_weixin",
+      "unicode": "e66a",
+      "unicode_decimal": 58986
+    },
+    {
+      "icon_id": "1314868",
+      "name": "CSS",
+      "font_class": "CSS",
+      "unicode": "e63c",
+      "unicode_decimal": 58940
+    },
+    {
+      "icon_id": "2006603",
+      "name": "html",
+      "font_class": "html",
+      "unicode": "e755",
+      "unicode_decimal": 59221
+    },
+    {
+      "icon_id": "12153204",
+      "name": "mysql ",
+      "font_class": "mysql",
+      "unicode": "e63f",
+      "unicode_decimal": 58943
+    },
+    {
+      "icon_id": "13925239",
+      "name": "antd",
+      "font_class": "antd",
+      "unicode": "e677",
+      "unicode_decimal": 58999
+    },
+    {
+      "icon_id": "16092715",
+      "name": "钉钉",
+      "font_class": "dingding",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
       "icon_id": "328432",
       "name": "check",
       "font_class": "check",
