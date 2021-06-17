@@ -65,9 +65,15 @@
     }
 }
 
+// 默认阴影效果
 .yyn-shadow{
     box-shadow: 0 1px 6px $rgb2;
     border-radius: 2px;
+}
+
+// 默认chart样式
+.yyn-chart{
+    background: $f;
 }
 
 // rich-editor

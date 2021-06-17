@@ -19,9 +19,9 @@
                 padding: 0 20px;
                 height: 50px;
                 line-height: 50px;
-                h3{
-                    font-size: 16px;
+                h2{
                     margin: 0;
+                    font-weight: $fw500;
                 }
                 span{
                     color: $themeColor;
@@ -31,6 +31,18 @@
             .content-card{
                 display: flex;
                 flex-wrap: wrap;
+            }
+        }
+        .content-right{
+            flex: 1;
+            margin-left: 10px;
+            background: $f;
+            padding: 0 20px;
+            h2{
+                margin: 0;
+                height: 50px;
+                line-height: 50px;
+                font-weight: $fw500;
             }
         }
     }

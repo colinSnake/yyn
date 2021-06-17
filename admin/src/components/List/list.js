@@ -8,7 +8,7 @@ const Meta = ListItem.Meta;
 const StandardList = props => {
     const initLoading = false;
     const loading = false;
-    const { listSource, onLoadMore } = props;
+    const { listSource, onLoadMore, listType, needActions } = props;
     const mockData = [
         { 
             id: 2,
@@ -30,7 +30,7 @@ const StandardList = props => {
             <Button type="primary" onClick={ onLoadMore }>点击加载更多</Button>
         </div>
     ) : null;
-    let actions = [<Button>标记已读</Button>];
+    let actions = needActions ? [<Button>标记已读</Button>] : null;
     return(
         <>
             {

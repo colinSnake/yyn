@@ -12,7 +12,9 @@ export const zh_language = {
     technology_system: '项目技术栈',
     github: '项目Github地址',
     git_code: 'Github源码',
-
+    study_kownledge: '学习以下知识',
+    all_technology: '全部技术栈',
+    dynamic: '动态',
     // 技术体系&致谢
     webpack: 'Webpack',
     create_react_app: 'Create React App',

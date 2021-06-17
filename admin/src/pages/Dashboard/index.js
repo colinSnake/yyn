@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import UserInfo from '@/components/userInfo';
 import CardItem from '@/components/card';
 import DateItem from '@/components/date';
+import StandardList from '@/components/List/list';
 import { v4 as uuidv4 } from 'uuid';
 import '@/assets/css/pages/dashboard.scss';
 class Dashboard extends Component {
@@ -45,10 +46,47 @@ class Dashboard extends Component {
                 title: 'Antd',
                 desc: '基于Ant Design 设计体系的 React UI 组件库,用于研发企业级中后台产品。'
             },
+        ],
+        listSource: [
+            { 
+                id: 1,
+                avatar: require('@/assets/image/avatar/p1.png').default,
+                title: '张三疯发布了一条新的招聘需求',
+                desc: `${parseInt(Math.random() * 10 + 1)}天前`,
+                loading: false
+            },
+            { 
+                id: 2,
+                avatar: require('@/assets/image/avatar/p2.png').default,
+                title: '小蓝发布了一条新的新闻',
+                desc: `${parseInt(Math.random() * 10 + 1)}天前`,
+                loading: false
+            },
+            { 
+                id: 1,
+                avatar: require('@/assets/image/avatar/p3.png').default,
+                title: '妮儿发布了一条新的招聘需求',
+                desc: `${parseInt(Math.random() * 10 + 1)}天前`,
+                loading: false
+            },
+            { 
+                id: 1,
+                avatar: require('@/assets/image/avatar/p4.png').default,
+                title: '工藤新一发布了一条新的招聘新闻',
+                desc: `${parseInt(Math.random() * 10 + 1)}天前`,
+                loading: false
+            },
+            { 
+                id: 1,
+                avatar: require('@/assets/image/avatar/p5.png').default,
+                title: '李华发布了一条新的招聘需求',
+                desc: `${parseInt(Math.random() * 10 + 1)}天前`,
+                loading: false
+            }
         ]
     }
     render () {
-        const { cardWidth ,cardList } = this.state;
+        const { cardWidth ,cardList,listSource } = this.state;
         return (
             <div className="yyn-dashboard">
                 <div className="dashboard-top">
@@ -58,19 +96,20 @@ class Dashboard extends Component {
                 <div className="dashboard-content">
                     <div className="content-left">
                         <div className="content-head">
-                            <h3>学习以下知识</h3>
-                            <span>全部技术栈</span>
+                            <h2>{ React.translate('study_kownledge') }</h2>
+                            <span>{ React.translate('all_technology') }</span>
                         </div>
                         <div class="content-card">
                             { cardList && cardList.length > 0 && cardList.map(item => (<CardItem { ...{cardWidth, item}} />))}
                         </div>
                     </div>
                     <div className="content-right">
-                        
+                        <h2>{ React.translate('dynamic') }</h2>
+                        <StandardList { ...{listSource} }/>
                     </div>
                 </div>
                 <div className="dashboard-footer">
-                    
+                
                 </div>
             </div>
         )

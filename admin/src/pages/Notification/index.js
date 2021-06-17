@@ -28,13 +28,13 @@ class Nocification extends PureComponent {
     onLoadMore = () => {
         const { listSource } = this.state;
         this.setState({ listSource: [...listSource,...listSource] });
-        console.log(listSource)
     }
     render(){
         const { tabList, listSource } = this.state;
+        const { onChangeTab, onLoadMore } = this;
         return (
             <div className="yyn-notification yyn-shadow">
-                <TabItem tabList={ tabList } listSource={ listSource } onChangeTab={ this.onChangeTab } onLoadMore={ this.onLoadMore }/>
+                <TabItem { ...{tabList, listSource, onChangeTab, onLoadMore } } />
             </div>
         )
     }
