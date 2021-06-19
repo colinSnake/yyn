@@ -24,15 +24,15 @@ class Methods {
 
     getRandomColor(){
         const colorStr = '0123456789abcdef';
-        return '#' + (function colorFun(str){
-            str += colorStr[Math.round(Math.random() * colorStr.length)]; 
-            return str.length >5 ? str : colorFun(str);
+        return '#' + (function colorFunc(str){
+            str += colorStr[Math.round(Math.random() * (colorStr.length - 1))]; 
+            return str.length > 5 ? str : colorFunc(str);
         }(''));
     }
 
     getRandomLetter(){
         const letter = 'abcdefghijklmnopqrstuvwxyz';
-        return letter.toUpperCase()[Math.round(Math.random() * letter.length)];
+        return letter.toUpperCase()[Math.round(Math.random() * (letter.length - 1))];
     }
 }
 

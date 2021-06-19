@@ -32,7 +32,6 @@ class News extends PureComponent{
     }
 
     render(){
-        console.log('formRef', this.formRef)
         return (
             <div className="yyn-formWrap yyn-shadow">
                 <div className="yyn-titleHeader">
