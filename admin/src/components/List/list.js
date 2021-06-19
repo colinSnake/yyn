@@ -8,16 +8,7 @@ const Meta = ListItem.Meta;
 const StandardList = props => {
     const initLoading = false;
     const loading = false;
-    const { listSource, onLoadMore, listType, needActions } = props;
-    const mockData = [
-        { 
-            id: 2,
-            avatar: require('@/assets/image/defaultAvatar.jpg').default,
-            title: '钉钉消息',
-            desc: '你的好友给你发来了一条消息，赶快回复ta吧！',
-            loading: false
-        }
-    ]
+    const { listSource, onLoadMore, needActions } = props;
     const loadMore = !initLoading && !loading ? (
         <div
             style={{

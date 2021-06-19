@@ -69,7 +69,7 @@ class Header extends Component {
         const userInfo = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : {};
         const { avatar, nickName } = userInfo;
         if(avatar) {
-            return (<Avatar src={ <Image src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" size={ 40 } />} /> );
+            return (<Avatar src={ <Image src={ avatar } size={ 40 } />} /> );
         }else{
             return (<Avatar style={{ backgroundColor: 'orange', verticalAlign: 'middle' }} size={ 40 } gap={ 4 }>
                 { nickName }
@@ -108,7 +108,8 @@ class Header extends Component {
 
     getLanguageList = () => {
         const { languages } = this.state;
-        return (<Menu>{ languages.length > 0 && languages.map(item => (<MenuItem key={ item.type } title={ item.title } onClick={ this.onSwitchLanguage(item.type)  }>{ item.title }</MenuItem>)) }</Menu>);
+        const selectLanguage = localStorage.getItem('language') || languages[0].type;
+        return (<Menu defaultSelectedKeys={ [ selectLanguage ] }>{ languages.length > 0 && languages.map(item => (<MenuItem key={ item.type } title={ item.title } onClick={ this.onSwitchLanguage(item.type)  }>{ item.title }</MenuItem>)) }</Menu>);
     }
 
     render(){

@@ -8,4 +8,9 @@ export const fixHeader = data => ({
 export const switchBreadCrumb = data => ({
     type: actionType.SWITCH_BREADCRUMB,
     data
-})
+});
+
+export const switchThemeColor = data => ({
+    type: actionType.SWITCH_THEMECOLOR,
+    data
+});

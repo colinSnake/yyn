@@ -1,5 +1,7 @@
 import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
 import Icon from '@/components/icon';
+import { switchThemeColor } from '@/redux/actions/setting';
 import '@/assets/css/components/themeColor.scss';
 
 class ThemeColor extends PureComponent {
@@ -17,17 +19,20 @@ class ThemeColor extends PureComponent {
     }
     onSwitchThemeColor = (e) => {
         const { colorList } = this.state;
+        const { switchThemeColor } = this.props;
         let newColorList = [];
         colorList.forEach(item => {
             item.selected = false;
-            if(item.id === Number(e.target.dataset.id)) item.selected = true;
+            if(item.id === Number(e.target.dataset.id)) { 
+                item.selected = true;
+                switchThemeColor(item.color);
+            };
             newColorList.push(item);
         });
         this.setState({colorList: newColorList});
     }
     render(){
         const { colorList } = this.state;
-        console.log('render--')
         return (
             <div className="yyn-themeColor">
                 {
@@ -38,4 +43,12 @@ class ThemeColor extends PureComponent {
     }
 }
 
-export default ThemeColor;
+const mapStateToProps = state => state;
+
+const mapDispatchToProps = dispatch => ({
+    switchThemeColor: data => {
+        dispatch(switchThemeColor(data));
+    }
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ThemeColor);

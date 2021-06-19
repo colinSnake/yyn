@@ -76,6 +76,17 @@
     background: $f;
 }
 
+// 默认标题样式
+.yyn-defaultTilte{
+    height: 50px;
+    line-height: 50px;
+    color: $zero;
+    font-size: 18px;
+    font-weight: $fw500;
+    padding: 0 20px;
+    margin: 0;
+}
+
 // rich-editor
 .rdw-editor-main{
     overflow: hidden !important;

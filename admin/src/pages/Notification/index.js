@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import { Button } from 'antd';
 import { v4 as uuidv4 } from 'uuid';
 import TabItem from '@/components/List/tabs';
 import '@/assets/css/pages/notification.scss';

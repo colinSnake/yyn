@@ -2,7 +2,7 @@ import React from 'react';
 import { Typography, Divider } from 'antd';
 import configUrl from '@/config/basic';
 import '@/assets/css/pages/about.scss';
-const { Title, Paragraph, Text, Link } = Typography;
+const { Title, Paragraph, Link } = Typography;
 
 const indentStyle = {
     textIndent: '2em'

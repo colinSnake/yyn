@@ -18,4 +18,13 @@ const showBreadCrumb = (state = false, action) => {
 	}
 }
 
-export { showHeader, showBreadCrumb };
+const themeColor = (state = 'rgb(24, 144, 255)', action) => {
+	switch (action.type) {
+		case actionTypes.SWITCH_THEMECOLOR:
+			return action.data;
+		default:
+			return state;	
+	}
+} 
+
+export { showHeader, showBreadCrumb, themeColor };

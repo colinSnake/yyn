@@ -7,7 +7,7 @@ class BaiscChart extends PureComponent{
 		height: PropTypes.string.isRequired,
 		className: PropTypes.string.isRequired,
 		style: PropTypes.object.isRequired,
-		chartData: PropTypes.object.isRequired
+		option: PropTypes.object.isRequired
 	}
 
     static defaultProps = {
@@ -15,37 +15,40 @@ class BaiscChart extends PureComponent{
 		height: '340px',
 		className: 'chart-box',
 		style: {},
-		chartData: {}
+		option: {}
 	}
 
     state = { chart: null }
 
     componentDidMount(){
-        console.log(this.el,999)
         setTimeout(() => {
             this.initChart();
         }, 500);
         window.addEventListener('resize', () => this.resetChart());
     }
 
+    componentWillUnmount(){
+        window.removeEventListener('resize', () => this.resetChart());
+    }
+
     initChart = () => {
+        const { option } = this.props;
         if (!this.el) return;
 		this.setState(
 			{
-				chart: echarts.init(this.el, 'macarons')
+				chart: echarts.init(this.el, 'dark', {renderer: 'cavans'})
 			},
 			() => {
-				this.state.chart.setOption(this.props.chartData, true);
+				option && this.state.chart.setOption(option, true);
 			}
 		);
     }
 
     resetChart = () => {
-        console.log(this.el.clientWidth,'222')
         const { chart } = this.state;
 		if (chart) {
             setTimeout(() => {
-                this.initChart();
+                chart.resize();
             }, 500);
 		}
     }

@@ -1,7 +1,7 @@
 import React from 'react'
 import BasicChart from '@/components/Chart/index';
 const LineChart = props => {
-    const chartData =  {
+    const option = {
         xAxis: {
             type: 'category',
             data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
@@ -10,16 +10,17 @@ const LineChart = props => {
             type: 'value'
         },
         series: [{
-            data: [120, 200, 150, 80, 70, 110, 130],
-            type: 'bar',
-            showBackground: true,
-            backgroundStyle: {
-                color: 'rgba(180, 180, 180, 0.2)'
-            }
+            data: [150, 230, 224, 218, 135, 147, 260],
+            type: 'line'
         }]
     }
+    const style = {
+        height: '500px'
+    }
     return (
-        <BasicChart chartData={ chartData }/>
+        <div className="yyn-chart yyn-shadow">
+            <BasicChart { ...{ option, style } } />
+        </div>
     )
 }
 export default LineChart;

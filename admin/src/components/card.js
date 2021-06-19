@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Avatar } from 'antd';
+import { Card } from 'antd';
 import Icon from './icon';
 import '@/assets/css/components/card.scss';
 

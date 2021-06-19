@@ -24,7 +24,7 @@ const MainContent = props => {
                         <Switch location={ location }>
                             {routes.map(item => handleFilter(item.permission) && <Route render={() => <item.component />} key={ item.path}  path={ item.path } />)}
                             <Redirect from="/" exact to="/dashboard" />
-                            <Redirect to="/error/404" />
+                            <Redirect to="/errorPage/404" />
                         </Switch>
                         <CopyRight />
                     </Content>

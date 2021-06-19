@@ -34,7 +34,7 @@ class SideMenu extends Component {
 
     handleToAddTag = (menuItem, parent) => {
         return () => {
-            const { path, title } = menuItem;
+            const { path } = menuItem;
             if (routes && routes.length > 0){
                 routes.forEach(item => {
                     if (item.path === path){

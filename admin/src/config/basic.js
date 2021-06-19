@@ -1,4 +1,4 @@
-export default {
+const urlConfig = {
     webpack_url: 'https://webpack.docschina.org/',
     create_react_app_url: 'https://create-react-app.dev/docs/getting-started/',
     react_url: 'https://react.docschina.org/',
@@ -12,3 +12,4 @@ export default {
     mysql_url: 'https://www.mysql.com/',
     github_url: 'https://github.com/colinSnake/yyn'
 }
+export default urlConfig;

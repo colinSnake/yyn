@@ -1,6 +1,6 @@
 // 定义action使用的常量
 export const ADD_TAG = 'ADD_TAG';
-export const SWITCH_THEME = 'SWITCH_THEME';
+export const SWITCH_THEMECOLOR = 'SWITCH_THEMECOLOR';
 export const FIX_HEADER = 'FIX_HEADER';
 export const SWITCH_LANGUAGE = 'SWITCH_LANGUAGE';
 export const SWITCH_COLLAPSE = 'SWITCH_COLLAPSE';

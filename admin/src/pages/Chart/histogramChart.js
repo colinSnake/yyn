@@ -1,7 +1,7 @@
 import React from 'react'
 import BasicChart from '@/components/Chart/index';
 const HistogramChart = props => {
-    const chartData =  {
+    const option =  {
         xAxis: {
             type: 'category',
             data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
@@ -23,7 +23,7 @@ const HistogramChart = props => {
     }
     return (
         <div className="yyn-chart yyn-shadow">
-            <BasicChart { ...{ chartData, style }} />
+            <BasicChart { ...{ option, style } } />
         </div>
     )
 }

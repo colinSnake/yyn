@@ -54,8 +54,5 @@ class Main extends Component {
 
 const mapStateToProps = state => state;
 
-const mapDispatchToProps = dispatch => ({
 
-})
-
-export default connect(mapStateToProps, {})(withRouter(Main));
+export default connect(mapStateToProps)(withRouter(Main));
