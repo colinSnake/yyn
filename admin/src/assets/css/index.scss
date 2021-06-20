@@ -55,13 +55,23 @@
 .yyn-drawer-block{
     display: flex;
     flex-direction: column;
-    h3{
-        font-size: 14px;
+    .theme-title{
+        height: 22px;
         line-height: 22px;
+        display: flex;
+        align-items: center;
         margin-bottom: 10px;
-        color: $rgb85;
-        font-weight: $fw500;
-        text-align: left;
+        h3{
+            font-size: 16px;
+            color: $rgb85;
+            font-weight: $fw500;
+            text-align: left;
+            margin: 0 5px 0 0;
+        }
+        span{
+            color: $rgb45;
+            font-size: 13px;
+        }
     }
 }
 
@@ -85,6 +95,22 @@
     font-weight: $fw500;
     padding: 0 20px;
     margin: 0;
+}
+
+// 路由过渡效果
+.fade-enter {
+	opacity: 0;
+	transform: translateX(-30px);
+}
+.fade-enter-active,
+.fade-exit-active {
+	opacity: 1;
+	transition: all 500ms ease-out;
+	transform: translateX(0);
+}
+.fade-exit {
+	opacity: 0;
+	transform: translateX(30px);
 }
 
 // rich-editor

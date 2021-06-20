@@ -18,8 +18,8 @@ const MainContent = props => {
     }
     return (
         <div className="yyn-mainContent">
-            <TransitionGroup key={ location.pathname}>
-                <CSSTransition timeout={ 500 }>
+            <TransitionGroup>
+                <CSSTransition classNames="fade" key={ location.pathname} timeout={ 500 }>
                     <Content style={{ height: '100%' }}>
                         <Switch location={ location }>
                             {routes.map(item => handleFilter(item.permission) && <Route render={() => <item.component />} key={ item.path}  path={ item.path } />)}

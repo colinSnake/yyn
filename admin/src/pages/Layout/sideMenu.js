@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent, translate } from 'react';
 import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 import { Layout, Menu } from 'antd';
@@ -22,7 +22,7 @@ const MenuItem = Menu.Item;
 const { Sider } = Layout;
 const { SubMenu } = Menu;
 
-class SideMenu extends Component {
+class SideMenu extends PureComponent {
     checkPermission = permission => { // 获取permission认证通过的menu
         let userInfo = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : {};
         const { type } = userInfo;
@@ -77,7 +77,7 @@ class SideMenu extends Component {
                 if (item.children && item.children.length > 0){
                     return (
                         this.checkPermission(item.permission) && (
-                            <SubMenu key={ item.path } title={ React.translate(item.title) } icon={ this.getIcon(item.icon) }>
+                            <SubMenu key={ item.path } title={ translate(item.title) } icon={ this.getIcon(item.icon) }>
                                 { this.renderMenu(item.children) }
                             </SubMenu>
                         )
@@ -86,7 +86,7 @@ class SideMenu extends Component {
                 return (
                     this.checkPermission(item.permission) && (
                         <MenuItem key={ item.path } icon={ this.getIcon(item.icon) }>
-                            <Link to={ item.path } onClick={ this.handleToAddTag(item) }>{ React.translate(item.title) }</Link>
+                            <Link to={ item.path } onClick={ this.handleToAddTag(item) }>{ translate(item.title) }</Link>
                         </MenuItem>
                     )
                 )

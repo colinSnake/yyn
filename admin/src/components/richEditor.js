@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, translate } from 'react';
 import { Row, Col, Card} from 'antd';
 import { EditorState } from 'draft-js';
 import { Editor } from "react-draft-wysiwyg";
@@ -54,10 +54,10 @@ class RichEditor extends PureComponent {
                             toolbarClassName="toolbarClassName"
                             wrapperClassName="wrapperClassName"
                             editorClassName="editorClassName"
-                            placeholder={ placeholder ? placeholder : React.translate('prompt_editor_content') }
+                            placeholder={ placeholder ? placeholder : translate('prompt_editor_content') }
                             onEditorStateChange={ this.onEditorStateChange }
                             onContentStateChange={ this.onEditorContentChange }
-                            localization={{ locale: 'zh', translations: { 'generic.add': React.translate('add_button') } }}
+                            localization={{ locale: 'zh', translations: { 'generic.add': translate('add_button') } }}
                         />
                     </Col>
                 </Row>

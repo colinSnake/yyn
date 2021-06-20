@@ -6,6 +6,7 @@ import SideMenu from './sideMenu';
 import Header from './header';
 import MainContent from './mainContent';
 import BreadCrumb from './breadCrumb';
+import { switchThemeColor }  from '@/redux/actions/setting';
 
 class Main extends Component {
     state = {
@@ -14,11 +15,20 @@ class Main extends Component {
     }
 
     componentDidMount(){
+        this.getSelectedThemeColor();
         window.addEventListener('resize', this.onRisize);
     }
 
     componentWillUnmount(){
         window.removeEventListener('resize', this.onRisize);
+    }
+
+    getSelectedThemeColor(){
+        const { switchThemeColor } = this.props;
+        const selectedThemeColor = localStorage.getItem('themeColor') ? JSON.parse(localStorage.getItem('themeColor')) : null;
+        if(selectedThemeColor){
+            switchThemeColor(selectedThemeColor.color);
+        }
     }
 
     toggleCollapsed = () => {
@@ -53,6 +63,11 @@ class Main extends Component {
 }
 
 const mapStateToProps = state => state;
+const mapDispatchToProps = dispatch => ({
+    switchThemeColor: data => {
+        dispatch(switchThemeColor(data))
+    }
+})
 
 
-export default connect(mapStateToProps)(withRouter(Main));
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Main));

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { translate } from 'react';
 import { Typography, Divider } from 'antd';
 import configUrl from '@/config/basic';
 import '@/assets/css/pages/about.scss';
@@ -25,53 +25,53 @@ const About = props => {
     return (
         <div className="yyn-aboutUs yyn-shadow" style={{ fontSize: '14px'}}>
             <Typography>
-                <Title level={4}>{ React.translate('about') }</Title>
-                <Paragraph style={ indentStyle }>{ React.translate('about_content_1') }</Paragraph>
-                <Paragraph style={ indentStyle }>{ React.translate('about_content_2') }</Paragraph>
-                <Paragraph style={ indentStyle }>{ React.translate('about_content_3') }</Paragraph>
+                <Title level={4}>{ translate('about') }</Title>
+                <Paragraph style={ indentStyle }>{ translate('about_content_1') }</Paragraph>
+                <Paragraph style={ indentStyle }>{ translate('about_content_2') }</Paragraph>
+                <Paragraph style={ indentStyle }>{ translate('about_content_3') }</Paragraph>
                 <Divider />
-                <Title level={4}>{ React.translate('technology_system') }</Title>
+                <Title level={4}>{ translate('technology_system') }</Title>
                 <Paragraph>
                     <ul>
                         <li>
-                            <Link href={ webpack_url } target="_blank">{ React.translate('webpack') }</Link>
+                            <Link href={ webpack_url } target="_blank">{ translate('webpack') }</Link>
                         </li>
                         <li>
-                            <Link href={create_react_app_url } target="_blank">{ React.translate('create_react_app') }</Link>
+                            <Link href={create_react_app_url } target="_blank">{ translate('create_react_app') }</Link>
                         </li>
                         <li>
-                            <Link href={ react_url } target="_blank">{ React.translate('react') }</Link>
+                            <Link href={ react_url } target="_blank">{ translate('react') }</Link>
                         </li>
                         <li>
-                            <Link href={ react_redux_url } target="_blank">{ React.translate('react_redux') }</Link>
+                            <Link href={ react_redux_url } target="_blank">{ translate('react_redux') }</Link>
                         </li>
                         <li>
-                            <Link href={ react_router_url } target="_blank">{ React.translate('react_router') }</Link>
+                            <Link href={ react_router_url } target="_blank">{ translate('react_router') }</Link>
                         </li>
                         <li>
-                            <Link href={ sass_url } target="_blank">{ React.translate('sass') }</Link>
+                            <Link href={ sass_url } target="_blank">{ translate('sass') }</Link>
                         </li>
                         <li>
-                            <Link href={ es6_url } target="_blank">{ React.translate('es6') }</Link>
+                            <Link href={ es6_url } target="_blank">{ translate('es6') }</Link>
                         </li>
                         <li>
-                            <Link href={ babel_url } target="_blank">{ React.translate('babel') }</Link>
+                            <Link href={ babel_url } target="_blank">{ translate('babel') }</Link>
                         </li>
                         <li>
-                            <Link href={ node_url } target="_blank">{ React.translate('node') }</Link>
+                            <Link href={ node_url } target="_blank">{ translate('node') }</Link>
                         </li>
                         <li>
-                            <Link href={ koa_url } target="_blank">{ React.translate('koa') }</Link>
+                            <Link href={ koa_url } target="_blank">{ translate('koa') }</Link>
                         </li>
                         <li>
-                            <Link href={ mysql_url } target="_blank">{ React.translate('mysql') }</Link>
+                            <Link href={ mysql_url } target="_blank">{ translate('mysql') }</Link>
                         </li>
                     </ul>
                 </Paragraph>
                 <Divider />
-                <Title level={4}>{ React.translate('github') }</Title>
+                <Title level={4}>{ translate('github') }</Title>
                 <ul>
-                    <li><Link href={ github_url }>{ React.translate('git_code') }</Link></li>
+                    <li><Link href={ github_url }>{ translate('git_code') }</Link></li>
                 </ul>
             </Typography>
         </div>

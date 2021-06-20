@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { translate } from 'react';
 import { Empty } from 'antd';
 const NoData = props => {
     const fontStyle = {
@@ -14,7 +14,7 @@ const NoData = props => {
             }}
             description={
                 <span style={ fontStyle }>
-                    { props.text || React.translate('nodata') }
+                    { props.text || translate('nodata') }
                 </span>
             }
         />

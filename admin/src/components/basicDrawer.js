@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { translate, useState } from 'react';
 import { connect } from 'react-redux';
 import { Drawer, Switch } from 'antd';
 import ThemeColor from '@/components/themeColor';
@@ -12,6 +12,7 @@ const styles = {
 };
 
 const BasicDrawer = props => {
+    const [defaultColorTitle, setColorTitle] = useState();
     const { visible, closeDrawer, fixHeader, switchBreadCrumb } = props;
     const onFixHeader = status => {
         fixHeader(status);
@@ -19,17 +20,23 @@ const BasicDrawer = props => {
     const onSwicthBreadCrumb = status => {
         switchBreadCrumb(status); 
     }
+    const getColorTitle = title => {
+        setColorTitle(title)
+    }
     return(
-        <Drawer width={ 300 } title={ React.translate('system_setting') } placement="right" visible={ visible } closable="true" onClose={ closeDrawer } >
+        <Drawer width={ 300 } title={ translate('system_setting') } placement="right" visible={ visible } closable="true" onClose={ closeDrawer } >
             <p style={ styles }>
-                <span>{ React.translate('fixHeader') }</span> <Switch onChange={ onFixHeader }  />
+                <span>{ translate('fixHeader') }</span> <Switch onChange={ onFixHeader }  />
             </p>
             <p style={ styles }>
-                <span>{ React.translate('bread_crumbs') }</span> <Switch onChange={ onSwicthBreadCrumb }  />
+                <span>{ translate('bread_crumbs') }</span> <Switch onChange={ onSwicthBreadCrumb }  />
             </p>
             <div className="yyn-drawer-block">
-                <h3>{ React.translate('themeColor') }</h3>
-                <ThemeColor />
+                <div className="theme-title">
+                    <h3>{ translate('themeColor') }</h3>
+                    <span>({ defaultColorTitle })</span>
+                </div>
+                <ThemeColor getColorTitle={ getColorTitle } />
             </div>
         </Drawer>
     )

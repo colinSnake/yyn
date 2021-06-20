@@ -15,6 +15,13 @@ export const zh_language = {
     study_kownledge: '学习以下知识',
     all_technology: '全部技术栈',
     dynamic: '动态',
+    personality_label: '个性标签',
+    team: '团队',
+    project: '项目',
+    application: '应用',
+    permission_all: '所有权限',
+    permission_part: '部分权限',
+
     // 技术体系&致谢
     webpack: 'Webpack',
     create_react_app: 'Create React App',
@@ -47,6 +54,8 @@ export const zh_language = {
     prompt_job_responsibility: '请输入岗位职责',
     prompt_job_requirement: '请输入岗位要求',
     prompt_editor_content: '请输入编辑内容',
+    prompt_account_name: '请输入子账号名称',
+    prompt_account_password: '请输入子账号密码',
 
     // 为空提示
     empty_news_title: '文章标题不能为空',
@@ -58,6 +67,8 @@ export const zh_language = {
     empty_jobs_title: '招聘职位不能为空',
     empty_jobs_responsibility: '岗位职责不能为空',
     empty_jobs_requirement: '岗位要求不能为空',
+    empty_account_name: '子账号名称不能为空',
+    empty_account_password: '子账号密码不能为空',
 
     // 标题
     system_setting: '系统设置',
@@ -107,8 +118,6 @@ export const zh_language = {
     color_8: '自由紫',
 
     // 表单
-    form_news: '新闻表单',
-    form_jobs: '招聘表单',
     form_news_title: '文章标题',
     form_news_cover: '文章封面',
     form_news_publishTime: '发布日期',
@@ -117,11 +126,16 @@ export const zh_language = {
     form_news_origin: '原文访问地址',
     form_job_title: '招聘职位',
     form_job_category: '招聘类别',
+    form_job_time: '招聘时间',
     form_job_responsibility: '岗位职责',
     form_job_requirement: '岗位要求',
+    child_account_name: '子账号名称',
+    child_account_time: '创建日期',
+    child_account_password: '子账号密码',
+    child_account_permission: '子账号权限',
 
     // 段落
     about_content_1: 'Yyn Design Pro，一个 JavaScript 应用，基于 React 官方应用开发工具 create-react-app 初始化创建， 搭配 Antd 开箱即用的高质量 React 组件，非常适合后台产品开发。',
     about_content_2: '作为一个前端脚手架学习和开发示例，如果你在学习 React 或即将学习 React，它应该可以做为教程给你一些帮助。如果你准备使用 React 全家桶开发应用，它能够快速给你提供项目脚手架，为你节省前期部分工作。 让我们一起享受整个 React 生态圈和工具链带来的愉悦开发体验。',
-    about_content_3: '在开始之前，你需要具备以下知识 原生JavaScript、 React、 ES2015、ES6、Node.js、Webpack 等知识，并正确安装和配置了 Node.js 环境，方便项目运行和查看效果。',
+    about_content_3: '在开始之前，你需要具备以下知识 原生JavaScript、 React、 ES2015、ES6、Node.js、Webpack、Node、Koa、MySql 等知识，并正确安装和配置了 Node.js 环境，方便项目运行和查看效果。',
 }

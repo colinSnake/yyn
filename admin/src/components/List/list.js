@@ -33,6 +33,7 @@ const StandardList = props => {
                         dataSource={ listSource }
                         renderItem={item => (
                             <ListItem
+                                key={ item.id }
                                 actions={ actions }
                             >
                                 <Skeleton avatar loading={ item.loading } active>

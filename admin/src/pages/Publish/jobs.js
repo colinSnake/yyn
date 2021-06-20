@@ -1,11 +1,12 @@
-import React, { createRef, PureComponent } from 'react'
-import { Form, Input, Button, Select } from 'antd';
+import React, { createRef, PureComponent, translate } from 'react'
+import { Form, Input, Button, Select, DatePicker } from 'antd';
 import { v4 as uuidv4 } from 'uuid'; 
 import RichEditor from '@/components/richEditor';
 import '@/assets/css/pages/form.scss';
 
 const FormItem = Form.Item;
 const { Option } = Select;
+const { RangePicker } = DatePicker;
 class Jobs extends PureComponent {
     state = {
         categories: [
@@ -31,13 +32,16 @@ class Jobs extends PureComponent {
 
     componentDidMount(){
         const { categories } = this.state;
-        this.setState({form: {category: categories.length > 0 && categories[0].value}});
+        this.setState(state => {
+            let form = Object.assign({}, state.form);
+            form.category = categories && categories.length > 0 && categories[0].value;
+            return { form };
+        });
     }
 
     onFinish = values => {
         const { form } = this.state;
         form.title = values && values.title;
-        console.log(form)
     }
 
     onFinishFailed = error => {
@@ -46,24 +50,52 @@ class Jobs extends PureComponent {
 
     onResetForm = () => {
         const { categories } = this.state;
-        this.setState({form: {
-            category: categories.length > 0 && categories[0].value,
-            title: '',
-            responsibilityHtmlText: '',
-            requirementHtmlText: ''
-        }})
+        this.setState(state => {
+            const form = {
+                category: categories && categories.length > 0 && categories[0].value,
+                title: '',
+                responsibilityHtmlText: '',
+                requirementHtmlText: ''
+            };
+            return { form };
+        })
         this.formRef.current && this.formRef.current.resetFields();
     }
 
     onSelect = value => {
-        if(value) this.setState({form: {category: value }});
+        if(value) {
+            this.setState(state => {
+                let form = Object.assign({}, state.form);
+                form.category = value;
+                return { form };
+            });
+        }
     }
 
-    getRichEidtorHtmlText = (param) => {
+    onChangeDateRange = (date, dateString) => {
+        if(dateString && dateString.length > 1){
+            this.setState(state => {
+                let form = Object.assign({}, state.form);
+                form.startTime = dateString[0];
+                form.endTime = dateString[1];
+                return { form };
+            });
+        }
+    }
+
+    getRichEidtorHtmlText = param => {
         if(param.type === 'responsibility'){
-            this.setState({form: { responsibilityHtmlText: param.html }});
+            this.setState(state => {
+                let form = Object.assign({}, state.form);
+                form.responsibilityHtmlText = param.html
+                return { form };
+            });
         }else{
-            this.setState({form: {requirementHtmlText: param.html}});
+            this.setState(state => {
+                let form = Object.assign({}, state.form);
+                form.requirementHtmlText = param.html
+                return { form };
+            });
         }
     }
 
@@ -71,7 +103,7 @@ class Jobs extends PureComponent {
         return {
             type: type,
             showMoreFormat: false,
-            placeholder: React.translate(`prompt_job_${type}`),
+            placeholder: translate(`prompt_job_${type}`),
             getRichEidtorHtmlText: this.getRichEidtorHtmlText
         }
     }
@@ -82,7 +114,7 @@ class Jobs extends PureComponent {
         return (
             <div className="yyn-formWrap yyn-shadow">
                 <div className="yyn-titleHeader">
-                    { React.translate('form_jobs') }
+                    { translate('publishJobs') }
                 </div>
                 <Form
                     name="jobsForm"
@@ -98,7 +130,7 @@ class Jobs extends PureComponent {
                 >
                     <FormItem
                         name="category"
-                        label={ React.translate('form_job_category') }
+                        label={ translate('form_job_category') }
                     >
                         <Select style={{ width: 280 }} onSelect={ this.onSelect }>
                             { categories.length > 0 && categories.map(item => (
@@ -108,20 +140,26 @@ class Jobs extends PureComponent {
                     </FormItem>
                     <FormItem
                         name="title"
-                        label={ React.translate('form_job_title') }
-                        rules={ [{ required: true, message: React.translate('empty_jobs_title') }] }
+                        label={ translate('form_job_title') }
+                        rules={ [{ required: true, message: translate('empty_jobs_title') }] }
                     >
-                        <Input style={{ width: 280 }} placeholder={ React.translate('prompt_job_tilte') } />
+                        <Input style={{ width: 280 }} placeholder={ translate('prompt_job_tilte') } />
+                    </FormItem>
+                    <FormItem
+                        name="time"
+                        label={ translate('form_job_time') }
+                    >
+                        <RangePicker style={{ width: '280px' }} onChange={ this.onChangeDateRange } />
                     </FormItem>
                     <FormItem
                         name="responsibility"
-                        label={ React.translate('form_job_responsibility') }
+                        label={ translate('form_job_responsibility') }
                     >
-                        <RichEditor param={ this.createRichEditorParam('requirement') } />
+                        <RichEditor param={ this.createRichEditorParam('responsibility') } />
                     </FormItem>
                     <FormItem
                         name="requirement"
-                        label={ React.translate('form_job_requirement') }
+                        label={ translate('form_job_requirement') }
                     >
                         <RichEditor param={ this.createRichEditorParam('requirement') } />
                     </FormItem>
@@ -129,8 +167,8 @@ class Jobs extends PureComponent {
                         className="hideLabel"
                         label="~"
                         >
-                        <Button type="primary" htmlType="submit" style={{ marginRight: '20px' }}>{ React.translate('submit_button') }</Button>  
-                        <Button type="primary" htmlType="button" onClick={ this.onResetForm }>{ React.translate('reset_button') }</Button>  
+                        <Button type="primary" htmlType="submit" style={{ marginRight: '20px' }}>{ translate('submit_button') }</Button>  
+                        <Button type="primary" htmlType="button" onClick={ this.onResetForm }>{ translate('reset_button') }</Button>  
                     </FormItem>
                 </Form>
             </div>

@@ -12,6 +12,15 @@ export const en_language = {
     technology_system: 'Project Technology Stack',
     github: 'Project GitHub address',
     git_code: 'Github code',
+    study_kownledge: 'Learn the following',
+    all_technology: 'All Technology Stacks',
+    dynamic: 'Dynamic',
+    personality_label: 'Personality label',
+    team: 'Teams',
+    project: 'Projects',
+    application: 'Applications',
+    permission_all: 'All permissions',
+    permission_part: 'Part of permissions',
 
     // Technical System & Acknowledgements
     webpack: 'Webpack',
@@ -26,7 +35,7 @@ export const en_language = {
     koa: 'Koa',
     mysql: 'MySql',
 
-    // prompt_username
+    // prompt
     prompt_username: 'Please input your username',
     prompt_password: 'Please input your password',
     prompt_404: 'Sorry, the page you visited does not exist',
@@ -44,7 +53,21 @@ export const en_language = {
     prompt_job_responsibility: 'Please input job responsibilities',
     prompt_job_requirement: 'Please input job requirements',
     prompt_editor_content: 'Please input edit content',
+    prompt_account_name: 'Please input username',
+    prompt_account_password: 'Please input password',
 
+    // empty
+    empty_news_title: 'The title of the article cannot be empty',
+    empty_news_cover: 'The cover of the article cannot be empty',
+    empty_news_publishTime: 'The publish date of the article cannot be empty',
+    empty_news_network: 'The article source site cannot be empty',
+    empty_news_origin: 'The original url cannot be empty',
+    empty_jobs_category: 'The recruitment type cannot be empty',
+    empty_jobs_title: 'The position cannot be empty',
+    empty_jobs_responsibility: 'The job responsibilities cannot be empty',
+    empty_jobs_requirement: 'The job requirement cannot be empty',
+    empty_account_name: 'The username cannot be empty',
+    empty_account_password: 'The password cannot be empty',
 
     // title
     system_setting: 'System settings',
@@ -94,8 +117,6 @@ export const en_language = {
     color_8: 'Freedom purple',
 
     // form
-    form_news: 'News form',
-    form_jobs: 'Recruitment form',
     form_news_title: 'Article title',
     form_news_cover: 'Article covers',
     form_news_publishTime: 'Release date',
@@ -104,11 +125,16 @@ export const en_language = {
     form_news_origin: 'Original access address',
     form_job_title: 'Job',
     form_job_category: 'Job category',
+    form_job_time: 'Time',
     form_job_responsibility: 'Job responsibility',
     form_job_requirement: 'Job requiremen',
+    child_account_name: 'Username',
+    child_account_time: 'Creation date',
+    child_account_password: 'Password',
+    child_account_permission: 'Permission',
 
     // paragraph
     about_content_1: `Yyn Design Pro，a JavaScript application that is initialized based on the Create-React app, the official React app development tool, and is perfect for backend product development with AnD's high quality React components out of the box.`,
     about_content_2: `As a front-end scaffolding learning and development example, if you are learning React or are about to learn React, it should serve as a tutorial for you. If you're going to develop an app with the React Family Bucket, it will quickly provide you with the scaffolding of your project and save you some upfront work. Let's enjoy the React ecosystem and tool chain as a fun development experience.`,
-    about_content_3: `Before you start, you'll need to know the following: native JavaScript, React, ES2015, ES6, Node.js, Webpack, etc. You'll also need to have the Node.js environment installed and configured properly to run your project and see the results.`,
+    about_content_3: `Before you start, you'll need to know the following: native JavaScript, React, ES2015, ES6, Node.js, Webpack, Node, Koa, MySql etc. You'll also need to have the Node.js environment installed and configured properly to run your project and see the results.`,
 }

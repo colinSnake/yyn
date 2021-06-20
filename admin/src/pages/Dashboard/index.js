@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent, translate } from 'react'
 import { connect } from 'react-redux';
 import UserInfo from '@/components/userInfo';
 import CardItem from '@/components/card';
@@ -6,7 +6,7 @@ import DateItem from '@/components/date';
 import StandardList from '@/components/List/list';
 import { v4 as uuidv4 } from 'uuid';
 import '@/assets/css/pages/dashboard.scss';
-class Dashboard extends Component {
+class Dashboard extends PureComponent {
     state = {
         cardWidth: 300,
         cardList: [
@@ -63,21 +63,21 @@ class Dashboard extends Component {
                 loading: false
             },
             { 
-                id: 1,
+                id: 3,
                 avatar: require('@/assets/image/avatar/p3.png').default,
                 title: '妮儿发布了一条新的招聘需求',
                 desc: `${parseInt(Math.random() * 10 + 1)}天前`,
                 loading: false
             },
             { 
-                id: 1,
+                id: 4,
                 avatar: require('@/assets/image/avatar/p4.png').default,
                 title: '工藤新一发布了一条新的招聘新闻',
                 desc: `${parseInt(Math.random() * 10 + 1)}天前`,
                 loading: false
             },
             { 
-                id: 1,
+                id: 5,
                 avatar: require('@/assets/image/avatar/p5.png').default,
                 title: '李华发布了一条新的招聘需求',
                 desc: `${parseInt(Math.random() * 10 + 1)}天前`,
@@ -96,20 +96,17 @@ class Dashboard extends Component {
                 <div className="dashboard-content">
                     <div className="content-left">
                         <div className="content-head">
-                            <h2>{ React.translate('study_kownledge') }</h2>
-                            <span>{ React.translate('all_technology') }</span>
+                            <h2>{ translate('study_kownledge') }</h2>
+                            <span>{ translate('all_technology') }</span>
                         </div>
-                        <div class="content-card">
-                            { cardList && cardList.length > 0 && cardList.map(item => (<CardItem { ...{cardWidth, item}} />))}
+                        <div className="content-card">
+                            { cardList && cardList.length > 0 && cardList.map(item => (<CardItem key={ item.id } { ...{cardWidth, item}} />))}
                         </div>
                     </div>
                     <div className="content-right">
-                        <h2>{ React.translate('dynamic') }</h2>
+                        <h2>{ translate('dynamic') }</h2>
                         <StandardList { ...{listSource} }/>
                     </div>
-                </div>
-                <div className="dashboard-footer">
-                
                 </div>
             </div>
         )

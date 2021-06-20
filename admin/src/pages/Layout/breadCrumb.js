@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent, translate } from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import { Breadcrumb } from 'antd';
 import menus from '@/router/menus';
 import '@/assets/css/pages/breadCrumb.scss';
-class BreadCrumb extends Component {
+class BreadCrumb extends PureComponent {
     makeBreadCrumbData = (location, list) => {
         let routesList = [];
         if(list && list.length > 0){
@@ -32,7 +32,7 @@ class BreadCrumb extends Component {
         if(!routes || routes.length === 0) return null;
         const itemRender = (route, params, routes, paths) => {
             const last = routes.indexOf(route) === routes.length - 1;
-            return last ? (<span>{ React.translate(route.title) }</span>) : (<Link to={ route.path }>{ React.translate(route.title) }</Link>);
+            return last ? (<span>{ translate(route.title) }</span>) : (<Link to={ route.path }>{ translate(route.title) }</Link>);
         }
         return (
             <div className="yyn-breadCrumb">

@@ -90,7 +90,7 @@ class Personal extends PureComponent {
                         <div className="team-info">
                             { teamList.length > 0 && teamList.map(item => (
                                 <dl key={ item.id }>
-                                    <dt style={ { background: item.bgColor || 'green' } }>{ item.iconTitle }</dt>
+                                    <dt style={ { background: item.bgColor } }>{ item.iconTitle }</dt>
                                     <dd>{ item.content }</dd>
                                 </dl>
                             ))}

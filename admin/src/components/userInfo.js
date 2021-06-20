@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { translate } from 'react';
 import { Avatar } from 'antd';
 import defaultAvatar from '@/assets/image/defaultAvatar.jpg';
 import '@/assets/css/components/userInfo.scss';
@@ -10,8 +10,8 @@ const UserInfo = props => {
         <div className="yyn-userInfo">
             <Avatar size={ 60 } src={ defaultAvatar } />
             <div className="basic-info">
-                <h2>{ React.translate('prompt_user', {name: nickName}) }</h2>
-                <p className="yyn-motto">{ React.translate('prompt_motto', { motto: '长风破浪会有时，直挂云帆济沧海。'}) }</p>
+                <h2>{ translate('prompt_user', {name: nickName}) }</h2>
+                <p className="yyn-motto">{ translate('prompt_motto', { motto: '长风破浪会有时，直挂云帆济沧海。'}) }</p>
             </div>
         </div>
     )

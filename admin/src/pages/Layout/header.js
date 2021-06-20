@@ -6,7 +6,7 @@
  * @LastEditors: Magic
  * @LastEditTime: 2021-06-04 22:45:54
  */
-import React, { Component } from 'react';
+import React, { PureComponent, createElement, translate } from 'react';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import { Avatar, Image, Menu, Dropdown } from 'antd';
@@ -21,18 +21,18 @@ import '@/assets/css/pages/header.scss';
 
 const MenuItem = Menu.Item;
 
-class Header extends Component {
+class Header extends PureComponent {
     state = {
         visible: false,
         menuList: [
             {
                 id: uuidv4(),
-                title: React.translate('notification'),
+                title: translate('notification'),
                 type: 'notification'
             },
             {
                 id: uuidv4(),
-                title: React.translate('logout'),
+                title: translate('logout'),
                 type: 'logout'
             }
         ],
@@ -98,6 +98,8 @@ class Header extends Component {
 
     goLogout(){
         localStorage.removeItem('userInfo');
+        localStorage.removeItem('i18nextLng');
+        localStorage.removeItem('themeColor');
         this.props.history.push('/login');
     }
 
@@ -108,7 +110,7 @@ class Header extends Component {
 
     getLanguageList = () => {
         const { languages } = this.state;
-        const selectLanguage = localStorage.getItem('language') || languages[0].type;
+        const selectLanguage = localStorage.getItem('i18nextLng') || 'zh'; 
         return (<Menu defaultSelectedKeys={ [ selectLanguage ] }>{ languages.length > 0 && languages.map(item => (<MenuItem key={ item.type } title={ item.title } onClick={ this.onSwitchLanguage(item.type)  }>{ item.title }</MenuItem>)) }</Menu>);
     }
 
@@ -122,7 +124,7 @@ class Header extends Component {
             <div className={ classHeader } >
                 <div className="header-left">
                     <span className="fold-btn" onClick={ toggleCollapsed }>
-                        { React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined) }
+                        { createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined) }
                     </span>    
                 </div>
                 <div className="header-right">

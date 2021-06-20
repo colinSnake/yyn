@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent, translate } from 'react';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import { Form, Input, Button } from 'antd';
@@ -8,7 +8,7 @@ import Particles from 'react-particles-js';
 import '@/assets/css/pages/login.scss'
 
 const FormItem = Form.Item;
-class Login extends Component {
+class Login extends PureComponent {
     state = {
         clientHeight: document.documentElement.clientHeight || document.body.clientHeight
     }
@@ -49,8 +49,9 @@ class Login extends Component {
     }
 
     render() {
+        const { themeColor } = this.props;
         return (
-            <div className="yyn-wrapper">
+            <div className="yyn-wrapper" style={{ background: themeColor }}>
                 <Particles
                     height={ this.state.clientHeight - 5 + 'px'}
                     params={{
@@ -73,7 +74,7 @@ class Login extends Component {
                     }}     
                 />
                 <div className="yyn-container fixed">
-                    <h1>{ React.translate('adminTitle') }</h1>
+                    <h1>{ translate('adminTitle') }</h1>
                     <Form 
                         name="loginForm"
                         className="login-form"
@@ -83,25 +84,25 @@ class Login extends Component {
                     >
                         <FormItem
                             name="username"
-                            rules={ [{ required: true, message: React.translate('prompt_username') }] }
+                            rules={ [{ required: true, message: translate('prompt_username') }] }
                         >
-                            <Input prefix={ <UserOutlined className="site-form-item-icon" /> } placeholder={ React.translate('username') } />
+                            <Input prefix={ <UserOutlined className="site-form-item-icon" /> } placeholder={ translate('username') } />
                         </FormItem>
                         <FormItem
                             name="password"
-                            rules={ [{ required: true, message: React.translate('prompt_password') }] }
+                            rules={ [{ required: true, message: translate('prompt_password') }] }
                         >
                             <Input
                                 prefix={ <LockOutlined className="site-form-item-icon" /> }
                                 type="password"
-                                placeholder={ React.translate('password') }
+                                placeholder={ translate('password') }
                             />
                         </FormItem>
                         <FormItem>
                             <Button htmlType="submit" block className="login-form-button">
-                                { React.translate('login') }
+                                { translate('login') }
                             </Button>
-                            <p className="login-tips">{ React.translate('prompt_tips') }</p>
+                            <p className="login-tips">{ translate('prompt_tips') }</p>
                         </FormItem>
                     </Form>
                 </div>
@@ -110,10 +111,10 @@ class Login extends Component {
     }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state) => {
+    return {
+        themeColor: state.themeColor
+    }
+}
 
-})
-
-const mapDispatchToProps = dispatch => ({})
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));
+export default withRouter(connect(mapStateToProps)(Login));
