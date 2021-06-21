@@ -1,5 +1,7 @@
+// const { translate } = require('react');
+// const { notification } = require('antd');
 class Methods {
-    getDateTimeStr (format){
+    getDateTimeStr (format){ // 获取当前时间
         let date = new Date(),
             year = date.getFullYear(),
             month = date.getMonth() + 1,
@@ -22,7 +24,7 @@ class Methods {
         return `${year}${dateFormat}${month}${dateFormat}${day} ${hour}:${minute}:${second}`;
     }
 
-    getRandomColor(){
+    getRandomColor(){ // 获取随机16进制颜色
         const colorStr = '0123456789abcdef';
         return '#' + (function colorFunc(str){
             str += colorStr[Math.round(Math.random() * (colorStr.length - 1))]; 
@@ -30,10 +32,11 @@ class Methods {
         }(''));
     }
 
-    getRandomLetter(){
+    getRandomLetter(){ // 获取随机大写字母
         const letter = 'abcdefghijklmnopqrstuvwxyz';
         return letter.toUpperCase()[Math.round(Math.random() * (letter.length - 1))];
     }
 }
+
 
 module.exports = new Methods();

@@ -4,7 +4,7 @@ import { Avatar, Tag, Divider } from 'antd';
 import TabItem from '@/components/List/tabs';
 import { ContactsOutlined, ControlOutlined, HomeOutlined } from '@ant-design/icons';
 import { v4 as uuidv4 } from 'uuid';
-import { getRandomColor, getRandomLetter } from '@/utils';
+import { getRandomColor, getRandomLetter } from '@/utils/index';
 import '@/assets/css/pages/personal.scss';
 class Personal extends PureComponent {
     state = {

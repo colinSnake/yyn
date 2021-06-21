@@ -69,7 +69,7 @@ class Header extends PureComponent {
         const userInfo = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : {};
         const { avatar, nickName } = userInfo;
         if(avatar) {
-            return (<Avatar src={ <Image src={ avatar } size={ 40 } />} /> );
+            return (<Avatar src={ avatar } size={ 36 } /> );
         }else{
             return (<Avatar style={{ backgroundColor: 'orange', verticalAlign: 'middle' }} size={ 40 } gap={ 4 }>
                 { nickName }
@@ -153,7 +153,4 @@ class Header extends PureComponent {
 const mapStateToProps = state => state;
 const mapDispatchToProps = dispatch => ({});
 
-export default connect(
-	mapStateToProps,
-	mapDispatchToProps
-)(withRouter(Header));
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Header));

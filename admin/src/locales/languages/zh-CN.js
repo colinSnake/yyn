@@ -134,6 +134,9 @@ export const zh_language = {
     child_account_password: '子账号密码',
     child_account_permission: '子账号权限',
 
+    // 提示信息
+    notice_title: '消息提示',
+
     // 段落
     about_content_1: 'Yyn Design Pro，一个 JavaScript 应用，基于 React 官方应用开发工具 create-react-app 初始化创建， 搭配 Antd 开箱即用的高质量 React 组件，非常适合后台产品开发。',
     about_content_2: '作为一个前端脚手架学习和开发示例，如果你在学习 React 或即将学习 React，它应该可以做为教程给你一些帮助。如果你准备使用 React 全家桶开发应用，它能够快速给你提供项目脚手架，为你节省前期部分工作。 让我们一起享受整个 React 生态圈和工具链带来的愉悦开发体验。',

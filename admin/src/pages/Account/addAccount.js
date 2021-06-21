@@ -1,4 +1,4 @@
-import React, { createRef, translate } from 'react';
+import React, { createRef, translate, notice } from 'react';
 import { Form, Input, Button, DatePicker, Select } from 'antd';
 import '@/assets/css/pages/form.scss';
 
@@ -27,6 +27,7 @@ const AddAccount = props => {
             username: value.username,
             password: value.password
         };
+        notice({description: '添加子账号成功！'}, 'success');
         console.log('account', form);
     }
     const onChange = (date, dateString) => {
