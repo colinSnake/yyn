@@ -1,7 +1,7 @@
 import React, { translate, useState } from 'react';
 import { connect } from 'react-redux';
 import { Drawer, Switch } from 'antd';
-import ThemeColor from '@/components/themeColor';
+import ThemeColor from '@/components/Setting/themeColor';
 import { fixHeader, switchBreadCrumb } from '@/redux/actions/setting'; 
 
 const styles = {
@@ -31,6 +31,15 @@ const BasicDrawer = props => {
             <p style={ styles }>
                 <span>{ translate('bread_crumbs') }</span> <Switch onChange={ onSwicthBreadCrumb }  />
             </p>
+            <div className="yyn-drawer-block">
+                <div className="theme-title">
+                    <h3>{ translate('style_switch') }</h3>
+                </div>
+                <div className="style-box">
+                    <img src={ require('@/assets/svg/blackTheme.svg').default } alt="blackTheme" />
+                    <img src={ require('@/assets/svg/whiteTheme.svg').default } alt="blackTheme" />
+                </div>
+            </div>
             <div className="yyn-drawer-block">
                 <div className="theme-title">
                     <h3>{ translate('themeColor') }</h3>
