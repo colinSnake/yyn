@@ -1,12 +1,10 @@
 const path = require('path');
 const Koa = require('koa2');
 const router = require('./router');
-const cors = require('koa-cors');
+const cors = require('koa2-cors');
 const static = require('koa-static');
-const bodyParser = require('koa-bodyparser'); // 用于获取post提交数据
-const makeToken = require('jsonwebtoken'); // 用于生成token
 const app = new Koa();
-const port = 5000;
+const port = 5555;
 const db = require('./utils/mysql');
 
 app.use(cors()); // 设置允许跨域
@@ -26,5 +24,5 @@ app.use(async(ctx, next) => {
 app.use(router.routes(), router.allowedMethods());
 
 app.listen(port, () => {
-    console.log('The koa server is starting success!');
+    console.log(`The koa server is starting success, the listen port is ${port}!`);
 })

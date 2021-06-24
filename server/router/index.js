@@ -1,11 +1,20 @@
 const Router = require('koa-router');
+const bodyParser = require('koa-bodyparser'); // 用于获取post提交数据
 const router = new Router();
+const adminRouter = require('./admin');
+const webRouter = require('./web');
+
+
+router.use(bodyParser());
 
 router.get('/', async(ctx) => {
-    ctx.response.body = 'hello koa';
+    ctx.body = 'hello koa'
 })
-router.get('/list', async(ctx) => {
-    ctx.response.body = 'hello list';
-})
+
+// 前端后台访问接口
+router.use('/admin', adminRouter.routes(), adminRouter.allowedMethods());
+
+// 前端web访问接口
+router.use('/web', webRouter.routes(), webRouter.allowedMethods());
 
 module.exports = router;
