@@ -1,7 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 const Icon = props => {
-    let { iconName, size } = props;
+    let { iconName, size, hasColor, themeStyle } = props;
+    iconName = hasColor ? `${iconName}-${themeStyle === 'dark' ? 'light' : 'dark'}` : iconName;
     size = size || 1.5;
     const style = {
         width: `${size}em`,
@@ -14,4 +16,10 @@ const Icon = props => {
     )
 }
 
-export default Icon;
+const mapStateToProps = state => {
+    return {
+        themeStyle: state.themeStyle
+    }
+}
+
+export default connect(mapStateToProps)(Icon);

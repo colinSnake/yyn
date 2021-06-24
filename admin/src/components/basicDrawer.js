@@ -1,6 +1,7 @@
 import React, { translate, useState } from 'react';
 import { connect } from 'react-redux';
 import { Drawer, Switch } from 'antd';
+import ThemeStyle from '@/components/Setting/themeStyle';
 import ThemeColor from '@/components/Setting/themeColor';
 import { fixHeader, switchBreadCrumb } from '@/redux/actions/setting'; 
 
@@ -35,10 +36,7 @@ const BasicDrawer = props => {
                 <div className="theme-title">
                     <h3>{ translate('style_switch') }</h3>
                 </div>
-                <div className="style-box">
-                    <img src={ require('@/assets/svg/blackTheme.svg').default } alt="blackTheme" />
-                    <img src={ require('@/assets/svg/whiteTheme.svg').default } alt="blackTheme" />
-                </div>
+                <ThemeStyle />
             </div>
             <div className="yyn-drawer-block">
                 <div className="theme-title">

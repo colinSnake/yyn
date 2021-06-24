@@ -6,7 +6,7 @@
  * @LastEditors: Magic
  * @LastEditTime: 2021-06-04 22:45:54
  */
-import React, { PureComponent, createElement, translate } from 'react';
+import React, { PureComponent, translate } from 'react';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import { Avatar, Image, Menu, Dropdown } from 'antd';
@@ -18,6 +18,7 @@ import BasicDrawer from '@/components/basicDrawer';
 import Icon from '@/components/icon';
 import FullScreen from '@/components/fullScreen';
 import '@/assets/css/pages/header.scss';
+import themeStyle from '../../components/Setting/themeStyle';
 
 const MenuItem = Menu.Item;
 
@@ -115,22 +116,24 @@ class Header extends PureComponent {
     }
 
     render(){
-        const { showHeader, toggleCollapsed, collapsed } = this.props;
+        const { showHeader, toggleCollapsed, collapsed, themeStyle } = this.props;
         const { visible } = this.state;
         const userInfo = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : {};
         const { nickName } = userInfo;
         const classHeader = showHeader ? collapsed ? 'yyn-header header_fixed header_fixed_collapsed' : 'yyn-header header_fixed header_fixed_normal' : 'yyn-header';
+        const headerStyle = { background: themeStyle === 'light' ? '#fff' : '#001529' };
+        const iconColorStyle = { color: themeStyle === 'light' ? '#001529' : '#fff' };
         return (
-            <div className={ classHeader } >
+            <div className={ classHeader } style={ headerStyle }>
                 <div className="header-left">
                     <span className="fold-btn" onClick={ toggleCollapsed }>
-                        { createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined) }
+                        { collapsed ? <MenuUnfoldOutlined style={ iconColorStyle } /> : <MenuFoldOutlined style={ iconColorStyle } /> }
                     </span>    
                 </div>
                 <div className="header-right">
                     <div className="yyn-toolbar">
                         <FullScreen />
-                        <SettingOutlined onClick={ this.openDrawer } />
+                        <SettingOutlined style={ iconColorStyle } onClick={ this.openDrawer } />
                     </div>
                     <div className="yyn-avatar">
                         <Dropdown overlay={ this.getDropList() }>
@@ -140,7 +143,7 @@ class Header extends PureComponent {
                     </div>
                     <div className="yyn-language">
                         <Dropdown overlay={ this.getLanguageList() }>
-                            <span><Icon iconName="#icontranslate-white" /></span>
+                            <span><Icon iconName="#icontranslate" hasColor={ true } /></span>
                         </Dropdown>
                     </div> 
                     <BasicDrawer visible={ visible } closeDrawer={ this.closeDrawer } />
@@ -150,7 +153,10 @@ class Header extends PureComponent {
     }
 } 
 
-const mapStateToProps = state => state;
-const mapDispatchToProps = dispatch => ({});
+const mapStateToProps = state => {
+    return {
+        themeStyle: state.themeStyle
+    }
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Header));
+export default connect(mapStateToProps)(withRouter(Header));

@@ -1,5 +1,6 @@
 
 @import './base.scss';
+@import './theme.scss';
 
 .yyn-wrapper{
     width: 100%;
@@ -72,16 +73,6 @@
         span{
             color: $rgb45;
             font-size: 13px;
-        }
-    }
-    .style-box{
-        display: flex;
-        align-items: center;
-        img{
-            width: 40px;
-            margin-right: 20px;
-            border-radius: 8px;
-            border: 1px dashed rgba(3,3,3,.25);
         }
     }
 }

@@ -41,12 +41,12 @@ class Main extends Component {
     }
 
     render(){
-        const { showHeader, showBreadCrumb } = this.props;
+        const { showHeader, showBreadCrumb, themeStyle } = this.props;
         const { collapsed, clientHeight } = this.state;
         const style = { height: `${clientHeight-60}px`, paddingTop: showHeader ? '60px' : '0px' };
         const realHeight = `${clientHeight}px`;
         return (
-            <div className="yyn-wrapper" style={{ height: realHeight }}>
+            <div className={ `${themeStyle} yyn-wrapper` } style={{ height: realHeight }}>
                 <Layout>
                     <SideMenu style={{ height: realHeight }} collapsed={ collapsed }  />
                     <div className="yyn-contentWrap" style={{ height: realHeight }}>
@@ -62,7 +62,11 @@ class Main extends Component {
     }
 }
 
-const mapStateToProps = state => state;
+const mapStateToProps = state => {
+    return {
+        themeStyle: state.themeStyle
+    }
+};
 const mapDispatchToProps = dispatch => ({
     switchThemeColor: data => {
         dispatch(switchThemeColor(data))

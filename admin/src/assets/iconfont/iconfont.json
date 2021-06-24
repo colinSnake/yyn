@@ -6,6 +6,20 @@
   "description": "游云南icon",
   "glyphs": [
     {
+      "icon_id": "13040063",
+      "name": "整体风格-深色系",
+      "font_class": "zhengtifengge-shensexi",
+      "unicode": "e688",
+      "unicode_decimal": 59016
+    },
+    {
+      "icon_id": "13040065",
+      "name": "整体风格-浅色系",
+      "font_class": "zhengtifengge-qiansexi",
+      "unicode": "e689",
+      "unicode_decimal": 59017
+    },
+    {
       "icon_id": "16383977",
       "name": "vue",
       "font_class": "icon-vue",
@@ -76,6 +90,13 @@
       "unicode_decimal": 58888
     },
     {
+      "icon_id": "22458721",
+      "name": "check",
+      "font_class": "check-blue",
+      "unicode": "e93f",
+      "unicode_decimal": 59711
+    },
+    {
       "icon_id": "328432",
       "name": "check",
       "font_class": "check",
@@ -99,7 +120,7 @@
     {
       "icon_id": "6986897",
       "name": "translate",
-      "font_class": "translate-white",
+      "font_class": "translate-light",
       "unicode": "e8cc",
       "unicode_decimal": 59596
     },

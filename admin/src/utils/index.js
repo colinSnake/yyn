@@ -1,5 +1,3 @@
-// const { translate } = require('react');
-// const { notification } = require('antd');
 class Methods {
     getDateTimeStr (format){ // 获取当前时间
         let date = new Date(),
@@ -35,6 +33,23 @@ class Methods {
     getRandomLetter(){ // 获取随机大写字母
         const letter = 'abcdefghijklmnopqrstuvwxyz';
         return letter.toUpperCase()[Math.round(Math.random() * (letter.length - 1))];
+    }
+
+    saveSetting(param){ // 生成/更新系统配置存储到localstorage
+        const setting = localStorage.getItem('setting') ? JSON.parse(localStorage.getItem('setting')) : null;
+        localStorage.setItem('setting', JSON.stringify(Object.assign({}, setting, param)));
+    }
+
+    getInfoFromLocalStorage(storageName, parameter){ // 从localstorage获取相关数据
+        const currentInfo = localStorage.getItem(storageName) ? JSON.parse(localStorage.getItem(storageName)) : null;
+        if(currentInfo){
+            if(currentInfo instanceof Object){
+                return parameter ? currentInfo[parameter] : currentInfo;
+            }else{
+                return currentInfo;
+            }
+        }
+        return currentInfo;
     }
 }
 

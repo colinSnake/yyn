@@ -77,6 +77,8 @@ export const zh_language = {
     bread_crumbs: '面包屑',
     multi_tab: '多页签',
     style_switch: '整体风格切换',
+    light_style: '亮色菜单风格',
+    dark_style: '暗色菜单风格',
 
     // 路由标题
     dashboard: '仪表盘',

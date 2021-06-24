@@ -1,7 +1,5 @@
 .yyn-header{
     height: 60px;
-    background: $dark;
-    color: $f;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -58,7 +56,6 @@
             p{
                 margin: 0 0 0 10px;
                 font-size: 16px;
-                color: $f;
                 font-weight: $fw500;
                 font-style: italic;
             }

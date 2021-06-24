@@ -28,7 +28,6 @@ const AddAccount = props => {
             password: value.password
         };
         notice({description: '添加子账号成功！'}, 'success');
-        console.log('account', form);
     }
     const onChange = (date, dateString) => {
         if(dateString) dateStr = dateString;

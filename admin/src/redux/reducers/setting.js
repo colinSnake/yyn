@@ -27,4 +27,13 @@ const themeColor = (state = 'rgb(24, 144, 255)', action) => {
 	}
 } 
 
-export { showHeader, showBreadCrumb, themeColor };
+const themeStyle = (state = 'light', action) => {
+	switch (action.type) {
+		case actionTypes.SWITCH_THEMESTYLE:
+			return action.data;
+		default:
+			return state;	
+	}
+} 
+
+export { showHeader, showBreadCrumb, themeColor, themeStyle };

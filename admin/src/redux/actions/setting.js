@@ -10,6 +10,11 @@ export const switchBreadCrumb = data => ({
     data
 });
 
+export const switchThemeStyle = data => ({
+    type: actionType.SWITCH_THEMESTYLE,
+    data
+});
+
 export const switchThemeColor = data => ({
     type: actionType.SWITCH_THEMECOLOR,
     data

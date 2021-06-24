@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
 import { FullscreenOutlined, FullscreenExitOutlined } from '@ant-design/icons';
 
 class FullScreen extends PureComponent {
@@ -61,12 +62,20 @@ class FullScreen extends PureComponent {
 	};
     render() {
         const { isFullScreen } = this.state;
+		const { themeStyle } = this.props;
+		const iconColorStyle = { color: themeStyle === 'light' ? '#001529' : '#fff' };
         return(
             <div className="yyn-fullscreen" onClick={ this.onChangeFullScreen } > 
-                { isFullScreen ? <FullscreenExitOutlined /> : <FullscreenOutlined /> }
+                { isFullScreen ? <FullscreenExitOutlined style={ iconColorStyle } /> : <FullscreenOutlined style={ iconColorStyle } /> }
             </div>
         )
     }
 }
 
-export default FullScreen;
+const mapStateToProps = state => {
+	return{
+		themeStyle: state.themeStyle
+	}
+}
+
+export default connect(mapStateToProps)(FullScreen);

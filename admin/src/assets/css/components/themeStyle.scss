@@ -1,0 +1,29 @@
+.yyn-themeStyle{
+    display: flex;
+    align-items: center;
+    .style-block{
+        position: relative;
+        width: 40px;
+        border: 1px dashed rgba(3,3,3,.25);
+        border-radius: 8px;
+        margin-right: 20px;
+        cursor: pointer;
+        overflow: hidden;
+        img{
+            width: 100%;
+            display: block;
+        }
+        svg{
+            position: absolute;
+            left: calc(50% - .5em);
+            top: calc(50% - .5em);
+            z-index: $zx1;
+            color: $themeColor;
+        }
+        &.hideIcon{
+            svg{
+                display: none;
+            }
+        }
+    }
+}

@@ -1,5 +1,6 @@
 import React, { PureComponent, translate } from 'react';
 import { withRouter } from 'react-router';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Layout, Menu } from 'antd';
 import Logo from '@/components/logo';
@@ -95,17 +96,17 @@ class SideMenu extends PureComponent {
     }
 
     render(){
-        const { collapsed, history } = this.props;
+        const { collapsed, history, themeStyle } = this.props;
         const menuSelected = history.location.pathname; // 导航栏地址
         const menuOpened = `/${menuSelected.split('/')[1]}`; // 默认展开tab
         return (
-            <Sider trigger={ null } collapsible collapsed={ this.props.collapsed } theme="dark" className="yyn-sidebar">
+            <Sider trigger={ null } collapsible collapsed={ this.props.collapsed } theme={ themeStyle } className="yyn-sidebar">
                 <Logo collapsed={ this.props.collapsed } />
                 <Menu
                     defaultSelectedKeys={ [menuSelected] }
                     selectedKeys={ [menuSelected] }
                     defaultOpenKeys={ [menuOpened] }
-                    theme="dark"
+                    theme={ themeStyle }
                     mode="inline"
                     collapsed={ collapsed.toString() }
                 >
@@ -116,4 +117,10 @@ class SideMenu extends PureComponent {
     }
 }
 
-export default withRouter(SideMenu);
+const mapStateToProps = state => {
+    return {
+        themeStyle: state.themeStyle
+    }
+}
+
+export default connect(mapStateToProps)(withRouter(SideMenu));
