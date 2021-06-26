@@ -9,7 +9,7 @@
 import React, { PureComponent, translate } from 'react';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
-import { Avatar, Image, Menu, Dropdown } from 'antd';
+import { Avatar, Menu, Dropdown } from 'antd';
 // 引入uuid用于生成随机字符串
 import { v4 as uuidv4 } from 'uuid';
 import i18n from 'i18next';

@@ -1,4 +1,4 @@
-import * as actionType from '../constants/index';
+import * as actionType from '../constants';
 
 export const fixHeader = data => ({
     type: actionType.FIX_HEADER,

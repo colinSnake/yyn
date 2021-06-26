@@ -19,8 +19,8 @@ const Login = lazy(() => import("@/pages/Login"));
 
 const routes = [
     { path: '/dashboard', component: Dashboard },
-    { path: '/publish/publishnews', component: PublishNews },
-    { path: '/publish/publishjobs', component: PublishJobs },
+    { path: '/publish/publishNews', component: PublishNews },
+    { path: '/publish/publishJobs', component: PublishJobs },
     { path: '/table/news', component: NewsTable },
     { path: '/table/jobs', component: JobsTable },
     { path: '/table/account', component: AccountTable },

@@ -1,4 +1,4 @@
-import * as actionType from '../constants/index';
+import * as actionTypes from '../constants';
 
 export const switchLanguage = data => ({
     type: actionType.SWITCH_LANGUAGE,

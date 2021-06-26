@@ -29,6 +29,16 @@
     .ant-upload-hint{
         color: rgba(255, 255, 255, .45) !important;
     }
+    .ant-breadcrumb{
+        .ant-breadcrumb-link{
+            a{
+                color: rgba(255, 255, 255, .45);
+            }
+        }
+        span:last-child {
+            color: rgba(255, 255, 255, .85);
+        }
+    }
     .yyn-contentWrap{
         background: $rgb85;
         .yyn-content{

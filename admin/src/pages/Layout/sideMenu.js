@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Layout, Menu } from 'antd';
 import Logo from '@/components/logo';
+import { addTag } from '@/redux/actions/tags';
 import {
     DashboardOutlined,
     ProjectOutlined,
@@ -34,13 +35,15 @@ class SideMenu extends PureComponent {
     }
 
     handleToAddTag = (menuItem, parent) => {
+        const { addTag } = this.props;
         return () => {
-            const { path } = menuItem;
+            const { path, title } = menuItem;
+            console.log(path,title, 'sideMenu')
             if (routes && routes.length > 0){
                 routes.forEach(item => {
                     if (item.path === path){
-                        // let obj = { path, title, component: item.component }
-                        // this.props.addTag(parent ? Object.assign({}, obj, { parent: parent.title }) : obj);
+                        let obj = { path, title: translate(title) }
+                        addTag(parent ? Object.assign({}, obj, { parent: parent.title }) : obj);
                     }
                 })
             }
@@ -123,4 +126,10 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(withRouter(SideMenu));
+const mapDispatchToProps = dispatch => ({
+    addTag: data => {
+        dispatch(addTag(data));
+    }
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(SideMenu));

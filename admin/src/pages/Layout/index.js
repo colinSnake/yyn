@@ -5,9 +5,8 @@ import { Layout } from 'antd';
 import SideMenu from './sideMenu';
 import Header from './header';
 import MainContent from './mainContent';
-import BreadCrumb from './breadCrumb';
 import { getInfoFromLocalStorage } from '@/utils';
-import { switchThemeColor }  from '@/redux/actions/setting';
+import { switchThemeColor, switchThemeStyle }  from '@/redux/actions/setting';
 
 class Main extends Component {
     state = {
@@ -16,7 +15,7 @@ class Main extends Component {
     }
 
     componentDidMount(){
-        this.getSelectedThemeColor();
+        this.getSetting();
         window.addEventListener('resize', this.onRisize);
     }
 
@@ -24,12 +23,12 @@ class Main extends Component {
         window.removeEventListener('resize', this.onRisize);
     }
 
-    getSelectedThemeColor(){
-        const { switchThemeColor } = this.props;
+    getSetting(){
+        const { switchThemeColor, switchThemeStyle } = this.props;
         const selectedThemeColor = getInfoFromLocalStorage('setting', 'themeColor');
-        if(selectedThemeColor){
-            switchThemeColor(selectedThemeColor);
-        }
+        const selectedThemeStyle = getInfoFromLocalStorage('setting', 'themeStyle');
+        selectedThemeColor && switchThemeColor(selectedThemeColor);
+        selectedThemeStyle && switchThemeStyle(selectedThemeStyle);
     }
 
     toggleCollapsed = () => {
@@ -42,7 +41,7 @@ class Main extends Component {
     }
 
     render(){
-        const { showHeader, showBreadCrumb, themeStyle } = this.props;
+        const { showHeader, themeStyle } = this.props;
         const { collapsed, clientHeight } = this.state;
         const style = { 
             height: `${clientHeight-60}px`, 
@@ -56,7 +55,6 @@ class Main extends Component {
                     <div className="yyn-contentWrap" style={{ height: realHeight }}>
                         <div className="yyn-content" style={ style }>
                             <Header toggleCollapsed={ this.toggleCollapsed } collapsed={ collapsed } />
-                            { showBreadCrumb ? <BreadCrumb /> : null}
                             <MainContent />
                         </div>
                     </div>   
@@ -69,7 +67,10 @@ class Main extends Component {
 const mapStateToProps = state => state;
 const mapDispatchToProps = dispatch => ({
     switchThemeColor: data => {
-        dispatch(switchThemeColor(data))
+        dispatch(switchThemeColor(data));
+    },
+    switchThemeStyle: data => {
+        dispatch(switchThemeStyle(data));
     }
 })
 

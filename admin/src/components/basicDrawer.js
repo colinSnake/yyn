@@ -14,7 +14,6 @@ const styles = {
 
 const BasicDrawer = props => {
     const [defaultColorTitle, setColorTitle] = useState();
-    console.log(props,'baisc')
     const { visible, closeDrawer, fixHeader, switchBreadCrumb, switchMultiTab } = props;
     const onFixHeader = status => {
         fixHeader(status);
@@ -29,7 +28,14 @@ const BasicDrawer = props => {
         setColorTitle(title)
     }
     return(
-        <Drawer width={ 300 } title={ translate('system_setting') } placement="right" visible={ visible } closable="true" onClose={ closeDrawer } >
+        <Drawer 
+            className={ props.themeStyle === 'dark' ? 'dark-drawer' : '' }
+            width={ 300 } 
+            title={ translate('system_setting') } 
+            placement="right" 
+            visible={ visible } 
+            closable="true" 
+            onClose={ closeDrawer } >
             <p style={ styles }>
                 <span>{ translate('fixHeader') }</span><Switch onChange={ onFixHeader } />
             </p>
