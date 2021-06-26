@@ -2,7 +2,6 @@
     .dashboard-top{
         display: flex;
         justify-content: space-between;
-        background: $f;
         padding: 10px 20px;
     }
     .dashboard-content{
@@ -11,7 +10,6 @@
         display: flex;
         .content-left{
             max-width: 600px;
-            background: $f;
             .content-head{
                 display: flex;
                 justify-content: space-between;
@@ -36,7 +34,6 @@
         .content-right{
             flex: 1;
             margin-left: 10px;
-            background: $f;
             padding: 0 20px;
             h2{
                 margin: 0;
@@ -45,8 +42,5 @@
                 font-weight: $fw500;
             }
         }
-    }
-    .dashboard-footer{
-        
     }
 }

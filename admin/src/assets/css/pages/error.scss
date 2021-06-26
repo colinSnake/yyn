@@ -4,7 +4,6 @@
     align-items: center;
     min-height: 400px;
     min-height: 90%;
-    background: $f;
     .error-image{
         width: 400px;
         height: 360px;
@@ -22,14 +21,12 @@
     .error-content{
         margin-left: 50px;
         h1 {
-			color: $b4;
 			font-size: 72px;
 			font-weight: $fw600;
 			line-height: 72px;
 			margin-bottom: 24px;
 		}
         .error-desc {
-			color: $rgb45;
 			font-size: 20px;
 			line-height: 28px;
 			margin-bottom: 16px;

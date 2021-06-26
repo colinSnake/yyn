@@ -6,6 +6,7 @@ import SideMenu from './sideMenu';
 import Header from './header';
 import MainContent from './mainContent';
 import BreadCrumb from './breadCrumb';
+import { getInfoFromLocalStorage } from '@/utils';
 import { switchThemeColor }  from '@/redux/actions/setting';
 
 class Main extends Component {
@@ -25,9 +26,9 @@ class Main extends Component {
 
     getSelectedThemeColor(){
         const { switchThemeColor } = this.props;
-        const selectedThemeColor = localStorage.getItem('themeColor') ? JSON.parse(localStorage.getItem('themeColor')) : null;
+        const selectedThemeColor = getInfoFromLocalStorage('setting', 'themeColor');
         if(selectedThemeColor){
-            switchThemeColor(selectedThemeColor.color);
+            switchThemeColor(selectedThemeColor);
         }
     }
 
@@ -43,7 +44,10 @@ class Main extends Component {
     render(){
         const { showHeader, showBreadCrumb, themeStyle } = this.props;
         const { collapsed, clientHeight } = this.state;
-        const style = { height: `${clientHeight-60}px`, paddingTop: showHeader ? '60px' : '0px' };
+        const style = { 
+            height: `${clientHeight-60}px`, 
+            paddingTop: showHeader ? '60px' : '0px',
+        };
         const realHeight = `${clientHeight}px`;
         return (
             <div className={ `${themeStyle} yyn-wrapper` } style={{ height: realHeight }}>
@@ -62,11 +66,7 @@ class Main extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        themeStyle: state.themeStyle
-    }
-};
+const mapStateToProps = state => state;
 const mapDispatchToProps = dispatch => ({
     switchThemeColor: data => {
         dispatch(switchThemeColor(data))

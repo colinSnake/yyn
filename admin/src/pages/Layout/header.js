@@ -153,10 +153,6 @@ class Header extends PureComponent {
     }
 } 
 
-const mapStateToProps = state => {
-    return {
-        themeStyle: state.themeStyle
-    }
-}
+const mapStateToProps = state => state;
 
 export default connect(mapStateToProps)(withRouter(Header));

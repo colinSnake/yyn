@@ -18,6 +18,17 @@ const showBreadCrumb = (state = false, action) => {
 	}
 }
 
+// 是否显示多页签
+const showMultiTab = (state = false, action) => {
+	switch (action.type) {
+		case actionTypes.SWITCH_MULTITAB:
+			return action.data;
+		default:
+			return state;	
+	}
+}
+
+// 切换主题色
 const themeColor = (state = 'rgb(24, 144, 255)', action) => {
 	switch (action.type) {
 		case actionTypes.SWITCH_THEMECOLOR:
@@ -27,6 +38,7 @@ const themeColor = (state = 'rgb(24, 144, 255)', action) => {
 	}
 } 
 
+// 切换主题风格
 const themeStyle = (state = 'light', action) => {
 	switch (action.type) {
 		case actionTypes.SWITCH_THEMESTYLE:
@@ -36,4 +48,4 @@ const themeStyle = (state = 'light', action) => {
 	}
 } 
 
-export { showHeader, showBreadCrumb, themeColor, themeStyle };
+export { showHeader, showBreadCrumb, showMultiTab, themeColor, themeStyle };

@@ -1,0 +1,156 @@
+.dark{
+    color: $f;
+    h1, h2, h3, h4, h5, h6, label{
+        color: $f; 
+    }
+    input, .ant-upload, .ant-picker{
+        background: $dark;
+    }
+    .rdw-editor-toolbar{
+        background: $dark;
+        border-color: rgba(255, 255, 255, .45);
+    }
+    .color_45{
+        color: rgba(255, 255, 255, .85);
+    }
+    .ant-input{
+        color: $f;
+    }
+    .ant-select-selector{
+        background: $dark !important;
+        color: $f;
+    }
+    .ant-select-arrow{
+        color: $f;
+    }
+    .ant-upload-text{
+        color: $f !important;
+    }
+    .ant-upload-hint{
+        color: rgba(255, 255, 255, .45) !important;
+    }
+    .yyn-contentWrap{
+        background: $rgb85;
+        .yyn-content{
+            .yyn-mainContent{
+                // 仪表盘
+                .yyn-dashboard{
+                    color: $f;
+                    .dashboard-top{
+                        background: $dark;
+                        .yyn-motto{
+                            color: rgba(255, 255, 255, .85);
+                        }
+                    }
+                    .dashboard-content{
+                        .content-left{
+                            background: $dark;
+                            .content-card{
+                                .ant-card{
+                                    background: $dark;
+                                    .ant-card-meta-title{
+                                        color: $f;
+                                    }
+                                    .ant-card-meta-description{
+                                        color: rgba(255, 255, 255, .85);
+                                    }
+                                }
+                                .ant-card-bordered{
+                                    border-color: rgba(0, 0, 0, .45);
+                                }
+                            }
+                        }
+                        .content-right{
+                            background: $dark;
+                            .ant-list-item{
+                                border-color: rgba(0, 0, 0, .45);
+                                .ant-list-item-meta-description{
+                                    color: rgba(255, 255, 255, .45);
+                                }
+                            }
+                        }
+                    }
+                }
+                // 表单
+                .yyn-formWrap{
+                    background: $dark;
+                    .ant-select-dropdown {
+                        background: $dark !important;
+                        .ant-select-item{
+                            background: $dark !important;
+                        }
+                    }
+                }
+                // 表格
+                .yyn-table{
+                    background: $dark;
+                    th, td{
+                        background: $dark;
+                        color: $f;
+                    }
+                    .ant-pagination-item, .ant-pagination-item-link{
+                        background: $dark;
+                        color: $f;
+                    }
+                }
+                // 图表
+                .yyn-chart{
+                    background: $dark;
+                }
+                // 消息通知
+                .yyn-notification{
+                    background: $dark;
+                    .ant-tabs-tab{
+                        color: $f;
+                    }
+                    .ant-tabs-nav::before{
+                        border-color: rgba(0, 0, 0, .45);
+                    }
+                    .ant-list-item-meta-description{
+                        color: rgba(255, 255, 255, .45);
+                    }
+                    .ant-list-item:last-child{
+                        border-color: rgba(0, 0, 0, .45);
+                    }
+                }
+                // 错误页
+                .yyn-error{
+                    background: $dark;
+                    .error-content{
+                        .error-desc{
+                            color: rgba(255, 255, 255, .45);
+                        }
+                    }
+                }
+                // 个人中心
+                .yyn-personal{
+                    .personal-left{
+                        background: $dark;
+                        p, .ant-divider, dd{
+                            color: rgba(255, 255, 255, .85);
+                        }
+                    }
+                    .personal-right{
+                        background: $dark;
+                        .ant-tabs-tab{
+                            color: $f;
+                        }
+                        .ant-tabs-nav::before{
+                            border-color: rgba(0, 0, 0, .45);
+                        }
+                    }
+                }
+                // copyRight
+                .yyn-copyright{
+                    color: rgba(255, 255, 255, .45);
+                }
+            }
+            .yyn-defaultTilte{
+                color: $f;
+            }
+            .yyn-titleHeader{
+                border-bottom: 1px solid rgba(0, 0, 0, .45);
+            }
+        }
+    }
+}

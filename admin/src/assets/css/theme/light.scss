@@ -1,0 +1,104 @@
+.light{
+    color: $rgb85; 
+    h1, h2, h3, h4, h5, h6, label{
+        color: $rgb85; 
+    }
+    input, .ant-select-selector, .ant-upload, .ant-picker{
+        background: $f;
+    }
+    .color_45{
+        color: rgba(0, 0, 0, .85);
+    }
+    .ant-input{
+        color: $rgb85;
+    }
+    .ant-upload-text{
+        color: $dark !important;
+    }
+    .ant-upload-hint{
+        color: rgba(0, 0, 0, .45) !important;
+    }
+    .yyn-contentWrap{
+        background: $ec;
+        .yyn-content{
+            .yyn-mainContent{
+                // 仪表盘
+                .yyn-dashboard{
+                    color: $rgb85;
+                    .dashboard-top{
+                        background: $f;
+                    }
+                    .dashboard-content{
+                        .content-left{
+                            background: $f;
+                            .content-card{
+                                .ant-card{
+                                    background: $f;
+                                    .ant-card-meta-title{
+                                        color: $dark;
+                                    }
+                                }
+                                .ant-card-bordered{
+                                    border-color: red;
+                                }
+                            }
+                        }
+                        .content-right{
+                            background: $f;
+                        }
+                    }
+                }
+                // 表单
+                .yyn-formWrap{
+                    background: $f;
+                }
+                // 表格
+                .yyn-table{
+                    background: $f;
+                    th, td{
+                        background: $f;
+                        color: $dark;
+                    }
+                    .ant-pagination-item-link{
+                        
+                    }
+                }
+                // 图表
+                .yyn-chart{
+                    background: $f;
+                }
+                // 错误页
+                .yyn-error{
+                    background: $f;
+                    .error-content{
+                        .error-desc{
+                            color: $rgb45;
+                        }
+                    }
+                }
+                // 个人中心
+                .yyn-personal{
+                    .personal-left{
+                        background: $f;
+                        p, .ant-divider, dd{
+                            color: $rgb85;
+                        }
+                    }
+                    .personal-right{
+                        background: $f;
+                    }
+                }
+                // copyRight
+                .yyn-copyright{
+                    color: $rgb45;
+                }
+            }
+            .yyn-defaultTilte{
+                color: $zero;
+            }
+            .yyn-titleHeader{
+                border-bottom: 1px solid $e5;
+            }
+        }
+    }
+}

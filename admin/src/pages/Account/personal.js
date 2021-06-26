@@ -68,7 +68,7 @@ class Personal extends PureComponent {
         const { themeColor } = this.props;
         return (
             <div className="yyn-personal">
-                <div className="personal-left">
+                <div className="personal-left yyn-shadow">
                     <div className="personal-info">
                         <Avatar size={ 80 } src={ userInfo.avatar || require('@/assets/image/defaultAvatar.jpg').default } /> 
                         <h2>{ userInfo.nickName }</h2>
@@ -97,7 +97,7 @@ class Personal extends PureComponent {
                         </div>
                     </div>
                 </div>
-                <div className="personal-right">
+                <div className="personal-right yyn-shadow">
                     <TabItem tabList={ tabList }/>
                 </div>
             </div>

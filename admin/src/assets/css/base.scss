@@ -7,7 +7,16 @@
 
 a{text-decoration: none;}
 
-body,html{scroll-behavior:smooth;-webkit-overflow-scrolling:touch;}
+body,html{
+    -moz-user-select: none; /*火狐*/
+    -webkit-user-select: none; /*webkit浏览器*/
+    -ms-user-select: none; /*IE10*/
+    -khtml-user-select: none; /*早期浏览器*/
+    user-select: none;
+    font-size: 12px;
+    line-height: 1.5;
+    background: $f5;
+}
 input{-webkit-appearance: none;appearance: none;-webkit-tap-highlight-color: $zero;}
 textarea{-webkit-appearance: none;appearance: none;resize:none;-webkit-tap-highlight-color: $zero;}
 // img{max-width:100%;}
@@ -18,12 +27,6 @@ input[disabled],input:disabled,input.disabled{color: $three;-webkit-text-fill-co
 h1,h2,h3,h4,h5,h6,b,strong{
     font-weight: $fw500;
     font-family: PingFangBold;
-}
-
-html,body{
-    font-size: 12px;
-    line-height: 1.5;
-    background: $f5;
 }
 
 .mt10{margin-top: 10px};.mt20{margin-top: 20px};.mt30{margin-top: 30px}
