@@ -21,8 +21,8 @@ const MainContent = props => {
     }
     return (
         <div className="yyn-mainContent">
-            { showBreadCrumb ? <BreadCrumb /> : null}
             { showMultiTab ? <TagItem /> : null }
+            { showBreadCrumb ? <BreadCrumb /> : null}
             <TransitionGroup>
                 <CSSTransition classNames="fade" key={ location.pathname} timeout={ 500 }>
                     <Content style={{ height: '100%' }}>

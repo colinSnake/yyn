@@ -1,6 +1,6 @@
 import React, { translate, useState } from 'react';
 import { connect } from 'react-redux';
-import { Drawer, Switch } from 'antd';
+import { Drawer, Switch, Divider } from 'antd';
 import ThemeStyle from '@/components/Setting/themeStyle';
 import ThemeColor from '@/components/Setting/themeColor';
 import { fixHeader, switchBreadCrumb, switchMultiTab } from '@/redux/actions/setting'; 
@@ -15,7 +15,10 @@ const styles = {
 
 const BasicDrawer = props => {
     const [defaultColorTitle, setColorTitle] = useState();
-    const { visible, closeDrawer, fixHeader, switchBreadCrumb, switchMultiTab, clearTag } = props;
+    const { visible, closeDrawer, fixHeader, switchBreadCrumb, switchMultiTab, clearTag, themeStyle } = props;
+    const dividerStyle = {
+        borderColor: themeStyle === 'dark' ? 'rgba(255, 255, 255, .25)' : 'rgba(0, 0, 0, .25)'
+    }
     const onFixHeader = status => {
         fixHeader(status);
     }
@@ -49,6 +52,7 @@ const BasicDrawer = props => {
             <p style={ styles }>
                 <span>{ translate('multi_tab') }</span><Switch onChange={ onSwitchMultiTab } />
             </p>
+            <Divider style={ dividerStyle } dashed={ true } />
             <div className="yyn-drawer-block">
                 <div className="theme-title">
                     <h3>{ translate('style_switch') }</h3>

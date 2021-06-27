@@ -127,6 +127,28 @@
     }
 }
 
+// ant-design dropdown
+.dark-dropdown{
+    background: $dark !important;
+    color: rgba(255, 255, 255, .85);
+    .ant-select-item {
+        background: $dark;
+        color: rgba(255, 255, 255, .85);
+    }
+    .ant-select-item:hover {
+        background: $zero;
+        color: $f;
+    }
+    .ant-select-item-option-selected:not(.ant-select-item-option-disabled){
+        background: $zero;
+        color: $f;
+    }
+    .ant-select-item-option-active:not(.ant-select-item-option-disabled){
+        background: $zero;
+        color: $f;
+    }
+}
+
 // 路由过渡效果
 .fade-enter {
 	opacity: 0;

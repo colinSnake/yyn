@@ -1,16 +1,14 @@
-import React, { useState, useEffect, translate } from 'react';
+import React, { useEffect, translate } from 'react';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import { Tag } from 'antd';
 import { addTag, removeTag } from '@/redux/actions/tags';
 import '@/assets/css/components/tags.scss';
 const Tags = props => {
-    console.log(props,'tag')
     const { location, history, tagList, addTag, removeTag } = props;
     
     // hook 相当于componentDidMount
     useEffect(() => {
-        console.log('useEffect', 777)
         addTag({
             title: translate('dashboard'),
             path: '/dashboard',

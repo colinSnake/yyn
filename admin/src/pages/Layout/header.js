@@ -18,7 +18,6 @@ import BasicDrawer from '@/components/basicDrawer';
 import Icon from '@/components/icon';
 import FullScreen from '@/components/fullScreen';
 import '@/assets/css/pages/header.scss';
-import themeStyle from '../../components/Setting/themeStyle';
 
 const MenuItem = Menu.Item;
 
