@@ -112,6 +112,9 @@
                 .ant-switch{
                     background: rgba(255, 255, 255, .45);
                 }
+                .ant-switch-checked{
+                    background: $themeColor;
+                }
                 .yyn-drawer-block{
                     .theme-title{
                         h3{

@@ -150,6 +150,16 @@
                         }
                     }
                 }
+                // 关于我们
+                .yyn-aboutUs{
+                    background: $dark;
+                    .ant-typography{
+                        color:rgba(255, 255, 255, .85);
+                        a{
+                            color: $themeColor;
+                        }
+                    }
+                }
                 // copyRight
                 .yyn-copyright{
                     color: rgba(255, 255, 255, .45);

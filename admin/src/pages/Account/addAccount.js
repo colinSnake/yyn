@@ -38,7 +38,7 @@ const AddAccount = props => {
     return (
         <div className="yyn-formWrap yyn-shadow">
             <div className="yyn-titleHeader">
-                { translate('add_child_account') }
+                { translate('addAccount') }
             </div>
             <Form
                 name="addFrom"

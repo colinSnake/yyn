@@ -100,7 +100,7 @@ class Header extends PureComponent {
     goLogout(){
         localStorage.removeItem('userInfo');
         localStorage.removeItem('i18nextLng');
-        localStorage.removeItem('themeColor');
+        localStorage.removeItem('setting');
         this.props.history.push('/login');
     }
 

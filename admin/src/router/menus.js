@@ -27,17 +27,17 @@ const menus = [
 		icon: 'PieChartOutlined',
 		children: [
 			{
-				path: '/table/news',
+				path: '/table/newsList',
 				title: 'newsList',
 				icon: ''
 			},
 			{
-				path: '/table/jobs',
+				path: '/table/jobsList',
 				title: 'jobsList',
 				icon: ''
 			},
 			{
-				path: '/table/account',
+				path: '/table/accountList',
 				title: 'accountList',
 				icon: ''
 			}
@@ -49,18 +49,18 @@ const menus = [
 		icon: 'CodeSandboxOutlined',
 		children: [
 			{
-				path: '/chart/line',
-				title: 'line_chart',
+				path: '/chart/lineChart',
+				title: 'lineChart',
 				icon: ''
 			},
 			{
-				path: '/chart/pie',
-				title: 'pie_chart',
+				path: '/chart/pieChart',
+				title: 'pieChart',
 				icon: ''
 			},
 			{
-				path: '/chart/histogram',
-				title: 'histogram_chart',
+				path: '/chart/histogramChart',
+				title: 'histogramChart',
 				icon: ''
 			},
 		]
@@ -76,13 +76,13 @@ const menus = [
 		icon: 'WarningOutlined',
 		children: [
 			{
-				path: '/errorPage/404',
-				title: 'error_404',
+				path: '/errorPage/error404',
+				title: 'error404',
 				icon: ''
 			},
 			{
-				path: '/errorPage/500',
-				title: 'error_500',
+				path: '/errorPage/error500',
+				title: 'error500',
 				icon: ''
 			}
 		]
@@ -98,8 +98,8 @@ const menus = [
 				icon: ''
 			},
 			{
-				path: '/account/add',
-				title: 'add_child_account',
+				path: '/account/addAccount',
+				title: 'addAccount',
 				icon: ''
 			}
 		]

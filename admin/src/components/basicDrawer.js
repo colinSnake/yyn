@@ -4,6 +4,7 @@ import { Drawer, Switch } from 'antd';
 import ThemeStyle from '@/components/Setting/themeStyle';
 import ThemeColor from '@/components/Setting/themeColor';
 import { fixHeader, switchBreadCrumb, switchMultiTab } from '@/redux/actions/setting'; 
+import { clearTag } from '@/redux/actions/tags';
 
 const styles = {
     display: 'flex',
@@ -14,7 +15,7 @@ const styles = {
 
 const BasicDrawer = props => {
     const [defaultColorTitle, setColorTitle] = useState();
-    const { visible, closeDrawer, fixHeader, switchBreadCrumb, switchMultiTab } = props;
+    const { visible, closeDrawer, fixHeader, switchBreadCrumb, switchMultiTab, clearTag } = props;
     const onFixHeader = status => {
         fixHeader(status);
     }
@@ -22,10 +23,13 @@ const BasicDrawer = props => {
         switchBreadCrumb(status); 
     }
     const onSwitchMultiTab = status => {
-        switchMultiTab(status)
+        switchMultiTab(status);
+        if(!status){
+            clearTag();
+        }
     }
     const getColorTitle = title => {
-        setColorTitle(title)
+        setColorTitle(title);
     }
     return(
         <Drawer 
@@ -72,6 +76,9 @@ const mapDispatchToProps = dispatch => ({
     },
     switchMultiTab: data => {
         dispatch(switchMultiTab(data));
+    },
+    clearTag: data => {
+        dispatch(clearTag(data));
     }
 })
 

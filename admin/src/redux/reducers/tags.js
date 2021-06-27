@@ -17,7 +17,7 @@ const tagList = (state = [], action) => {
             }, []);
             return newArr && newArr.length > 0 ? newArr : arr;
         case actionType.REMOVE_TAG:
-            arr = [...state].filter(item => item.path !== data.path);
+            arr = state.filter(item => item.path !== data.path);
             return arr;
         case actionType.CLEAR_TAG:
             return [];

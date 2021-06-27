@@ -11,7 +11,7 @@ const error_500 = props =>  {
         <div className="yyn-error yyn-shadow">
             <div className="error-image error-500"></div> 
             <div className="error-content">
-                <h1>{ translate('error_500') }</h1>  
+                <h1>{ translate('error500') }</h1>  
                 <p className="error-desc">{ translate('prompt_500') }</p>
                 <p><Button type="primary" onClick={ goBack }>{ translate('goBack') }</Button></p>
             </div> 

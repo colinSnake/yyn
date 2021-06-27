@@ -35,11 +35,10 @@ class SideMenu extends PureComponent {
     }
 
     handleToAddTag = (menuItem, parent) => {
-        const { addTag } = this.props;
+        const { showMultiTab, addTag } = this.props;
         return () => {
             const { path, title } = menuItem;
-            console.log(path,title, 'sideMenu')
-            if (routes && routes.length > 0){
+            if (routes && routes.length > 0 && showMultiTab){
                 routes.forEach(item => {
                     if (item.path === path){
                         let obj = { path, title: translate(title) }
@@ -122,7 +121,8 @@ class SideMenu extends PureComponent {
 
 const mapStateToProps = state => {
     return {
-        themeStyle: state.themeStyle
+        themeStyle: state.themeStyle,
+        showMultiTab: state.showMultiTab
     }
 }
 
