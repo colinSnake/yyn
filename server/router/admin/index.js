@@ -5,9 +5,13 @@ const jwt = require('jsonwebtoken'); // 用于生成token
 
 // login
 adminRouter.get('/login', async(ctx) => {
-    const { username, password } = ctx.request.body;
+    // const { username, password } = ctx.request.body;
+    const username = 'admin';
+    const password = '123456';
     const sql = `select * from user where username='${username}'`;
     const result = await sendResponse(sql);
+    console.log(result)
+    return;
     if(result && result.length > 0){ // 存在该用户
         result.password = '';
         const params = Object.assign({}, result);

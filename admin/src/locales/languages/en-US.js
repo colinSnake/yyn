@@ -95,6 +95,7 @@ export const en_language = {
     account_management: 'Account',
     personal: 'Personal',
     addAccount: 'Add account',
+    music: 'Love Music',
     about: 'About us',
 
     // button information

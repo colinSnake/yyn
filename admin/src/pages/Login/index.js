@@ -29,7 +29,8 @@ class Login extends PureComponent {
                 motto: '长风破浪会有时，直挂云帆济沧海',
                 position: '前端工程师',
                 department: 'Sobey-视频产品研发中心-移动产品研发部',
-                address: '四川省成都市'
+                address: '四川省成都市',
+                type: 1
             }
             localStorage.setItem('userInfo', JSON.stringify(userInfo));
             this.props.history.push('/dashboard');

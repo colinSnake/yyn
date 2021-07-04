@@ -26,7 +26,7 @@ const { SubMenu } = Menu;
 
 class SideMenu extends PureComponent {
     checkPermission = permission => { // 获取permission认证通过的menu
-        let userInfo = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : {};
+        let userInfo = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : {};
         const { type } = userInfo;
         if (!permission || permission === type){
             return true;

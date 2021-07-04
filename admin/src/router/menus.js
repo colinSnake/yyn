@@ -101,6 +101,12 @@ const menus = [
 				path: '/account/addAccount',
 				title: 'addAccount',
 				icon: ''
+			},
+			{
+				path: '/account/music',
+				title: 'music',
+				icon: '',
+				permission: 1
 			}
 		]
 	},

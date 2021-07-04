@@ -14,6 +14,7 @@ const Error_404 = lazy(() => import("@/pages/ErrorPages/error_404"));
 const Error_500 = lazy(() => import("@/pages/ErrorPages/error_500"));
 const Personal = lazy(() => import("@/pages/Account/personal"));
 const AddAccount = lazy(() => import("@/pages/Account/addAccount"));
+const Music = lazy(() => import("@/pages/Account/music"));
 const About = lazy(() => import("@/pages/About"));
 const Login = lazy(() => import("@/pages/Login"));
 
@@ -33,6 +34,7 @@ const routes = [
     { path: '/about', component: About },
     { path: '/account/peronal', component: Personal },
     { path: '/account/addAccount', component: AddAccount },
+    { path: '/account/music', component: Music },
     { path: '/login', component: Login },
 ];
 

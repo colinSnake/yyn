@@ -99,6 +99,7 @@ export const zh_language = {
     account_management: '账号管理',
     personal: '个人中心',
     addAccount: '添加子账号',
+    music: '点歌台',
     about: '关于',
 
     // 按钮信息
