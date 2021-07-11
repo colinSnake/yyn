@@ -1,0 +1,54 @@
+.yyn-mediabg{
+    background: url(../../assets/images/yyn-mediabg.png) no-repeat center center;
+}
+.yyn-news{
+    width: 12rem;
+    margin: -.6rem auto .6rem;
+    background: $f;
+    padding: 0 .9rem;
+    border-radius: .1rem;
+    box-shadow: 0 .02rem .02rem .01rem rgba(0, 0, 0, .05);
+    li{
+        padding: .44rem 0 .25rem;
+        border-bottom: 1px solid $e5;
+        .news-item{
+            h2{
+                font-size: .24rem;
+                font-weight: 700;
+            }
+            .news-subTitle{
+                display: flex;
+                align-items: center;
+                margin: .15rem 0 .25rem;
+                .tag{
+                    display: inline-block;
+                    padding: .03rem .05rem;
+                    font-size: .12rem;
+                    border-radius: .04rem;
+                    background: $f44;
+                    color: $f;
+                }
+                .time{
+                    font-size: .16rem;
+                    color: $ea;
+                    margin-left: .1rem;
+                }
+            }
+            img{
+                width: 100%;
+                height: 100%;
+                display: block;
+            }
+            p{
+                font-size: .14rem;
+                text-align: justify;
+                margin: .15rem 0;
+            }
+            a{
+                color: $ea;
+                font-size: .12rem;
+                cursor: pointer;
+            }
+        }
+    }
+}

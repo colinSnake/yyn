@@ -1,0 +1,91 @@
+.yyn-tips{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    right: .1rem;
+    bottom: 1.6rem;
+    z-index: 20;
+    background: $f;
+    transition-duration: .3s;
+    opacity: 0;
+    box-shadow: 0 .04rem .09rem 0 rgba(0,0,0,.25);
+    &.showTips{
+        opacity: 1;
+    }
+    li{
+        width: .5rem;
+        height: .5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition-duration: .3s;
+        background: transparent;
+        cursor: pointer;
+        position: relative;
+        i{
+            font-size: .3rem;
+            color: $ea;
+        }
+        .yyn-more{
+            width: 2.2rem;
+            max-height: 3.4rem;
+            transform-origin: 120% 0 0;
+            -webkit-transform-origin: 120% 0 0;
+            position: absolute;
+            left: -2.5rem;
+            top: 0;
+            z-index: 5;
+            background: $f;
+            transition-duration: .3s;
+            transition-delay: .1s;
+            box-shadow: 0 .04rem .09rem 0 rgba(0,0,0,.25);
+            opacity: 0;
+            transform: scale(0);
+            font-family: PingFangBold;
+            &.email{
+                width: 3rem;
+                left: -3.3rem;
+                .content{
+                    align-items: flex-start;
+                    padding: .2rem
+                }
+            }
+            .angle{
+                border-left: .1rem solid #fff;
+                border-top: .08rem solid transparent;
+                border-bottom: .08rem solid transparent;
+                filter: drop-shadow(0 .04rem .09rem rgba(0,0,0,.25));
+                position: absolute;
+                top: .05rem;
+                right: -.08rem;
+                z-index: 0;
+            }
+            .content{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: .2rem 0;
+                p{
+                    font-size: .14rem;
+                }
+                img{
+                    width: 1.6rem;
+                    height: 1.6rem;
+                    display: block;
+                    margin-top: .2rem;
+                }
+            }
+        }
+        &:hover{
+            background: $te;
+            i{
+                color: $f;
+            }
+            .yyn-more{
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    }
+}

@@ -1,0 +1,65 @@
+.yyn-featuresWrapper{
+    width: 100%;
+    height: 4.7rem;
+    background: url(../../assets/images/yyn-platform.png) no-repeat center center;
+    background-size: cover;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    h1{
+        text-align: center;
+        font-size: .4rem;
+        margin: .7rem 0 .4rem;
+        color: $f;
+    }
+    .yyn-features{
+        width: 12.8rem;
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        li{
+            dl{
+                width: 2.2rem;
+                dt{
+                    width: .9rem;
+                    height: .9rem;
+                    margin-left: .65rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-bottom: .3rem;
+                    position: relative;
+                    overflow: hidden;
+                    img{
+                        width: 18rem;
+                        height: .9rem;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                    }
+                }
+                dd{text-align: center;
+                    h3{
+                        font-size: .24rem;
+                        color: $f;
+                        margin-bottom: .12rem;
+                    }
+                    p{
+                        font-size: .16rem;
+                        color: rgba(255, 255, 255, .8);
+                    }
+                }
+            }
+        }
+        @keyframes out-hover {
+            0% {
+                background-position: 0;
+            }
+            100% {
+                background-position: 100%;
+            }
+        }
+    }
+}

@@ -10,6 +10,7 @@
     1.analyser 提供了实时频率以及时间域的分析信息。
     fftSize 绘制音频图的调试
 */
+import { getInfoFromLocalStorage } from './index';
 class AudioTools {
     constructor(){
         // 输入流
@@ -21,6 +22,18 @@ class AudioTools {
         // 创建分析机，分析音频对象，进行后续的音频加工处理
         let analyser = audioCxt.createAnalyser();
 
+        // 创建媒体源，除了audio本身可以获取，也可以通过audioCxt对象提供的api进行媒体资源的获取
+        let audioSource = audioCxt.createMediaElementSource(myAudio);
+        // 媒体源和分析机连接
+        audioSource.connect(analyser);
+
+        // 输出的目标：将分析机分出来的处理结果与目标点（耳机、扬声器）连接
+        analyser.connect(audioCxt.destination);
+        // 效果
+        // 处理音频
+        // Uint8Array 缓冲区：进行数据的缓冲处理，转换成二进制数据
+        analyser.fftSize = 512; // 设置频谱数据，值越大数据越准确
+
         // canvas
         let myCanvas = document.querySelector('#myCanvas');
         let context = myCanvas.getContext('2d');
@@ -28,6 +41,7 @@ class AudioTools {
         let width = document.querySelector('.yyn-music') && document.querySelector('.yyn-music').clientWidth;
         let height = document.querySelector('.yyn-music') && document.querySelector('.yyn-music').clientHeight;
 
+        // analyser.frequencyBinCount 默认为 analyser.fftSize 的一半
         let voiceHeight = new Uint8Array(analyser.frequencyBinCount);
         const meterWidth = 5;
         const minHeight = 2;
@@ -38,7 +52,6 @@ class AudioTools {
         // canvas线性渐变
         let color = context.createLinearGradient(0, -cr, 0, -width / 2);
 
-        this.myAudio = myAudio;
         this.audioCxt = audioCxt;
         this.analyser = analyser;
         this.myCanvas = myCanvas;
@@ -48,29 +61,23 @@ class AudioTools {
         this.voiceHeight = voiceHeight;
         this.meterWidth = meterWidth;
         this.minHeight = minHeight;
-        this.count = count;
+        // this.type = 'histogram';
+        this.type = 'circle';
+        this.count = this.type === 'circle' ? 180 : count;
         this.cr = cr;
         this.PI = PI;
-        this.type = 'histogram'
         this.color = color;
+        this.animationIndex = null;
     }
     init(){
-        // 创建媒体源，除了audio本身可以获取，也可以通过audioCxt对象提供的api进行媒体资源的获取
-        let audioSource = this.audioCxt.createMediaElementSource(this.myAudio);
-        // 媒体源和分析机连接
-        audioSource.connect(this.analyser);
-        // 输出的目标：将分析机分出来的处理结果与目标点（耳机、扬声器）连接
-        this.analyser.connect(this.audioCxt.destination);
-        // 效果
-        // 处理音频
-        // Uint8Array 缓冲区：进行数据的缓冲处理，转换成二进制数据
-        this.analyser.fftSize = 512; // 设置频谱数据，值越大数据越准确
-
+        // 设置canvas信息
         this.myCanvas.width = this.width;
         this.myCanvas.height = this.height;
 
+        const themeColor = getInfoFromLocalStorage('setting', 'themeColor');
+
         // 设置渐变色
-        this.color.addColorStop(0, '#9648f4'); //5661ef
+        this.color.addColorStop(0, themeColor || '#9648f4'); //5661ef
         this.color.addColorStop(.2, 'green');
         this.color.addColorStop(.5, '#30dffc');
         this.color.addColorStop(1, '#9648f4');
@@ -108,10 +115,11 @@ class AudioTools {
                 this.context.fillRect(this.width / 2 - (i * 15), this.height - 10, 10, -audioHeight); // 左边
             }
         }
-        requestAnimationFrame(this.draw.bind(this));
+        this.animationIndex = requestAnimationFrame(this.draw.bind(this));
     }
     destroy(){
-        this.audioCxt();
+        this.context.clearRect(0, 0, this.width, this.height);
+        cancelAnimationFrame(this.animationIndex);
     }
 }
 

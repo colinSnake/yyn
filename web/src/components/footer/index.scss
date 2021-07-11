@@ -1,0 +1,59 @@
+.yyn-footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: $ea;
+    font-size: .14rem;
+    padding: .28rem 0;
+    text-align: center;
+    line-height: .36rem;
+    background: $f;
+    .yyn-admin{
+        a{
+            cursor: pointer;
+            color: $ea;
+            &.yyn-op{
+                position: relative;
+                &:after{
+                    width: 1px;
+                    height: .16rem;
+                    background: $ea;
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    right: -.1rem;
+                    top: .04rem;
+                }
+            }
+            &.yyn-mp{
+                margin-left: .2rem;
+            }
+            &:hover{
+                color: $zero;
+            }
+        }
+    }
+    .yyn-copyright{
+        margin: .28rem 0;
+    }
+    .yyn-icp{
+        p{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            img{
+                width: .28rem;
+                height: .28rem;
+                margin-right: .05rem;
+            }
+            a{
+                color: $ea;
+                cursor: pointer;
+                &:hover{
+                    color: $zero;
+                }
+            }
+        }
+    }
+}

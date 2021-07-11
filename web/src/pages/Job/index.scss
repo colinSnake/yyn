@@ -1,0 +1,69 @@
+.yyn-jobbg{
+    background: url(../../assets/images/yyn-jobbg.png) no-repeat center center;
+}
+.job-body{
+    width: 12rem;
+    margin: -.6rem auto .6rem;
+    background: $f;
+    border-radius: .1rem;
+    box-shadow: 0 .02rem .02rem .01rem rgba(0, 0, 0, .05);
+    min-height: 8rem;
+    padding: 0 .3rem .4rem;
+    .job-title{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: .2rem;
+        height: .70rem;
+        border-bottom: 1px solid $e;
+        li{
+            cursor: pointer;
+            position: relative;
+            height: .70rem;
+            line-height: .70rem;
+            &:after{
+                content: '';
+                display: block;
+                position: absolute;
+                width: .24rem;
+                height: .04rem;
+                border-radius: .04rem;
+                left: calc(50% - .12rem);
+                bottom: 0;
+                background: transparent;
+            }
+            &.active{
+                color: $tn;
+                &:after{
+                    background-color: $tn;
+                }
+            }
+            &:hover{color: $tn;}
+        }
+    }
+    .job-content{
+        padding: .5rem;
+        li{
+            dl{
+                dt{
+                    font-size: .24rem;
+                    font-weight: 500;
+                    margin-bottom: .3rem;
+                }
+                dd{
+                    margin: .28rem 0 .2rem;
+                    h3{
+                        font-size: .18rem;
+                        margin-bottom: .1rem;
+                    }
+                    p{
+                        font-size: .14rem;
+                        color: $ea;
+                        line-height: 1.6;
+                        margin-bottom: .05rem;
+                    }
+                }
+            }
+        }
+    }
+}

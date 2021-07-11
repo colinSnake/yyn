@@ -1,0 +1,37 @@
+{
+  "id": "2068035",
+  "name": "y y n",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "游云南icon",
+  "glyphs": [
+    {
+      "icon_id": "785051",
+      "name": "微博",
+      "font_class": "weibo",
+      "unicode": "e66e",
+      "unicode_decimal": 58990
+    },
+    {
+      "icon_id": "1817615",
+      "name": "上",
+      "font_class": "top",
+      "unicode": "e65b",
+      "unicode_decimal": 58971
+    },
+    {
+      "icon_id": "7708014",
+      "name": "邮箱",
+      "font_class": "youxiang",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "15571384",
+      "name": "微信",
+      "font_class": "weixin",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    }
+  ]
+}

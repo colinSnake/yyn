@@ -1,0 +1,48 @@
+.yyn-header{
+    width: 100%;
+    height: .7rem;
+    background: transparent;
+    border: 0;
+    transition-duration: .5s;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 20;
+    &.white{
+        background: $f;
+        border-bottom: 1px solid rgba(0, 0, 0, .1);
+    }
+    .header{
+        width: 12.8rem;
+        margin: 0 auto;
+        position: relative;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        dl{
+            height: 100%;
+            display: flex;
+            align-items: center;
+            dt{
+                img{
+                    width: .48rem;
+                    height: .48rem;
+                    display: block;
+                }
+            }
+            dd{
+                margin-left: .12rem;
+                h3{
+                    font-size: .18rem;
+                    color: $ta;
+                }
+                p{
+                    font-size: .14rem;
+                    color: rgba(138,138,138,.6);
+                }
+            }
+        }
+    }
+}

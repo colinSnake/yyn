@@ -1,0 +1,20 @@
+.nav{
+    ul{
+        display: flex;
+        align-items: center;
+        li{
+            width: 1.4rem;
+            text-align: right;
+            cursor: pointer;
+            font-size: .16rem;
+            a{
+                color: $three;
+            }
+            &.active{
+                a{
+                    color: $tn;
+                }
+            }
+        }
+    }
+}

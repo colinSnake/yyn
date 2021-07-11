@@ -1,0 +1,68 @@
+.yyn-strategyWrapper{
+    padding: .8rem 0;
+    background: $f;
+    h1{
+        margin-bottom: .6rem;
+        font-size: .36rem;
+        text-align: center;
+    }
+    .yyn-strategy{
+        width: 12.8rem;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        li{
+            width: 6.1rem;
+            height: 3.25rem;
+            border-radius: .1rem;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            color: $f;
+            .item-block{
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 10;
+                text-align: center;
+                transform: translateY(40%);
+                transition-duration: .6s;
+                h3{
+                    font-size: .36rem;
+                    margin-bottom: .32rem;
+                }
+                p{
+                    font-size: .18rem;
+                    transition-duration: .6s;
+                    opacity: 0;
+                }
+            }
+            &:after{
+                width: 100%;
+                height: 100%;
+                display: block;
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                z-index: 5;
+                background: rgba(40, 177, 205, .6);
+                opacity: 0;
+            }
+            &:hover{
+                .item-block{
+                    transform: translateY(25%);
+                    p{
+                        opacity: 1;
+                    }
+                }
+                &:after{
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}

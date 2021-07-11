@@ -1,0 +1,75 @@
+.yyn-merchant{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: .8rem 0 1rem;
+    background: $f;
+    .merchant-title{
+        color: $ta;
+        text-align: center;
+        margin-bottom: .4rem;
+        h1{
+            font-size: .4rem;
+            margin-bottom: .1rem;
+        }
+        p{
+            font-size: .18rem;
+        }
+    }
+    ul{
+        width: 12.8rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        li{
+            dl{
+                width: 2.6rem;
+                dt{
+                    width: 1.2rem;
+                    height: 1.2rem;
+                    margin-left: .7rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    img{
+                        &.star{
+                            width: 90%;
+                            height: 90%;
+                        }
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                dd{
+                    text-align: center;
+                    margin-top: .36rem;
+                    h3{
+                        font-size: .24rem;
+                        margin-bottom: .3rem;
+                    }
+                    p{
+                        font-size: .16rem;
+                        color: rgba(42, 42, 42, .8);
+                        line-height: 1.6;
+                    }
+                }
+            }
+        }
+    }
+    button{
+        width: 2.12rem;
+        height: .72rem;
+        line-height: .72rem;
+        background: $bg-te;
+        margin-top: .5rem;
+        font-size: .24rem;
+        cursor: pointer;
+        transition-duration: .3s;
+        border-radius: .4rem;
+        border: 0;
+        color: $f;
+        &:hover{
+            background: $bg-oe;
+        }
+    }
+}

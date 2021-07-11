@@ -6,25 +6,21 @@ import '@/assets/css/pages/music.scss';
 class Music extends PureComponent {
     state = {
         musicList: [
-            { id: uuidv4(), name: '最愛-張學友.mp3', url: require('@/assets/mp3/最愛-張學友.mp3').default }
+            { id: uuidv4(), name: 'Salt-Ava_Max.mp3', url: require('@/assets/mp3/Salt-Ava_Max.mp3').default }
         ]
     }
     onPlayAudio = () => {
         let myAudio = document.querySelector('#myAudio');
-        let audioCtx = null;
         if(!this.audioCtx){
-            audioCtx = new AudioTools();
-            this.audioCtx = audioCtx;
+            this.audioCtx = new AudioTools();
         }
-        if(audioCtx && myAudio.readyState === 4){
-            audioCtx && audioCtx.init();
+        if(this.audioCtx && myAudio.readyState === 4){
+            this.audioCtx && this.audioCtx.init();
         }
     }
     onPauseAudio = () => {
         let myAudio = document.querySelector('#myAudio');
-        if (myAudio.readystate === 4) {
-            this.audioCtx = null;
-        }
+        this.audioCtx.destroy();
     }
     render(){
         const { musicList } = this.state;
