@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { getDateTimeStr } from '@/utils/index';
+import { getDateTimeStr } from '@/utils';
 import { v4 as uuidv4 } from 'uuid';
 import '@/assets/css/components/date.scss';
 

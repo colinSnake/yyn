@@ -12,9 +12,9 @@ router.get('/', async(ctx) => {
 })
 
 // 前端后台访问接口
-router.use('/admin', adminRouter.routes(), adminRouter.allowedMethods());
+router.use('/api/admin', adminRouter.routes(), adminRouter.allowedMethods());
 
 // 前端web访问接口
-router.use('/web', webRouter.routes(), webRouter.allowedMethods());
+router.use('/api/web', webRouter.routes(), webRouter.allowedMethods());
 
 module.exports = router;

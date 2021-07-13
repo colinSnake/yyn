@@ -7,11 +7,11 @@ const pool = mysql.createPool(mysqlConfig);
 function query(sql, callback){
     pool.getConnection((error, connection) => {
         if(error) throw error;
-        console.log(connection,88)
-        // connection.query(sql, (err, data) => {
-        //     callback(err, data);
-        //     connection.release(); // 中断连接
-        // })
+        connection.query(sql, (err, data) => {
+            // console.log('----db---', data)
+            callback(err, data);
+            connection.release(); // 中断连接
+        })
     })
 }
 

@@ -4,7 +4,7 @@ class Tools {
         return new Promise((resolve, reject) => {
             db.query(sql, (err, data) => {
                 if(err) throw err;
-                return data;
+                resolve(data);
             })
         })
     }

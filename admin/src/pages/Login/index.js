@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { Form, Input, Button } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import Particles from 'react-particles-js';
+import jwt from 'jsonwebtoken';
+import { getUserInfo } from '@/api';
 
 import '@/assets/css/pages/login.scss'
 
@@ -17,22 +19,25 @@ class Login extends PureComponent {
         this.setState({ clientHeight: document.documentElement.clientHeight || document.body.clientHeight })
     }
 
-    onFinish = (values) => {
+    onFinish = async (values) => {
         const { username, password } = values;
         if(username && password){
-            let userInfo = {
-                username,
-                password,
-                nickName: 'Ming',
-                isLogin: true,
-                avatar: require('@/assets/image/defaultAvatar.jpg').default,
-                motto: '长风破浪会有时，直挂云帆济沧海',
-                position: '前端工程师',
-                department: 'Sobey-视频产品研发中心-移动产品研发部',
-                address: '四川省成都市',
-                type: 1
-            }
-            localStorage.setItem('userInfo', JSON.stringify(userInfo));
+            // let userInfo = {
+            //     username,
+            //     password,
+            //     nickName: 'Ming',
+            //     isLogin: true,
+            //     avatar: require('@/assets/image/defaultAvatar.jpg').default,
+            //     motto: '长风破浪会有时，直挂云帆济沧海',
+            //     position: '前端工程师',
+            //     department: 'Sobey-视频产品研发中心-移动产品研发部',
+            //     address: '四川省成都市',
+            //     type: 1
+            // }
+            const token = await getUserInfo(username, password);
+            const userInfo = jwt.verify(token, 'secret');
+            localStorage.setItem('token', token);
+            localStorage.setItem('userInfo', JSON.stringify(userInfo[0]));
             this.props.history.push('/dashboard');
         }
     }

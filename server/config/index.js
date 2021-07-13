@@ -3,9 +3,9 @@ const config = {
         host: 'localhost',
         port: '3306',
         user: 'root',
-        password: '123456',
-        database: 'yyn',
-        socketPath: '/tmp/mysql.sock'
+        password: 'Lm19970131',
+        database: 'yyndb',
+        // socketPath: '/tmp/mysql.sock'
     }
 }
 
