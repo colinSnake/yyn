@@ -19,10 +19,29 @@ adminRouter.post('/login', async(ctx) => {
 })
 
 // dashboard
-
 adminRouter.get('/dashboard', async(ctx) => {
     console.log(ctx, ctx.body, ctx.body === ctx.request.body, ctx.body === ctx.response.body);
     ctx.body = 'this is admin dashboard'
 })
+
+// form
+
+adminRouter.post('/jobs/insert', async(ctx) => {
+    const { category, title, startTime, endTime, responsibilityHtmlText, requirementHtmlText, author } = ctx.request.body;
+    const date = `${startTime}~${endTime}`;
+    const responsibility = responsibilityHtmlText;
+    const requirement = requirementHtmlText;
+    const sql = `insert into jobs (id, category, title, date, responsibility, requirement, author) 
+        values (1, '${category}', '${title}', '${date}', '${responsibility}', '${requirement}', '${author}')`;
+    const result = await sendResponse(sql);
+    if(result){
+        ctx.body = {
+            status: 200,
+            ext: '',
+            msg: 'insert success'
+        }
+    }
+})
+
 
 module.exports = adminRouter;

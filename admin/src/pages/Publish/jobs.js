@@ -3,6 +3,7 @@ import { Form, Input, Button, Select, DatePicker } from 'antd';
 import { v4 as uuidv4 } from 'uuid'; 
 import RichEditor from '@/components/richEditor';
 import '@/assets/css/pages/form.scss';
+import { publishJobs } from '@/api'; 
 
 const FormItem = Form.Item;
 const { Option } = Select;
@@ -24,7 +25,8 @@ class Jobs extends PureComponent {
             startTime: '',
             endTime: '',
             responsibilityHtmlText: '',
-            requirementHtmlText: ''
+            requirementHtmlText: '',
+            author: ''
         }
     }
 
@@ -39,9 +41,13 @@ class Jobs extends PureComponent {
         });
     }
 
-    onFinish = values => {
+    onFinish = async values => {
         const { form } = this.state;
         form.title = values && values.title;
+        const author = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')).nickName : 'default';
+        form.author = author;
+        // return console.log(form, '----job-----');
+        const result = publishJobs(form);
     }
 
     onFinishFailed = error => {
