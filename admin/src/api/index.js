@@ -3,6 +3,7 @@ import axios from './request';
 /*
 * @param username [String]
 * @param password [String or Number]
+* @return [Object] Promise
 * @description: 登录接口
 */
 
@@ -12,12 +13,21 @@ export const getUserInfo = (username, password) => {
 }
 
 /*
-* @param category [String]
-* @param password [String or Number]
-* @description: 上传工作招聘接口
+* @param param [Object]
+* @return [Object] Promise
+* @description: 发布招聘信息接口
 */
 
 export const publishJobs = (param) => {
     return axios.post('admin/jobs/insert', param);
+}
+
+/*
+* @return [Object] Promise
+* @description: 发布招聘信息接口
+*/
+
+export const getJobList = () => {
+    return axios.get('admin/jobs/list');
 }
 

@@ -21,6 +21,7 @@ export const zh_language = {
     application: '应用',
     permission_all: '所有权限',
     permission_part: '部分权限',
+    publisher: '发布者',
 
     // 技术体系&致谢
     webpack: 'Webpack',
@@ -137,9 +138,16 @@ export const zh_language = {
     child_account_time: '创建日期',
     child_account_password: '子账号密码',
     child_account_permission: '子账号权限',
+    
 
     // 提示信息
     notice_title: '消息提示',
+    login_success: '登录成功～',
+    login_failed: '无效的账号或密码',
+    publish_success: '发布成功～',
+    publish_failed: '发布失败',
+    table_success: '数据获取成功～',
+    table_failed: '数据获取失败',
 
     // 段落
     about_content_1: 'Yyn Design Pro，一个 JavaScript 应用，基于 React 官方应用开发工具 create-react-app 初始化创建， 搭配 Antd 开箱即用的高质量 React 组件，非常适合后台产品开发。',

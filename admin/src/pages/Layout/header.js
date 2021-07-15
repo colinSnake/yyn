@@ -97,6 +97,7 @@ class Header extends PureComponent {
     }
 
     goLogout(){
+        localStorage.removeItem('token');
         localStorage.removeItem('userInfo');
         localStorage.removeItem('i18nextLng');
         localStorage.removeItem('setting');

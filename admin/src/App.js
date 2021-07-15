@@ -14,10 +14,12 @@ import './locales/index';
 function App() {
   const { t } = useTranslation();
   const notice = (params, type) => { // 消息通知
+    // type: success/info/warning/error
     const basicMessage = { 
         top: 24,
         placement: 'topRight',
         message: translate('notice_title'), 
+        description: '',
         duration: 3 
     };
 

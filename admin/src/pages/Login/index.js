@@ -1,4 +1,4 @@
-import React, { PureComponent, translate } from 'react';
+import React, { PureComponent, translate, notice } from 'react';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import { Form, Input, Button } from 'antd';
@@ -34,11 +34,17 @@ class Login extends PureComponent {
             //     address: '四川省成都市',
             //     type: 1
             // }
-            const token = await getUserInfo(username, password);
-            const userInfo = jwt.verify(token, 'secret');
-            localStorage.setItem('token', token);
-            localStorage.setItem('userInfo', JSON.stringify(userInfo[0]));
-            this.props.history.push('/dashboard');
+            const result = await getUserInfo(username, password);
+            if(result?.code === '0' && result?.ext?.token){
+                notice({ description: translate('login_success') }, 'success');
+                const token = result.ext.token;
+                const userInfo = jwt.verify(token, 'secret');
+                localStorage.setItem('token', token);
+                localStorage.setItem('userInfo', JSON.stringify(userInfo[0]));
+                this.props.history.push('/dashboard');
+            }else{
+                notice({ description: translate('login_failed') }, 'error')
+            }
         }
     }
     

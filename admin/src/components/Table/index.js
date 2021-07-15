@@ -1,9 +1,9 @@
 import React from 'react';
 import { Table } from 'antd';
-import NoData from '@/components/List/noData.js'
+import NoData from '@/components/List/noData.js';
 
 const TableItem = props => {
-    const columns = [
+    const columns = props.columns || [
         {
             title: 'Name',
             dataIndex: 'name',
@@ -17,7 +17,7 @@ const TableItem = props => {
             dataIndex: 'address',
         },
     ];
-    const dataSource = [
+    const dataSource = props.dataSource || [
         {
             key: 1,
             name: '不就是个名字吗',
@@ -27,7 +27,7 @@ const TableItem = props => {
     ]
     return (
         <>
-            { dataSource && dataSource.length > 0 ? <Table columns={ columns } dataSource={ dataSource } /> : <NoData />}
+            { dataSource?.length ? <Table columns={ columns } dataSource={ dataSource } /> : <NoData />}
         </>
     )
 }

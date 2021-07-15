@@ -1,9 +1,10 @@
-import React, { createRef, PureComponent, translate } from 'react'
+import { createRef, PureComponent, translate, notice } from 'react'
 import { Form, Input, Button, Select, DatePicker } from 'antd';
 import { v4 as uuidv4 } from 'uuid'; 
 import RichEditor from '@/components/richEditor';
-import '@/assets/css/pages/form.scss';
 import { publishJobs } from '@/api'; 
+import '@/assets/css/pages/form.scss';
+
 
 const FormItem = Form.Item;
 const { Option } = Select;
@@ -24,9 +25,11 @@ class Jobs extends PureComponent {
             title: '',
             startTime: '',
             endTime: '',
+            date: '',
             responsibilityHtmlText: '',
             requirementHtmlText: '',
-            author: ''
+            author: '',
+            uid: ''
         }
     }
 
@@ -44,10 +47,17 @@ class Jobs extends PureComponent {
     onFinish = async values => {
         const { form } = this.state;
         form.title = values && values.title;
-        const author = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')).nickName : 'default';
-        form.author = author;
-        // return console.log(form, '----job-----');
-        const result = publishJobs(form);
+        const userInfo = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : null;
+        form.date = `${form.startTime}~${form.endTime}`;
+        form.author = userInfo && userInfo.username;
+        form.uid = userInfo && userInfo.id;
+        const result = await publishJobs(form);
+        if(result?.code === '0'){
+            notice({ description: translate('publish_success') }, 'success');
+            this.onResetForm();
+        }else{
+            notice({ description: translate('publish_failed') }, 'error');
+        }
     }
 
     onFinishFailed = error => {
@@ -60,8 +70,12 @@ class Jobs extends PureComponent {
             const form = {
                 category: categories && categories.length > 0 && categories[0].value,
                 title: '',
+                startTime: '',
+                endTime: '',
+                date: '',
                 responsibilityHtmlText: '',
-                requirementHtmlText: ''
+                requirementHtmlText: '',
+                uid: ''
             };
             return { form };
         })
