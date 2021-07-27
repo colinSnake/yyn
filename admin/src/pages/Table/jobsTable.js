@@ -53,8 +53,8 @@ const JobsTable = props => {
                 let list = result.ext.list;
                 list.forEach(item => {
                     item.key = uuidv4();
-                    item.responsibility = `${item.responsibility.slice(0, 100)}...`;
-                    item.requirement = `${item.requirement.slice(0, 100)}...`;
+                    item.responsibility = `${item.responsibility.replace(/<\/?.+?\/?>/g, '').slice(0, 30)}...`;
+                    item.requirement = `${item.requirement.replace(/<\/?.+?\/?>/g, '').slice(0, 30)}...`;
                 })
                 setDataSource(list);
                 notice({ description: translate('table_success') }, 'success');

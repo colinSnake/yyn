@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import { PureComponent } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import AudioTools from '@/utils/audio';
 import '@/assets/css/pages/music.scss';
@@ -19,7 +19,6 @@ class Music extends PureComponent {
         }
     }
     onPauseAudio = () => {
-        let myAudio = document.querySelector('#myAudio');
         this.audioCtx.destroy();
     }
     render(){

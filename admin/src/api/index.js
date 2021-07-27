@@ -1,8 +1,8 @@
 import axios from './request';
 
 /*
-* @param username [String]
-* @param password [String or Number]
+* @param [String] username
+* @param [String or Number] password
 * @return [Object] Promise
 * @description: 登录接口
 */
@@ -13,15 +13,48 @@ export const getUserInfo = (username, password) => {
 }
 
 /*
-* @param param [Object]
+* @param [String] username
+* @param [String or Number] password
+* @return [Object] Promise
+* @description: 登录接口
+*/
+
+export const uploadFile = file => {
+    return axios.post('admin/upload', file);
+}
+
+/***** 表单 *****/ 
+/*
+* @param [Object] param
 * @return [Object] Promise
 * @description: 发布招聘信息接口
 */
 
-export const publishJobs = (param) => {
+export const publishNews = param => {
+    return axios.post('admin/news/insert', param);
+}
+
+/*
+* @param [Object] param
+* @return [Object] Promise
+* @description: 发布招聘信息接口
+*/
+
+export const publishJobs = param => {
     return axios.post('admin/jobs/insert', param);
 }
 
+/*
+* @param [Object] param
+* @return [Object] Promise
+* @description: 发布招聘信息接口
+*/
+
+export const addAccount = param => {
+    return axios.post('admin/account/insert', param);
+}
+
+/***** 表格 *****/
 /*
 * @return [Object] Promise
 * @description: 发布招聘信息接口
@@ -30,4 +63,3 @@ export const publishJobs = (param) => {
 export const getJobList = () => {
     return axios.get('admin/jobs/list');
 }
-

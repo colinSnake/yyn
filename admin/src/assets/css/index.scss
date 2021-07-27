@@ -91,6 +91,19 @@
     margin: 0;
 }
 
+// 上传成功显示
+.ant-upload-drag-container{
+    max-width: 300px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+.upload-image{
+    display: block;
+    height: 100%;
+    max-height: 150px;
+}
+
 // ant-design drawer
 .dark-drawer{
     .ant-drawer-content-wrapper{

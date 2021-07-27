@@ -68,6 +68,7 @@ export const zh_language = {
     empty_jobs_title: '招聘职位不能为空',
     empty_jobs_responsibility: '岗位职责不能为空',
     empty_jobs_requirement: '岗位要求不能为空',
+    empty_account_create_time: '创建日期不能为空',
     empty_account_name: '子账号名称不能为空',
     empty_account_password: '子账号密码不能为空',
 
@@ -142,12 +143,16 @@ export const zh_language = {
 
     // 提示信息
     notice_title: '消息提示',
-    login_success: '登录成功～',
+    login_success: '登录成功',
     login_failed: '无效的账号或密码',
-    publish_success: '发布成功～',
+    publish_success: '发布成功',
     publish_failed: '发布失败',
-    table_success: '数据获取成功～',
+    table_success: '数据获取成功',
     table_failed: '数据获取失败',
+    add_account_success: '子账号添加成功',
+    add_account_failed: '子账号添加失败',
+    upload_success: '图片上传成功',
+    upload_failed: '图片上传失败',
 
     // 段落
     about_content_1: 'Yyn Design Pro，一个 JavaScript 应用，基于 React 官方应用开发工具 create-react-app 初始化创建， 搭配 Antd 开箱即用的高质量 React 组件，非常适合后台产品开发。',

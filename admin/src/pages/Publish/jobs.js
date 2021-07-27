@@ -23,8 +23,6 @@ class Jobs extends PureComponent {
         form: {
             category: '',
             title: '',
-            startTime: '',
-            endTime: '',
             date: '',
             responsibilityHtmlText: '',
             requirementHtmlText: '',
@@ -35,20 +33,10 @@ class Jobs extends PureComponent {
 
     formRef = createRef();
 
-    componentDidMount(){
-        const { categories } = this.state;
-        this.setState(state => {
-            let form = Object.assign({}, state.form);
-            form.category = categories && categories.length > 0 && categories[0].value;
-            return { form };
-        });
-    }
-
     onFinish = async values => {
         const { form } = this.state;
         form.title = values && values.title;
         const userInfo = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : null;
-        form.date = `${form.startTime}~${form.endTime}`;
         form.author = userInfo && userInfo.username;
         form.uid = userInfo && userInfo.id;
         const result = await publishJobs(form);
@@ -66,60 +54,45 @@ class Jobs extends PureComponent {
 
     onResetForm = () => {
         const { categories } = this.state;
-        this.setState(state => {
-            const form = {
-                category: categories && categories.length > 0 && categories[0].value,
-                title: '',
-                startTime: '',
-                endTime: '',
-                date: '',
-                responsibilityHtmlText: '',
-                requirementHtmlText: '',
-                uid: ''
-            };
-            return { form };
-        })
-        this.formRef.current && this.formRef.current.resetFields();
+        const form = {
+            category: categories?.length && categories[0].value,
+            title: '',
+            date: '',
+            responsibilityHtmlText: '',
+            requirementHtmlText: '',
+            uid: ''
+        };
+        this.setState({ form })
+        this.formRef?.current?.resetFields();
     }
 
     onSelect = value => {
         if(value) {
-            this.setState(state => {
-                let form = Object.assign({}, state.form);
-                form.category = value;
-                return { form };
-            });
+            const { form } = this.state;
+            form.category = value;
+            this.setState({ form: Object.assign({}, form) });
         }
     }
 
     onChangeDateRange = (date, dateString) => {
-        if(dateString && dateString.length > 1){
-            this.setState(state => {
-                let form = Object.assign({}, state.form);
-                form.startTime = dateString[0];
-                form.endTime = dateString[1];
-                return { form };
-            });
+        if(dateString?.length){
+            const { form } = this.state;
+            form.date = dateString?.length && dateString.join('~');
+            this.setState({form: Object.assign({}, form)});
         }
     }
 
     getRichEidtorHtmlText = param => {
+        const { form } = this.state;
         if(param.type === 'responsibility'){
-            this.setState(state => {
-                let form = Object.assign({}, state.form);
-                form.responsibilityHtmlText = param.html
-                return { form };
-            });
+            form.responsibilityHtmlText = param.html;
         }else{
-            this.setState(state => {
-                let form = Object.assign({}, state.form);
-                form.requirementHtmlText = param.html
-                return { form };
-            });
+            form.requirementHtmlText = param.html
         }
+        this.setState({ form: Object.assign({}, form)});
     }
 
-    createRichEditorParam = (type) => {
+    createRichEditorParam = type => {
         return {
             type: type,
             showMoreFormat: false,
@@ -130,7 +103,7 @@ class Jobs extends PureComponent {
 
     render(){
         const { categories, form } = this.state;
-        form.category = categories.length > 0 && categories[0].value;
+        form.category = categories?.length && categories[0].value;
         return (
             <div className="yyn-formWrap yyn-shadow">
                 <div className="yyn-titleHeader">

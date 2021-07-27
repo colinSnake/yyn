@@ -1,5 +1,4 @@
 import axios from 'axios';
-import qs from 'qs';
 import api from '@/config/api';
 const instance = axios.create({
     baseURL: `${api.domain}/api/`,
@@ -12,6 +11,9 @@ instance.interceptors.request.use(function (config) {
     if(token){
         config.headers.Authorizations = token;
     }
+    if(config.url.indexOf('upload') > -1){
+        config.headers.ContentType = 'multipart/form-data'
+    }
     return config;
 }, function (error) {
     return Promise.reject(error);
@@ -19,9 +21,7 @@ instance.interceptors.request.use(function (config) {
 
 // 添加响应拦截器
 instance.interceptors.response.use(function (res) {
-    console.log(res,999)
     const { data, status } = res;
-    console.log(res)
     if(data && status === 200) {
         return data;
     }else{

@@ -7,7 +7,12 @@ const FormItem = Form.Item;
 class News extends PureComponent{
     state = {
         form: {
-            
+            title: '',
+            cover: '',
+            publishTime: '',
+            updateTime: '',
+            network: '',
+            originUrl: ''
         }
     }
 
@@ -31,6 +36,12 @@ class News extends PureComponent{
 
     onResetForm = () => {
         this.formRef.current && this.formRef.current.resetFields();
+    }
+
+    callback = fileUrl => {
+        const { form } = this.state;
+        form.cover = fileUrl;
+        this.setState({ form: Object.assign({}, form) });
     }
 
     render(){
@@ -60,7 +71,7 @@ class News extends PureComponent{
                         label={ translate('form_news_cover') }
                         rules={ [{ required: true, message: translate('empty_news_cover') }] }
                     >
-                        <SingleUpload />
+                        <SingleUpload callback={ this.callback } />
                     </FormItem>
                     <FormItem
                         name="publishTime"

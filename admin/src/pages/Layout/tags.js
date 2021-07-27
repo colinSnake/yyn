@@ -1,20 +1,24 @@
-import React, { useEffect, translate } from 'react';
+import { useEffect, translate } from 'react';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import { Tag } from 'antd';
 import { addTag, removeTag } from '@/redux/actions/tags';
 import '@/assets/css/components/tags.scss';
 const Tags = props => {
-    const { location, history, tagList, addTag, removeTag } = props;
+    const { location, history, tagList, onAddTag, onRemoveTag } = props;
     
     // hook 相当于componentDidMount
     useEffect(() => {
-        addTag({
+        initDefaultTag();
+    },[]);
+
+    const initDefaultTag = () => {
+        onAddTag({
             title: translate('dashboard'),
             path: '/dashboard',
         });
         history.push('/dashboard');
-    },[])
+    }
 
     const onChange = path => {
         return () => {
@@ -25,9 +29,8 @@ const Tags = props => {
     const onClose = (item) => {
         return () => {
             const { path, title } = item;
-            const titleArr = location && location.pathname.split('/');
             if(location.pathname === path){
-                removeTag({
+                onRemoveTag({
                     title: title,
                     path: path,
                 });
@@ -64,10 +67,10 @@ const Tags = props => {
 
 const mapStateToProps = state => state;
 const mapDispatchToProps = dispatch => ({
-    addTag: data => {
+    onAddTag: data => {
         dispatch(addTag(data));
     },
-    removeTag: data => {
+    onRemoveTag: data => {
         dispatch(removeTag(data));
     }
 });

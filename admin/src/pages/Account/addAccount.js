@@ -1,11 +1,11 @@
-import React, { createRef, translate, notice } from 'react';
-import { Form, Input, Button, DatePicker, Select } from 'antd';
+import { useRef, translate, notice } from 'react';
+import { Form, Input, Button, Select } from 'antd';
+import { addAccount } from '@/api';
 import '@/assets/css/pages/form.scss';
 
 const FormItem = Form.Item;
 const { Option } = Select;
 const AddAccount = props => {
-    let dateStr = '';
     const permissionList = [
         {
             id: 1,
@@ -18,22 +18,25 @@ const AddAccount = props => {
             disabled: false,
         }
     ];
-    const formRef = createRef();
-    const onFinish = value => {
-        let permissionType = permissionList && permissionList.length> 0 && permissionList.filter(item => item.value === value.permission)[0].id;
+    const formRef = useRef('add-form');
+
+    const onFinish = async(value) => {
+        let current = permissionList?.length && permissionList.filter(item => item.value === value.permission);
         let form = {
-            permission: permissionType || 1,
-            createTime: dateStr ? dateStr : value.createTime,
+            type: (current?.length && current[0].id) || 1,
             username: value.username,
             password: value.password
         };
-        notice({description: '添加子账号成功！'}, 'success');
-    }
-    const onChange = (date, dateString) => {
-        if(dateString) dateStr = dateString;
+        const result = await addAccount(form);
+        if(result?.code === '0'){
+            notice({description: translate('add_account_success') }, 'success');
+            onResetForm();
+        }else{
+            notice({description: translate('add_account_failed') }, 'error');
+        }
     }
     const onResetForm = () => {
-        formRef.current && formRef.current.resetFields()
+        formRef.current?.resetFields();
     }
     return (
         <div className="yyn-formWrap yyn-shadow">
@@ -48,7 +51,6 @@ const AddAccount = props => {
                 initialValues={{ 
                     remember: true,
                     permission: permissionList.length > 1 && permissionList[1].value,
-                    password: 123456
                 }}
                 onFinish={ onFinish }
                 ref={ formRef }
@@ -62,13 +64,6 @@ const AddAccount = props => {
                                 <Option key={ item.id } value={ item.value } disabled={ item.disabled }>{ item.value }</Option>
                             ))}
                     </Select>
-                </FormItem>
-                <FormItem
-                    name="createTime"
-                    label={ translate('child_account_password') }
-                    rules={ [{ required: true, message: translate('child_account_time') }] }
-                >
-                    <DatePicker style={{ width: '100%' }} placeholder={ translate('child_account_time') } onChange={ onChange } />
                 </FormItem>
                 <FormItem
                     name="username"
@@ -92,7 +87,7 @@ const AddAccount = props => {
                     <Button type="primary" htmlType="button" onClick={ onResetForm }>{ translate('reset_button') }</Button>    
                 </FormItem>
             </Form>
-            </div>
+        </div>
     )
 }
 export default AddAccount
